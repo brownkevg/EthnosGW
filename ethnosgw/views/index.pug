@@ -1,5 +1,8 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to #{title}
+	img.bg(src='/images/concert.jpg')
+	include nav
+	.container
+		h1= title
+		p Welcome to #{title}
