@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	.container
+		#search.row
+			p.searchHeader Search
+
+			.rowSelect
+				.col-md-4
+					.inputHeader Keywords
+					input.searchInput(type='text')
+				.col-md-4
+					.inputHeader Language
+					select.searchInput
+			.rowSelect
+				.col-md-4
+					.inputHeader Art Form
+					select.searchInput
+				.col-md-4
+					.inputHeader Genre
+					select.searchInput
+			button SEARCH
+			hr
