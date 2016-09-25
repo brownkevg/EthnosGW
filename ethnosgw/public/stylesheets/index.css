@@ -1,0 +1,100 @@
+.index{
+	color:white;
+}
+.index #logo-white{
+	display:block;
+	margin-top: 50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:25px;
+	height: 150px;
+}
+.index p{
+	margin-top:25px;
+	margin-bottom:25px;
+	text-align:center;
+	font-size:22px;
+}
+#search-upload{
+	margin-top:55px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+	width:407px;
+	height:211px;
+}
+#search-box{
+	margin: 20px 50px 20px 0px;
+	display:block;
+	float:left;
+}
+#search-box img{
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	height:110px;
+	margin-bottom:35px;
+}
+.bar{
+	float:left;
+	height:210px;
+	width:1px;
+	border:1px solid white;
+}
+#upload-box{
+	display:block;
+	float:left;
+	margin:20px 0px 20px 50px;
+}
+#upload-box img{
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	height:110px;
+	margin-bottom:35px;
+}
+#search-upload a{
+	background-color:transparent;
+	border: 3px solid white;
+	padding:7px;
+	font-weight:600;
+	font-size:12px;
+	text-decoration: none;
+}
+#search-upload a:hover{
+	color: black !important;
+	background-color:white;
+}
+#search-upload a:visited{
+	color: white;
+}
+@media screen and (max-width: 450px){
+	.index #logo-white{
+		width:90%;
+		height:auto;
+	}
+	.index p{
+		font-size:4.85vw;
+	}
+	.bar{
+		display:none;
+	}
+	#search-upload{
+		text-align:center;
+		width:100%;
+		height:100%;
+	}
+	#search-box{
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom:50px;
+		float:none;
+	}
+	#upload-box{
+		margin-top:20px;
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom:50px;
+		float:none;
+	}
+}
