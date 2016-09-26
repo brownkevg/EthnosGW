@@ -3,6 +3,7 @@
 	text-transform: uppercase;
 	font-weight: 900;
 	letter-spacing: .1px;
+	color:white;
 }
 #search .rowSelect{
 	display: flex;
@@ -12,4 +13,7 @@
 }
 #search .col-md-4{
 	padding:0;
+}
+#search .inputHeader{
+	color:white;
 }
