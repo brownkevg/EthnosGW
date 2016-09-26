@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-	debugger;
 	res.render('search', {title: 'Ethnos'})
 })
 
