@@ -4,16 +4,18 @@ block content
 	img.bg(src='/images/concert.jpg')
 	include nav
 	.container
-		#search.row
+		#search
 			p.searchHeader Search
-
+			-var testData=['Music','Other','test']
 			.rowSelect
 				.col-md-4
 					.inputHeader Keywords
 					input.searchInput(type='text')
 				.col-md-4
 					.inputHeader Language
-					select.searchInput
+					select.searchInput(data=testData)
+						-for(var i = 0; i < testData.length; i++)
+							option.searchOption(value=testData[i])=testData[i]
 			.rowSelect
 				.col-md-4
 					.inputHeader Art Form
@@ -21,5 +23,19 @@ block content
 				.col-md-4
 					.inputHeader Genre
 					select.searchInput
-			button SEARCH
+			button.searchButton SEARCH
 			hr
+
+		#searchResults
+			.result
+				.artwork
+				p.title MEZMUR 19
+				p.artist Turkish, Song
+			.result
+				.artwork
+				p.title MEZMUR 19
+				p.artist Turkish, Song
+			.result
+				.artwork
+				p.title MEZMUR 19
+				p.artist Turkish, Song
