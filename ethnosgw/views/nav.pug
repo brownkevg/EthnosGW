@@ -2,6 +2,10 @@ nav.navigation
 	.container
 		.navbar-logo
 			img(alt='Ethnos' src='images/ethnos-logo.png')
+		.menu-icon
+			.bar1
+			.bar2
+			.bar3
 		ul
 			li
 				a(href="#") VISION
@@ -13,5 +17,11 @@ nav.navigation
 				a(href="#") TRAINING
 			li 
 				a(href="#") FORUM
+script.
+	$(".menu-icon").click(function(){
+		$(this).toggleClass("change")
+		$(".navigation ul").toggleClass("change")
+		$(".navigation ul li").toggleClass("change")
+	})
 
 
