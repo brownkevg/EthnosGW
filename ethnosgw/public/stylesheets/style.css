@@ -41,7 +41,7 @@ img.bg {
 /* nav bar */
 .navigation{
 	height:auto;
-	background-color:rgba(28,28,28,.8);
+	background-color:#222;
 }
 .navbar-logo{
 	display: inline-block;

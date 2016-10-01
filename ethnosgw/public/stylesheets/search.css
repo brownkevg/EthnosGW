@@ -10,6 +10,7 @@
 }
 #search .rowSelect{
 	display: flex;
+	justify-content: center;
 }
 #search .searchInput{
 	width: 300px;
@@ -25,25 +26,29 @@
 	padding: 15px 0 5px 0;
 }
 #search .searchButton{
-	background-color: #BE4234;
+	background-color: #000;
 	margin-top: 20px;
 	color: white;
 	font-size: 11px;
 	padding: 8px 25px;
 	font-weight: 600;
 	border: none;
+	margin-left: 220px;
 }
 #search .searchOption{
 	color:red;
 }
+#search hr{
+}
 
 #searchResults{
 	padding:0px;
+	display: flex;
+	justify-content: center;
 }
 #searchResults .result{
 	display:inline-block;
-	margin-right: 20px;
-
+	margin-right: 50px;
 }
 #searchResults .artwork{
 	background-color: white;

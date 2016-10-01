@@ -1,17 +1,20 @@
 extends layout
 
 block content
-	img.bg(src='/images/concert.jpg')
+	//- img.bg(src='/images/concert.jpg')
 	include nav
-	.container.index
-		img#logo-white(src='/images/logo-white.png')
-		p Harness the power of globalized technology to empower every nation, tribe, and tongue to experience and explore new worship expressions.
-		#search-upload
-			#search-box
-				img(alt="search" src="/images/search-white.png")
-				a(href="/search") SEARCH CATALOGUE
-			.bar
-			#upload-box
-				img(alt="upload" src="/images/upload-white.png")
-				a(href="#") UPLOAD A RESOURCE
-
+	.container-fluid.index
+		.container
+			img#logo-white(src='/images/logo-white.png')
+			p Harness the power of globalized technology to empower every nation, tribe, and tongue to experience and explore new worship expressions.
+			#search-upload
+				#search-box
+					img(alt="search" src="/images/search-white.png")
+					a(href="/search") SEARCH CATALOGUE
+				.bar
+				#upload-box
+					img(alt="upload" src="/images/upload-white.png")
+					a(href="#") UPLOAD A RESOURCE
+	.container-fluid
+		.row.hidden-xs.hidden-sm
+			include widgets/mapWidget
