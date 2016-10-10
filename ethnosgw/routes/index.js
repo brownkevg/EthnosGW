@@ -6,8 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Ethnos' });
 });
 
+<<<<<<< HEAD
 router.get('/upload', function(req, res, next) {
 	res.render('upload', {title: 'Upload'});
 });
 
 module.exports = router;
+=======
+router.get('/search', function(req, res, next) {
+	res.render('search', {title: 'Ethnos'})
+})
+
+module.exports = router;
+>>>>>>> master
