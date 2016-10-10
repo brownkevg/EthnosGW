@@ -9,5 +9,8 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
 	res.render('search', {title: 'Ethnos'})
 })
+router.get('/media', function(req, res, next){
+	res.render('media');
+})
 
 module.exports = router;
