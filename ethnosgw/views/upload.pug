@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	link(rel='stylesheet', href='/stylesheets/upload.css')
+	img.bg(src='/images/concert.jpg')
+	include nav
+	.container
+		h1 UPLOAD
+		.row
+			.leftLine
+			h2 General
+			.rightLine
+		.container
+			.leftTitle Project Name
+			.leftInputBox
+			.rightTitle Song Title
+			.rightInputBox
+		.container(style='margin-top:20px;')
+			.leftTitle Artist
+			.leftInputBox
+			.rightTitle(style='margin-right:495px') Genre
+			.rightInputBox
+		.container(style='margin-top:20px;')
+			.leftTitle Theme
+			.leftInputBox
+		.row(style='margin-top:100px;')
+			.leftLine
+			h2 Location
+			.rightLine
+		.container
+			.leftTitle Continent
+			.leftInputBox
+			.rightTitle(style='margin-right:477px') Country
+			.rightInputBox
+		.container(style='margin-top:20px;')
+			.leftTitle Region
+			.leftInputBox
+		.row(style='margin-top:100px;')
+			.leftLine
+			h2(style='margin-left: 537px !important;') File Upload
+			.rightLine
