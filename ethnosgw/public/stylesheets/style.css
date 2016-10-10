@@ -51,6 +51,9 @@ img.bg {
 	margin-bottom:5px;
 	height:40px;
 }
+.navigation .container-fluid{
+	padding-right: 0;
+}
 .navigation ul{
 	list-style-type:none;
 	margin: 0;
@@ -60,6 +63,9 @@ img.bg {
 }
 .navigation li{
 	display: inline-block;
+}
+.navigation li.signIn{
+	background-color: #3F98F8;
 }
 .navigation li a{
 	display: block;
