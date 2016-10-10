@@ -10,7 +10,7 @@ router.get('/search', function(req, res, next) {
 	res.render('search', {title: 'Ethnos'})
 })
 router.get('/media', function(req, res, next){
-	res.render('media');
+	res.render('media', {title: "Media Example"});
 })
 
 module.exports = router;
