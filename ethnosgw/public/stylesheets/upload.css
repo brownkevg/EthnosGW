@@ -53,4 +53,16 @@ h2{
 	font-size: 18px;
 	color: white;
 }
+.thumbnail{
+	float: left;
+	height: 100px;
+	width: 180px;
+	background-color: white;
+}
+.text{
+	margin-top: 90px;
+	text-align: center;
+	padding: 10px 20px;
+	color: white;
+}
 
