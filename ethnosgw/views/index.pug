@@ -2,20 +2,38 @@ extends layout
 
 block content
 	//- img.bg(src='/images/concert.jpg')
-	include nav
+	include nav2
 	.container-fluid.index
-		.container
-			img#logo-white(src='/images/logo-white.png')
-			p Harness the power of globalized technology to empower every nation, tribe, and tongue to experience and explore new worship expressions.
-			#search-upload
-				#search-box
-					img(alt="search" src="/images/search-white.png")
-					a(href="/search") SEARCH CATALOGUE
-				.bar
-				#upload-box
-					img(alt="upload" src="/images/upload-white.png")
-					a(href="#") UPLOAD A RESOURCE
+		//- .container
+		//- 	img#logo-white(src='/images/logo-white.png')
+		//- 	p Harness the power of globalized technology to empower every nation, tribe, and tongue to experience and explore new worship expressions.
+		//- 	#search-upload
+		//- 		#search-box
+		//- 			img(alt="search" src="/images/search-white.png")
+		//- 			a(href="/search") SEARCH CATALOGUE
+		//- 		.bar
+		//- 		#upload-box
+		//- 			img(alt="upload" src="/images/upload-white.png")
+		//- 			a(href="#") UPLOAD A RESOURCE
 	.container-fluid
 		.row.hidden-xs.hidden-sm
-			include widgets/mapWidget
+			//- include widgets/mapWidget
+	.container-fluid(style="padding:0")
+		.col-md-2(style="background-color:red; height: 400px; background-color:#F0F0F0")
+			#leftColumn
+				p.header Refine Search
+				p.columnItem by language
+				p.columnItem by location
+				p.columnItem by genre
+				p.columnItem by art form
+				p.header.map Map
+				p.header.collections My Collections
+				p.columnItem Righteous Tunes
+				p.columnItem Turkish Worship
+				p.columnItem Indian Christian
+				p.columnItem Radical Sermons
+				p.columnItem Mad Percussion
+		.col-md-10(style="background-color:blue; height: 400px; background-color:#FFF;padding:0")
+			#rightColumn
+				.banner
 	include footer
