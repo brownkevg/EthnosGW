@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//mongoDB
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/ethnosgw');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -28,6 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
+// mongodb
+app.use(function(req,res,next){
+  req.db = db;
+  next();
+});
 
 app.use('/', routes);
 app.use('/users', users);

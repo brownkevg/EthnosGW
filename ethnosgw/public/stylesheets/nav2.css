@@ -1,0 +1,39 @@
+.navigation{
+	height:auto;
+	background-color:#161E30;
+}
+.topNav{
+	background-color:#161E30;
+}
+.bottomNav{
+	background-color: #1D283F;
+	display: flex;
+	justify-content: space-around;
+}
+.searchBar{
+	display: inline-block;
+}
+.searchBarInput{
+	background-color: #22334F;
+	border:none;
+	height: 30px;
+	padding-left:10px;
+	width: 400px;
+}
+.navItem{
+	padding: 10px 20px;
+	font-size:16px;
+}
+.navItemBottom{
+	padding: 20px 20px;
+	font-size:16px;
+	color:#FFF;
+}
+.user{
+	width:30px;
+	height:30px;
+	border-radius: 15px;
+	background-color: red;
+	display: inline-block;
+	float: right;
+}

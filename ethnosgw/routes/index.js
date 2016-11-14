@@ -14,18 +14,28 @@ module.exports = router;
 
 router.get('/search', function(req, res, next) {
 	res.render('search', {title: 'Ethnos'})
-<<<<<<< HEAD
-=======
 })
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});
+})
+router.get('/contentPage', function(req, res, next){
+	res.render('contentPage', {title: "Content Page"});
 })
 router.get('/testPage', function(req, res, next){
 	dbClient.collection('media').find({}).toArray(function(err, docs){
     	res.render('testPage',{'media':docs});
      });
 })
->>>>>>> MongoDb
 
-})
+/* mongodb */
+router.get('/userlist', function(req,res){
+	var db = req.db;
+	var collection = db.get('usercollection');
+	collection.find({},{},function(e,docs){
+		res.render('userlist',{
+			"userlist" : docs
+		});
+	});
+});
+
 module.exports = router;
