@@ -14,6 +14,18 @@ module.exports = router;
 
 router.get('/search', function(req, res, next) {
 	res.render('search', {title: 'Ethnos'})
+<<<<<<< HEAD
+=======
+})
+router.get('/media', function(req, res, next){
+	res.render('media', {title: "Media Example"});
+})
+router.get('/testPage', function(req, res, next){
+	dbClient.collection('media').find({}).toArray(function(err, docs){
+    	res.render('testPage',{'media':docs});
+     });
+})
+>>>>>>> MongoDb
 
 })
 module.exports = router;

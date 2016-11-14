@@ -1,22 +1,26 @@
-h1{
+h1
+{
 	margin-top: 50px;
 	margin-bottom: 50px;
 	color:white;
 	font-weight: bolder;
 }
-h2{
+h2
+{
 	margin-left: 47.25%;
 	margin-top: -10px;
 	font-size: 18px;
 	color: white;
 }
-.leftLine{
+.leftLine
+{
 	float:left;
 	height:1px;
 	width:45%;
 	border-top:1px solid white;
 }
-.rightLine{
+.rightLine
+{
 	margin-top:-19px;
 	margin-bottom: 50px;
 	float:right;
@@ -24,7 +28,8 @@ h2{
 	width: 45%;
 	border-top:1px solid white;
 }
-.leftInputBox{
+.leftInputBox
+{
 	border:5px solid white;
 	background-color: #231F20;
 	height: 30px;
@@ -32,20 +37,23 @@ h2{
 	float:left;
 	margin-left: -30px !important;
 }
-.rightInputBox{
+.rightInputBox
+{
 	border:5px solid white;
 	background-color: #231F20;
 	height: 30px;
 	width: 48%;
 	float:right;
 }
-.leftTitle{
+.leftTitle
+{
 	margin-bottom: 10px;
 	margin-left: -30px;
 	font-size: 18px;
 	color: white;
 }
-.rightTitle{
+.rightTitle
+{
 	float: right;
 	margin-bottom: 10px;
 	margin-top: -30px;
@@ -53,16 +61,17 @@ h2{
 	font-size: 18px;
 	color: white;
 }
-.thumbnail{
+.thumbnail
+{
 	float: left;
 	height: 100px;
 	width: 180px;
 	background-color: white;
 }
-.text{
+.text
+{
 	margin-top: 90px;
 	text-align: center;
 	padding: 10px 20px;
 	color: white;
 }
-
