@@ -1,36 +1,17 @@
 nav.navigation
-	
-	.container-fluid
+	.container-fluid.topNav
 		.lu-monogram-nav.hidden-xs
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
-		.navbar-logo
-			a(href='/')
-<<<<<<< HEAD
-				img(alt='Ethnos' src='/images/ethnos-logo-white.png')
-=======
-				img(alt='Ethnos' src='images/LU-Monogram.svg')
->>>>>>> origin/MongoDb
-		.menu-icon
-			.bar1
-			.bar2
-			.bar3
-		ul
-			li
-				a(href="#") VISION
-			li
-				a(href="#") CATALOG
-			li
-				a(href="#") RESOURCES
-			li
-				a(href="#") TRAINING
-			li 
-				a(href="#") FORUM
-			li.signIn
-				a(href="#") SIGN IN
-script.
-	$(".menu-icon").click(function(){
-		$(this).toggleClass("change")
-		$(".navigation ul").toggleClass("change")
-		$(".navigation ul li").toggleClass("change")
-	})
+		form.searchBar
+			input.searchBarInput(type="text" placeholder="Search Music...")
+		a.navItem(href="/") upload
+		a.navItem(href="/") account
+		a.navItem(href="/") about
+		a.navItem(href="/") resources
+		//- .user
+	.container-fluid.bottomNav
+		a.navItemBottom(href="/") News
+		a.navItemBottom(href="/") Forums
+		a.navItemBottom(href="/") Publishing Resources
+		a.navItemBottom(href="/") Contact Us

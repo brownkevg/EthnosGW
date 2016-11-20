@@ -1,102 +1,74 @@
-.index{
-	color:white;
-	background-color: #161e31;
+.columnContainer{
+	display:flex;
+	flex-wrap:wrap;
+	padding:0;
+	padding:0px 0px;
 }
-.index #logo-white{
-	display:block;
-	margin-top: 50px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:25px;
-	height: 150px;
+#leftColumn{
+	padding: 10px;
 }
-.index p{
-	margin-top:25px;
-	margin-bottom:25px;
-	text-align:center;
-	font-size:22px;
+.header{
+	text-decoration: underline;
+	font-size:16px;
+	font-weight: 800;
 }
-#search-upload{
-	margin-top:55px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:20px;
-	width:407px;
-	height:211px;
+.columnItem{
+	margin-bottom: 2px;
+	font-size:15px;
 }
-#search-box{
-	margin: 20px 50px 20px 0px;
-	display:block;
-	float:left;
+.header.map{
+	margin-top: 20px;
 }
-#search-box img{
-	margin-left:auto;
-	margin-right:auto;
-	display:block;
-	height:110px;
-	margin-bottom:35px;
+#leftColumn .mapLabel{
+	box-shadow: 3px 3px 10px #888888;
 }
-.bar{
-	float:left;
-	height:210px;
-	width:1px;
-	border:1px solid white;
+.header{
+	margin-top:20px;
 }
-#upload-box{
-	display:block;
-	float:left;
-	margin:20px 0px 20px 50px;
+.banner{
+	width:100%;
+	height: 250px;
+	background-color: #1C232E;
 }
-#upload-box img{
-	margin-left:auto;
-	margin-right:auto;
-	display:block;
-	height:110px;
-	margin-bottom:35px;
+#rightColumn .item{
+	display: inline;
+	padding-bottom: 15px;
 }
-#search-upload a{
-	background-color:transparent;
-	border: 3px solid white;
-	padding:7px;
+
+#rightColumn .content{
+	/*padding: 40px 40px;*/
+	display: flex;
+	justify-content: space-between;
+}
+
+#rightColumn .heading{
+	text-transform: uppercase;
+	font-size:25px;
 	font-weight:600;
-	font-size:12px;
-	text-decoration: none;
-	color:white;
 }
-#search-upload a:hover{
-	color: black !important;
-	background-color:white;
+#rightColumn .item .description{
+	padding: 5px 0 0 5px;
 }
-#search-upload a:visited{
-	color: white;
+#rightColumn .item .image{
+	width: 175px;
+	height: 100px;
+	background-color: #282828;
 }
-@media screen and (max-width: 450px){
-	.index #logo-white{
-		width:90%;
-		height:auto;
-	}
-	.index p{
-		font-size:4.85vw;
-	}
-	.bar{
-		display:none;
-	}
-	#search-upload{
-		text-align:center;
-		width:100%;
-		height:100%;
-	}
-	#search-box{
-		margin-left:auto;
-		margin-right:auto;
-		margin-bottom:50px;
-		float:none;
-	}
-	#upload-box{
-		margin-top:20px;
-		margin-left:auto;
-		margin-right:auto;
-		margin-bottom:50px;
-		float:none;
-	}
+#rightColumn .item .title{
+	font-size:18px;
+	font-weight: 800;
+}
+#rightColumn .item .artist{
+	font-size:18px;
+	font-weight: 100;
+}
+#rightColumn .item .publisher{
+	font-size:13px;
+	font-weight: 100;
+	opacity:.6;
+}
+#rightColumn .item .views{
+	font-size:13px;
+	font-weight: 100;
+	opacity:.6;
 }
