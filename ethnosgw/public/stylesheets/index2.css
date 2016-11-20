@@ -14,6 +14,7 @@
 }
 .columnItem{
 	margin-bottom: 2px;
+	font-size:15px;
 }
 .header.map{
 	margin-top: 20px;
@@ -26,7 +27,7 @@
 }
 .banner{
 	width:100%;
-	height: 200px;
+	height: 250px;
 	background-color: #1C232E;
 }
 #rightColumn .item{
@@ -46,7 +47,7 @@
 	font-weight:600;
 }
 #rightColumn .item .description{
-	padding-left: 10px;
+	padding: 5px 0 0 5px;
 }
 #rightColumn .item .image{
 	width: 175px;
