@@ -3,11 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Ethnos' });
+  res.render('index', { title: 'Glow' });
 });
 
 router.get('/search', function(req, res, next) {
-	res.render('search', {title: 'Ethnos'})
+	res.render('search', {title: 'Glow'})
+})
+router.get('/upload', function(req, res, next) {
+	res.render('upload', {title: 'Glow'})
 })
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});

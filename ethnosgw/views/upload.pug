@@ -1,0 +1,107 @@
+extends layout
+
+
+
+block content
+	include nav
+	style.
+		.inputItem label{
+			margin-right: 30px;
+		}
+	#uploadContainer.container(style="padding:30px")
+		.row
+			h2 Upload
+			.inputItem
+				label File Type
+				select.inputField(for="fileType" name="fileType")
+					option(value="") - Please Select One -
+					option(value="Song") Song
+					option(value="Video") Video
+					option(value="Poem") Poem
+			.inputItem
+				label Content Type
+				select.inputField(for="contentType" name="contentType")
+					option(value="") - Please Select One -
+					option(value="Movie") Movie
+			.inputItem
+				label Title
+				input.inputField(type='text' name="title" for="title")
+			.inputItem
+				label Album
+				input.inputField(type='text' name="album" for="album")
+			.inputItem
+				label Artist
+				input.inputField(type='text' name="artist" for="artist")
+			.inputItem
+				label Genre
+				input.inputField(type='text' name="genre" for="genre")
+			.inputItem
+				label Description
+				textarea.inputField(name="description" for="description")
+			.inputItem
+				label Lyrics
+				textarea.inputField(name="lyrics" for="lyrics")
+			.inputItem
+				label Language
+				select.inputField(for="language" name="language")
+					option(value="") - Please Select One -
+					option(value="English") English
+					option(value="Spanish") Spanish
+					option(value="German") German
+					option(value="French") French
+					option(value="Italian") Italian
+					option(value="Swahili") Swahili
+					option(value="Portuguese") Portuguese
+					//- This will eventually be grabbed from a database
+			.inputItem
+				label People Group
+				select.inputField(for="peopleGroup" name="peopleGroup")
+					option(value="") - Please Select One -
+					option(value="PlaceHolder") PlaceHolder
+			
+			.inputItem
+				label Remain Anonymous?
+				input.inputField(type='checkbox' name="anonymous")
+
+		
+		button.btn.btn-success.submitButton Submit
+
+	include footer
+
+	script.
+		/*
+			Here is some instructions and description of the structure for an input to properly be submitted to the database. As long as the appropriate classes and names are given, the data will be added to database automatically with those fields.
+			Here is the general structure of an input, look above for examples of other inputs such as checkboxes and select elements. Other input types may need to be added later down the road.
+
+			.inputItem
+				label Title
+				input.inputField(name="title" for"title")
+
+			Whatever value you give the "name" attribute is what the value will be stored as in the database. Give the "for" attribute the same value as what was given for "name".
+		*/
+
+		$('.submitButton').click(function(){
+			var submitObj = {}
+			$('.inputField').each(function(){
+				if($(this).is('select')){
+					submitObj[$(this).attr('name')] = $(this).val()
+				}
+				else if($(this).attr('type') == "checkbox"){
+					submitObj[$(this).attr('name')] = ($(this).is(':checked')) ? true : false;
+				}else{
+					submitObj[$(this).attr('name')] = $(this).val();
+				}
+			})
+			debugger;
+			$.ajax({
+				type: "POST",
+				url: "/uploadContent",
+				data: submitObj,
+				success: function(data){
+					if(data.success){
+						debugger;
+					}
+				},
+				dataType: "json"
+			});
+		})
