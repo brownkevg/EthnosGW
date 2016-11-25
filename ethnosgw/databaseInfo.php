@@ -5,6 +5,7 @@
 	"title": "wasteland",
 	"album": "Rivers In The Wasteland",
 	"artist":"",
+	"publisher":"",
 	"genre":[],
 	"description":"",
 	"lyrics":"",

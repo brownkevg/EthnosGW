@@ -44,42 +44,46 @@ block content
 					.container(style="padding:40px 40px;")
 						p.heading popular
 						.content
-							-for(var i = 0; i < 5; i++)
+							-var popular = pageModel.popular
+							-for(var i = 0; i < popular.length; i++)
 								.item
 									.image
 									.description
-										.title Yeha Noha
-										.artist Sacred Spirit
-										.publisher Swedish Music Publishing
-										.views 240,000 views
-						.content
-							-for(var i = 0; i < 5; i++)
-								.item
-									.image
-									.description
-										.title Yeha Noha
-										.artist Sacred Spirit
-										.publisher Swedish Music Publishing
-										.views 240,000 views
+										.title=popular[i].title
+										.artist=popular[i].artist
+										.publisher=popular[i].publisher
+										.views=popular[i].views
+											span  views
+						//- .content
+						//- 	-for(var i = 0; i < 5; i++)
+						//- 		.item
+						//- 			.image
+						//- 			.description
+						//- 				.title Yeha Noha
+						//- 				.artist Sacred Spirit
+						//- 				.publisher Swedish Music Publishing
+						//- 				.views 240,000 views
 						p.heading(style="padding-top:15px") recommended
 						.content
-							-for(var i = 0; i < 5; i++)
+							-var recommended = pageModel.recommended
+							-for(var i = 0; i < recommended.length; i++)
 								.item
 									.image
 									.description
-										.title Yeha Noha
-										.artist Sacred Spirit
-										.publisher Swedish Music Publishing
-										.views 240,000 views
-						.content
-							-for(var i = 0; i < 5; i++)
-								.item
-									.image
-									.description
-										.title Yeha Noha
-										.artist Sacred Spirit
-										.publisher Swedish Music Publishing
-										.views 240,000 views
+										.title=recommended[i].title
+										.artist=recommended[i].artist
+										.publisher=recommended[i].publisher
+										.views=recommended[i].views
+											span  views
+						//- .content
+						//- 	-for(var i = 0; i < 5; i++)
+						//- 		.item
+						//- 			.image
+						//- 			.description
+						//- 				.title Yeha Noha
+						//- 				.artist Sacred Spirit
+						//- 				.publisher Swedish Music Publishing
+						//- 				.views 240,000 views
 
 	include footer
 

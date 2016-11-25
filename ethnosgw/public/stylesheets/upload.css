@@ -7,3 +7,6 @@
 #uploadContainer .submitButton{
 	width: 150px;
 }
+.modal-header h1{
+	color:#000;
+}
