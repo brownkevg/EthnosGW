@@ -5,10 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//mongoDB
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/ethnosgw');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+var dbClient=null;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,8 +34,17 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
+// mongodb
+app.use(function(req,res,next){
+  req.db = db;
+  next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
+
+//Routes
+require('./upload/routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
