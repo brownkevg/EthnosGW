@@ -10,61 +10,65 @@ block content
 		}
 	#uploadContainer.container(style="padding:30px")
 		.row
-			h2 Upload
-			.inputItem
-				label File Type
-				select.inputField(for="fileType" name="fileType")
-					option(value="") - Please Select One -
-					option(value="Song") Song
-					option(value="Video") Video
-					option(value="Poem") Poem
-			.inputItem
-				label Content Type
-				select.inputField(for="contentType" name="contentType")
-					option(value="") - Please Select One -
-					option(value="Movie") Movie
-			.inputItem
-				label Title
-				input.inputField(type='text' name="title" for="title")
-			.inputItem
-				label Album
-				input.inputField(type='text' name="album" for="album")
-			.inputItem
-				label Artist
-				input.inputField(type='text' name="artist" for="artist")
-			.inputItem
-				label Genre
-				input.inputField(type='text' name="genre" for="genre")
-			.inputItem
-				label Description
-				textarea.inputField(name="description" for="description")
-			.inputItem
-				label Lyrics
-				textarea.inputField(name="lyrics" for="lyrics")
-			.inputItem
-				label Language
-				select.inputField(for="language" name="language")
-					option(value="") - Please Select One -
-					option(value="English") English
-					option(value="Spanish") Spanish
-					option(value="German") German
-					option(value="French") French
-					option(value="Italian") Italian
-					option(value="Swahili") Swahili
-					option(value="Portuguese") Portuguese
-					//- This will eventually be grabbed from a database
-			.inputItem
-				label People Group
-				select.inputField(for="peopleGroup" name="peopleGroup")
-					option(value="") - Please Select One -
-					option(value="PlaceHolder") PlaceHolder
+			h2 Kevin's Upload
+			form(action='/testPost', method="post")
+				input(type="file", name="uploadFile")
+				input(type="submit" value="Submit file")
+		//- 	h2 Upload
+		//- 	.inputItem
+		//- 		label File Type
+		//- 		select.inputField(for="fileType" name="fileType")
+		//- 			option(value="") - Please Select One -
+		//- 			option(value="Song") Song
+		//- 			option(value="Video") Video
+		//- 			option(value="Poem") Poem
+		//- 	.inputItem
+		//- 		label Content Type
+		//- 		select.inputField(for="contentType" name="contentType")
+		//- 			option(value="") - Please Select One -
+		//- 			option(value="Movie") Movie
+		//- 	.inputItem
+		//- 		label Title
+		//- 		input.inputField(type='text' name="title" for="title")
+		//- 	.inputItem
+		//- 		label Album
+		//- 		input.inputField(type='text' name="album" for="album")
+		//- 	.inputItem
+		//- 		label Artist
+		//- 		input.inputField(type='text' name="artist" for="artist")
+		//- 	.inputItem
+		//- 		label Genre
+		//- 		input.inputField(type='text' name="genre" for="genre")
+		//- 	.inputItem
+		//- 		label Description
+		//- 		textarea.inputField(name="description" for="description")
+		//- 	.inputItem
+		//- 		label Lyrics
+		//- 		textarea.inputField(name="lyrics" for="lyrics")
+		//- 	.inputItem
+		//- 		label Language
+		//- 		select.inputField(for="language" name="language")
+		//- 			option(value="") - Please Select One -
+		//- 			option(value="English") English
+		//- 			option(value="Spanish") Spanish
+		//- 			option(value="German") German
+		//- 			option(value="French") French
+		//- 			option(value="Italian") Italian
+		//- 			option(value="Swahili") Swahili
+		//- 			option(value="Portuguese") Portuguese
+		//- 			//- This will eventually be grabbed from a database
+		//- 	.inputItem
+		//- 		label People Group
+		//- 		select.inputField(for="peopleGroup" name="peopleGroup")
+		//- 			option(value="") - Please Select One -
+		//- 			option(value="PlaceHolder") PlaceHolder
 			
-			.inputItem
-				label Remain Anonymous?
-				input.inputField(type='checkbox' name="anonymous")
+		//- 	.inputItem
+		//- 		label Remain Anonymous?
+		//- 		input.inputField(type='checkbox' name="anonymous")
 
 		
-		button.btn.btn-success.submitButton Submit
+		//- button.btn.btn-success.submitButton Submit
 
 	include footer
 

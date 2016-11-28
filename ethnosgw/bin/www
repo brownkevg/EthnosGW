@@ -10,6 +10,23 @@ var http = require('http');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var engines = require('consolidate');
+/*
+  AWS attempt
+*/
+// var AWS = require('aws-sdk');
+
+// var s3 = new AWS.S3({signatureVersion: 'v4', region: 'us-east-2'});
+
+// var bucketName = 'ethnosgw';
+// var keyName = 'win.txt';
+
+// var params = {Bucket: bucketName, Key: keyName, Body: 'Hello World!'};
+// s3.putObject(params, function(err, data) {
+//   if (err)
+//     console.log(err)
+//   else
+//     console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
+// });
 
 /**
  * Get port from environment and store in Express.

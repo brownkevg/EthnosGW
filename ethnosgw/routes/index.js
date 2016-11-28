@@ -1,5 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var AWS = require('aws-sdk');
+
+var s3 = new AWS.S3({signatureVersion: 'v4', region: 'us-east-2'});
+// attempt to fix corupt file
+var fs = require('fs');
+var S3FS = require('s3fs');
+var s3fsImpl = new S3FS('ethnosgw', {signatureVersion: 'v4', region: 'us-east-2'})
+var multiparty = require('connect-multiparty'),
+multipartyMiddleware = multiparty();
+router.use(multipartyMiddleware);
+var bucketName = 'ethnosgw';
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -31,5 +43,28 @@ router.get('/userlist', function(req,res){
 		});
 	});
 });
+
+router.post('/testPost', function(req, res){
+	// console.log(req.body);
+	// console.log(req.route)
+	// var file = req.body.uploadFile;
+	// var keyName = file;
+	// var params = {Bucket: bucketName, Key: keyName, Body: file};
+	// s3.putObject(params, function(err, data) {
+	// 	if (err)
+	// 		console.log(err)
+	// 	else
+	// 		console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
+	// });
+	var file = req.body.uploadFile;
+	var stream = fs.createReadStream(file.path);
+	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+		fs.unlink(file.path, function(err){
+			if(err)
+				console.error(err);
+		})
+		res.redirect('/upload');
+	})
+})
 
 module.exports = router;
