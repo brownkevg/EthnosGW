@@ -7,27 +7,42 @@ block content
 			.col-md-2(style="background-color:#F0F0F0; display:flex; flex-direction:column")
 				include widgets/mapModal
 				#leftColumn
-					p.header(style="margin-top:0") Refine Search
+					p.header(style="margin-top:0") Browse
 					div
-						input(type="checkbox" style="margin-right: 10px")
-						p.columnItem(style="display:inline") language
+						select.refineItem(for="language" name="language")
+							option(value="") Language
+							option(value="English") English
+							option(value="Spanish") Spanish
+							option(value="French") French
+							option(value="German") German
+						//- p.columnItem(style="display:inline") language
 					div
-						input(type="checkbox" style="margin-right: 10px")
-						p.columnItem(style="display:inline") location
+						select.refineItem(for="Location" name="Location")
+							option(value="") Location
+							option(value="North America") North America
+							option(value="Middle East") Middle East
+							option(value="Asia") Asia
+							option(value="Europe") Europe
+						//- p.columnItem(style="display:inline") location
 					div
-						input(type="checkbox" style="margin-right: 10px")
-						p.columnItem(style="display:inline") genre
+						select.refineItem(for="Genre" name="Genre")
+							option(value="") Genre
+							option(value="Worship") Worship
+							option(value="Folk") Folk
+							option(value="Gospel") Gospel
+						//- p.columnItem(style="display:inline") genre
 					div
-						input(type="checkbox" style="margin-right: 10px")
-						p.columnItem(style="display:inline") art form
-					p.header Art Forms
-					p.columnItem Drama
-					p.columnItem Visual Arts
-					p.columnItem Dance
-					p.columnItem Music
-					p.columnItem Film
-					p.columnItem Poetry
-					p.columnItem Other
+						select.refineItem(for="artForm" name="artForm")
+							option(value="") Art Form
+							option(value="Drama") Drama
+							option(value="Visual Arts") Visual Arts
+							option(value="Dance") Dance
+							option(value="Music") Music
+							option(value="Film") Film
+							option(value="Poetry") Poetry
+							option(value="Other") Other
+						//- p.columnItem(style="display:inline") art form
+					
 					.mapLink(type="button" data-toggle="modal" data-target="#myModal")
 						p.header.map Map
 						.mapAreaColumn(style="width:150px; height:97.5px;")

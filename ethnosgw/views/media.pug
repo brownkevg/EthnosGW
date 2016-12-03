@@ -8,9 +8,9 @@ block content
 		<source src="/media/deelipKumar-Love.mp3" type="audio/mpeg">
 	</audio>
 	br
-	h2.center Michael Balonek - Sachcidananda Namo Namah
+	h2.center=pageModel.title
 	<video class="center" width="400" controls="controls">
-		<source src="/media/MichaelBalonek-SachcidanandaNamoNamah.ogg" type="video/ogg">
+		<source src=#{pageModel.filePath} type="video/ogg">
 	</video>
 	br
 	include footer

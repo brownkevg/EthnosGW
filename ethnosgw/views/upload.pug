@@ -67,7 +67,11 @@ block content
 				select.inputField(for="peopleGroup" name="peopleGroup")
 					option(value="") - Please Select One -
 					option(value="PlaceHolder") PlaceHolder
-			
+			.inputItem
+				label Country
+				select.inputField(for="country" name="country")
+					each country in countries
+						option(value=country.alpha2) #{country.name}
 			.inputItem
 				label Remain Anonymous?
 				input.inputField(type='checkbox' name="anonymous")

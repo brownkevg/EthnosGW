@@ -19,6 +19,10 @@
 .header.map{
 	margin-top: 20px;
 }
+#leftColumn .refineItem{
+	width: 125px;
+	margin-bottom: 5px;
+}
 #leftColumn .mapLabel{
 	box-shadow: 3px 3px 10px #888888;
 }

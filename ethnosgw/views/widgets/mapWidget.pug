@@ -1,5 +1,6 @@
 script.
 	$(document).ready(function(){
+	var mapData = !{JSON.stringify(mapData)}
 		jQuery('#vmap').vectorMap({
 			backgroundColor: '#FFF',
 			borderColor: '#333',
@@ -9,7 +10,7 @@ script.
 			selectedColor: '#161e31',
 			enableZoom: false,
 			showTooltip: false,
-			selectedRegions: selected.regions,
+			selectedRegions: !{JSON.stringify(mapData)},
 			multiSelectRegion: true,
 			scaleColors: ['#929292', '#A6A6A6', '#C8C8C8','#CCCCCC'],
 			values: sample_data,
