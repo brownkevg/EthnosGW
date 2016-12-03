@@ -8,9 +8,17 @@ block content
 		.inputItem label{
 			margin-right: 30px;
 		}
+		.inputItem input[type=file]{
+			display: inline-block;
+		}
 	#uploadContainer.container(style="padding:30px")
 		.row
 			h2 Upload
+			form(action='/testPost', method="post" enctype="multipart/form-data")
+				.inputItem
+					label File
+					input.inputField(type="file" name="uploadFile" for="uploadFile")
+					input(type="submit" value="Submit file")
 			.inputItem
 				label File Type
 				select.inputField(for="fileType" name="fileType")
