@@ -8,7 +8,7 @@
 .songBox{
 	height: 380px;
 	width: 700px;
-	background-color: black;
+	background-color: #282828;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
@@ -23,7 +23,7 @@
 	font-size: 20px;
 	color: #304A66;
 	margin-left: 615px;
-	margin-top: -30px;
+	margin-top: -35px;
 	margin-bottom: 10px;
 }
 .infoBox{
@@ -130,7 +130,7 @@
 	margin-top: 50px;
 	height: 60px;
 	width: 105px;
-	background-color: black;
+	background-color: #282828;
 }
 .songTitle{
 	font-weight: bold;
