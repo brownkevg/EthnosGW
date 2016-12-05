@@ -41,15 +41,15 @@ router.get('/userlist', function(req,res){
 
 /* AWS bucket */
 router.post('/testPost', function(req, res){
-	console.log(req.files.uploadFile);
-	var file = req.files.uploadFile;
+	console.log(req.files.fileLocation);
+	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
 	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
 		fs.unlink(file.path, function(err){
 			if(err)
 				console.error(err);
 		})
-		res.redirect('/upload');
+		// res.redirect('/upload');
 	});
 });
 /* end AWS bucket */

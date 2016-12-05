@@ -14,11 +14,10 @@ block content
 	#uploadContainer.container(style="padding:30px")
 		.row
 			h2 Upload
-			form(action='/testPost', method="post" enctype="multipart/form-data")
+			form(id="bucket-form" action='/testPost', method="post" enctype="multipart/form-data")
 				.inputItem
 					label File
-					input.inputField(type="file" name="uploadFile" for="uploadFile")
-					input(type="submit" value="Submit file")
+					input.inputField(type="file" name="fileLocation" for="fileLocation")
 			.inputItem
 				label File Type
 				select.inputField(for="fileType" name="fileType")
@@ -116,11 +115,18 @@ block content
 
 
 		$('.submitButton').click(function(){
+			$('#bucket-form').submit();
 			$("#pleaseWaitDialog").modal('show');
 			var submitObj = {}
+			var bucketPath = 'https://s3.us-east-2.amazonaws.com/ethnosgw/';
 			$('.inputField').each(function(){
 				if($(this).is('select')){
 					submitObj[$(this).attr('name')] = $(this).val()
+				}
+				else if($(this).attr('type') == "file"){
+					var fileName = /[^\\]*$/g.exec($(this).val())
+					var fileLocation = bucketPath + fileName;
+					submitObj[$(this).attr('name')] = fileLocation;
 				}
 				else if($(this).attr('type') == "checkbox"){
 					submitObj[$(this).attr('name')] = ($(this).is(':checked')) ? true : false;
