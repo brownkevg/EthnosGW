@@ -65,14 +65,15 @@ block content
 							-var condition = j*5+5
 							.content
 								-for(var i = init; i < condition; i++)
-									.item
-										.image
-										.description
-											.title=popular[i].title
-											.artist=popular[i].artist
-											.publisher=popular[i].publisher
-											.view=popular[i].views
-												span  views
+									-if(typeof popular[i].title !== 'undefined')
+										.item
+											.image
+											.description
+												.title=popular[i].title
+												.artist=popular[i].artist
+												.publisher=popular[i].publisher
+												.view=popular[i].views
+													span  views
 						p.heading(style="padding-top:15px") recommended
 						-var recommended = pageModel.recommended
 						-for(var j = 0; j < 2; j++)
@@ -80,14 +81,15 @@ block content
 							-var condition = j*5+5
 							.content
 								-for(var i = init; i < condition; i++)
-									.item
-										.image
-										.description
-											.title=recommended[i].title
-											.artist=recommended[i].artist
-											.publisher=recommended[i].publisher
-											.views=recommended[i].views
-												span  views
+									-if(typeof recommended[i].title !== 'undefined')
+										.item
+											.image
+											.description
+												.title=recommended[i].title
+												.artist=recommended[i].artist
+												.publisher=recommended[i].publisher
+												.views=recommended[i].views
+													span  views
 						//- .content
 						//- 	-for(var i = 0; i < 5; i++)
 						//- 		.item
