@@ -65,7 +65,7 @@ block content
 							-var condition = j*5+5
 							.content
 								-for(var i = init; i < condition; i++)
-									-if(typeof popular[i].title !== 'undefined')
+									-if(typeof popular[i] !== 'undefined')
 										.item
 											.image
 											.description
@@ -74,6 +74,8 @@ block content
 												.publisher=popular[i].publisher
 												.view=popular[i].views
 													span  views
+									-else
+										continue
 						p.heading(style="padding-top:15px") recommended
 						-var recommended = pageModel.recommended
 						-for(var j = 0; j < 2; j++)
@@ -81,7 +83,7 @@ block content
 							-var condition = j*5+5
 							.content
 								-for(var i = init; i < condition; i++)
-									-if(typeof recommended[i].title !== 'undefined')
+									-if(typeof recommended[i] !== 'undefined')
 										.item
 											.image
 											.description
@@ -90,6 +92,8 @@ block content
 												.publisher=recommended[i].publisher
 												.views=recommended[i].views
 													span  views
+									-else
+										continue
 						//- .content
 						//- 	-for(var i = 0; i < 5; i++)
 						//- 		.item
