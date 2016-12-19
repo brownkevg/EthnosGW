@@ -53,7 +53,9 @@ router.post('/testPost', function(req, res){
 				console.error(err);
 		})
 		debugger;
-		res.render('upload2',{url:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
+		var fileName = encodeURIComponent(file.originalFilename);
+		res.redirect('/upload?filePath='+fileName)
+		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });
 /* end AWS bucket */

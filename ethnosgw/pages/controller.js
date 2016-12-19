@@ -12,13 +12,9 @@ exports.home = function(req,res){
 			pageModel.recommended = results2
 			getMapData(function(mapData){
 				res.render('home',{pageModel:pageModel,mapData:mapData});
-			})
-			
-		})
-			
+			})	
+		})		
 	})
-	
-	
 }
 
 exports.page = function(req,res){
@@ -26,7 +22,6 @@ exports.page = function(req,res){
 	pageCache.getMongo("media",searchObj,{mongoClient:dbClient},function(results){
 		res.render('media',{pageModel:results[0]});
 	})
-	
 }
 
 var getMapData = function(callback){

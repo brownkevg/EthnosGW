@@ -1,7 +1,16 @@
 var countries = require('country-data').countries;
 
 exports.upload = function(req,res){
-	res.render('upload1',{countries:sortCountries(countries.all)})
+	debugger;
+	// "https://s3.us-east-2.amazonaws.com/ethnosgw/"
+	var fileName = req.query.filePath
+	var pugView = 'upload1';
+	var data = {countries:sortCountries(countries.all)}
+	if(typeof req.filePath !== 'undefined'){
+		pugView = 'upload2'
+		data.filePath = req.filePath;
+	}
+	res.render(pugView,data)
 }
 
 exports.uploadContent = function(req,res){

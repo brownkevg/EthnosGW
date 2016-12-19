@@ -15,6 +15,8 @@ block content
 		.row
 			h2 Upload
 			form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
+				.inputItem.hidden
+					input.inputField(type='text' name='filePath' value=filePath)
 				.inputItem
 					label File Type
 					select.inputField(for="fileType" name="fileType")
