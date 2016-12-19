@@ -1,7 +1,7 @@
 var countries = require('country-data').countries;
 
 exports.upload = function(req,res){
-	res.render('upload',{countries:sortCountries(countries.all)})
+	res.render('upload1',{countries:sortCountries(countries.all)})
 }
 
 exports.uploadContent = function(req,res){
