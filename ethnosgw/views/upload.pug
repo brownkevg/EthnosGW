@@ -18,72 +18,73 @@ block content
 				.inputItem
 					label File
 					input.inputField(type="file" name="fileLocation" for="fileLocation")
-			.inputItem
-				label File Type
-				select.inputField(for="fileType" name="fileType")
-					option(value="") - Please Select One -
-					option(value="Song") Song
-					option(value="Video") Video
-					option(value="Poem") Poem
-			.inputItem
-				label Content Type
-				select.inputField(for="contentType" name="contentType")
-					option(value="") - Please Select One -
-					option(value="Drama") Drama
-					option(value="Visual Arts") Visual Arts
-					option(value="Dance") Dance
-					option(value="Music") Music
-					option(value="Film") Film
-					option(value="Poetry") Poetry
-					option(value="Other") Other
-			.inputItem
-				label Title
-				input.inputField(type='text' name="title" for="title")
-			.inputItem
-				label Album
-				input.inputField(type='text' name="album" for="album")
-			.inputItem
-				label Artist
-				input.inputField(type='text' name="artist" for="artist")
-			.inputItem
-				label Publisher
-				input.inputField(type='text' name="publisher" for="publisher")
-			.inputItem
-				label Genre
-				input.inputField(type='text' name="genre" for="genre")
-			.inputItem
-				label Description
-				textarea.inputField(name="description" for="description")
-			.inputItem
-				label Lyrics
-				textarea.inputField(name="lyrics" for="lyrics")
-			.inputItem
-				label Language
-				select.inputField(for="language" name="language")
-					option(value="") - Please Select One -
-					option(value="English") English
-					option(value="Spanish") Spanish
-					option(value="German") German
-					option(value="French") French
-					option(value="Italian") Italian
-					option(value="Swahili") Swahili
-					option(value="Portuguese") Portuguese
-					//- This will eventually be grabbed from a database
-			.inputItem
-				label People Group
-				select.inputField(for="peopleGroup" name="peopleGroup")
-					option(value="") - Please Select One -
-					option(value="PlaceHolder") PlaceHolder
-			.inputItem
-				label Country
-				select.inputField(for="country" name="country")
-					each country in countries
-						option(value=country.alpha2) #{country.name}
-			.inputItem
-				label Remain Anonymous?
-				input.inputField(type='checkbox' name="anonymous")
+			form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
+				.inputItem
+					label File Type
+					select.inputField(for="fileType" name="fileType")
+						option(value="") - Please Select One -
+						option(value="Song") Song
+						option(value="Video") Video
+						option(value="Poem") Poem
+				.inputItem
+					label Content Type
+					select.inputField(for="contentType" name="contentType")
+						option(value="") - Please Select One -
+						option(value="Drama") Drama
+						option(value="Visual Arts") Visual Arts
+						option(value="Dance") Dance
+						option(value="Music") Music
+						option(value="Film") Film
+						option(value="Poetry") Poetry
+						option(value="Other") Other
+				.inputItem
+					label Title
+					input.inputField(type='text' name="title" for="title")
+				.inputItem
+					label Album
+					input.inputField(type='text' name="album" for="album")
+				.inputItem
+					label Artist
+					input.inputField(type='text' name="artist" for="artist")
+				.inputItem
+					label Publisher
+					input.inputField(type='text' name="publisher" for="publisher")
+				.inputItem
+					label Genre
+					input.inputField(type='text' name="genre" for="genre")
+				.inputItem
+					label Description
+					textarea.inputField(name="description" for="description")
+				.inputItem
+					label Lyrics
+					textarea.inputField(name="lyrics" for="lyrics")
+				.inputItem
+					label Language
+					select.inputField(for="language" name="language")
+						option(value="") - Please Select One -
+						option(value="English") English
+						option(value="Spanish") Spanish
+						option(value="German") German
+						option(value="French") French
+						option(value="Italian") Italian
+						option(value="Swahili") Swahili
+						option(value="Portuguese") Portuguese
+						//- This will eventually be grabbed from a database
+				.inputItem
+					label People Group
+					select.inputField(for="peopleGroup" name="peopleGroup")
+						option(value="") - Please Select One -
+						option(value="PlaceHolder") PlaceHolder
+				.inputItem
+					label Country
+					select.inputField(for="country" name="country")
+						each country in countries
+							option(value=country.alpha2) #{country.name}
+				.inputItem
+					label Remain Anonymous?
+					input.inputField(type='checkbox' name="anonymous")
 
-		button.btn.btn-success.submitButton Submit
+				input.btn.btn-success.submitButton(type='submit' value='Submit')
 
 	#successContainer.hidden
 		h2 Upload Complete
@@ -114,37 +115,37 @@ block content
 		*/
 
 
-		$('.submitButton').click(function(){
-			$('#bucket-form').submit();
-			$("#pleaseWaitDialog").modal('show');
-			var submitObj = {}
-			var bucketPath = 'https://s3.us-east-2.amazonaws.com/ethnosgw/';
-			$('.inputField').each(function(){
-				if($(this).is('select')){
-					submitObj[$(this).attr('name')] = $(this).val()
-				}
-				else if($(this).attr('type') == "file"){
-					var fileName = /[^\\]*$/g.exec($(this).val())
-					var fileLocation = bucketPath + fileName;
-					submitObj[$(this).attr('name')] = fileLocation;
-				}
-				else if($(this).attr('type') == "checkbox"){
-					submitObj[$(this).attr('name')] = ($(this).is(':checked')) ? true : false;
-				}else{
-					submitObj[$(this).attr('name')] = $(this).val();
-				}
-			})
-			$.ajax({
-				type: "POST",
-				url: "/uploadContent",
-				data: submitObj,
-				success: function(data){
-					if(data.success){
-						$('#pleaseWaitDialog').modal('hide')
-						$("#uploadContainer").addClass('hidden')
-						$("#successContainer").removeClass('hidden')
-					}
-				},
-				dataType: "json"
-			});
-		})
+		//- $('.submitButtonSSSSS').click(function(){
+		//- 	$('#bucket-form').submit();
+		//- 	$("#pleaseWaitDialog").modal('show');
+		//- 	var submitObj = {}
+		//- 	var bucketPath = 'https://s3.us-east-2.amazonaws.com/ethnosgw/';
+		//- 	$('.inputField').each(function(){
+		//- 		if($(this).is('select')){
+		//- 			submitObj[$(this).attr('name')] = $(this).val()
+		//- 		}
+		//- 		else if($(this).attr('type') == "file"){
+		//- 			var fileName = /[^\\]*$/g.exec($(this).val())
+		//- 			var fileLocation = bucketPath + fileName;
+		//- 			submitObj[$(this).attr('name')] = fileLocation;
+		//- 		}
+		//- 		else if($(this).attr('type') == "checkbox"){
+		//- 			submitObj[$(this).attr('name')] = ($(this).is(':checked')) ? true : false;
+		//- 		}else{
+		//- 			submitObj[$(this).attr('name')] = $(this).val();
+		//- 		}
+		//- 	})
+		//- 	$.ajax({
+		//- 		type: "POST",
+		//- 		url: "/uploadContent",
+		//- 		data: submitObj,
+		//- 		success: function(data){
+		//- 			if(data.success){
+		//- 				$('#pleaseWaitDialog').modal('hide')
+		//- 				$("#uploadContainer").addClass('hidden')
+		//- 				$("#successContainer").removeClass('hidden')
+		//- 			}
+		//- 		},
+		//- 		dataType: "json"
+		//- 	});
+		//- })
