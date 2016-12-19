@@ -8,6 +8,7 @@ var multiparty = require('connect-multiparty'),
 multipartyMiddleware = multiparty();
 router.use(multipartyMiddleware);
 var bucketName = 'ethnosgw';
+var countries = require('country-data').countries;
 // end AWS
 
 /* GET home page. */
@@ -42,7 +43,7 @@ router.get('/userlist', function(req,res){
 /* AWS bucket */
 router.post('/testPost', function(req, res){
 	debugger;
-	console.log(req.files.fileLocation);
+	// console.log(req.files.fileLocation);
 	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
 	debugger;
@@ -52,9 +53,20 @@ router.post('/testPost', function(req, res){
 				console.error(err);
 		})
 		debugger;
-		res.redirect('upload2',{url:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName});
+		res.render('upload2',{url:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });
 /* end AWS bucket */
+
+function sortCountries(countries){
+	countries.sort(function(a,b){
+		if (a.name < b.name)
+			return -1;
+		if (a.name > b.name)
+			return 1;
+		return 0;
+	})
+	return countries
+}
 
 module.exports = router;
