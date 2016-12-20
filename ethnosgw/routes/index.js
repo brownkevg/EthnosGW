@@ -42,19 +42,16 @@ router.get('/userlist', function(req,res){
 
 /* AWS bucket */
 router.post('/testPost', function(req, res){
-	debugger;
 	// console.log(req.files.fileLocation);
 	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
-	debugger;
 	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
 		fs.unlink(file.path, function(err){
 			if(err)
 				console.error(err);
 		})
 		debugger;
-		var fileName = encodeURIComponent(file.originalFilename);
-		res.redirect('/upload?filePath='+fileName)
+		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });

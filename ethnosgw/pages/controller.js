@@ -1,5 +1,6 @@
 var cache = require('mongo-atm');
 var pageCache = new cache({ttl:60,limit:500});
+var url = require('url');
 var countries = require('country-data').countries;
 
 exports.home = function(req,res){
@@ -18,9 +19,21 @@ exports.home = function(req,res){
 }
 
 exports.page = function(req,res){
-	var searchObj = {artist:"Michael Balonek"}
+	var page = url.parse(String(req.url).replace(/[^0-9A-Za-z\-\_\/\?]/g,'')).pathname.substring(1);
+	if(page==="" || page == "/"){
+		exports.home(req,res);
+		return;
+	}
+	var searchObj = {route: {$regex:'^' + page + '$',$options:'i'}}
 	pageCache.getMongo("media",searchObj,{mongoClient:dbClient},function(results){
+		if(results == null || results.length !== 1){
+			debugger;
+			res.status(404);
+			res.render('error',{title:'Error: 404',msg:"Sorry, we couldn't find the page you were looking for.", url:url});
+			return;
+		}
 		res.render('media',{pageModel:results[0]});
+
 	})
 }
 

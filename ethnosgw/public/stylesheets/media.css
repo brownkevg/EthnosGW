@@ -1,0 +1,148 @@
+.title{
+	margin-left: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 25px;
+}
+.songBox{
+	height: 380px;
+	width: 700px;
+	background-color: #282828;
+	margin-left: 50px;
+	/*margin-bottom: 20px;*/
+}
+#views{
+	font-size: 20px;
+	color: #304A66;
+	margin-left: 50px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+#datePosted{
+	font-size: 20px;
+	color: #304A66;
+	margin-left: 615px;
+	margin-top: -35px;
+	margin-bottom: 10px;
+}
+.infoBox{
+	height: 800px;
+	width: 700px;
+	background-color: #E8E9EC;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	margin-top: 0px;
+}
+.descriptionTitle{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.descriptionBox{
+	height: 180px;
+	width: 100%;
+	margin-top: 10px;
+	background-color: #CACCD2;
+}
+.descriptionText{
+	font-size: 12px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.tagTitle{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.tagBox{
+	height: 130px;
+	width: 100%;
+	margin-top: 10px;
+	background-color: #CACCD2;
+}
+.tags{
+	font-size: 10px;
+	font-style: italic;
+}
+.artist{
+	margin-left: 10px;
+	margin-top: 0px;
+}
+.region{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.producer{
+	margin-left: 10px;
+	margin-top: 15px;
+}
+.album{
+	margin-left: 150px;
+	margin-top: -60px;
+}
+.language{
+	margin-left: 150px;
+	margin-top: 10px;
+}
+.genre{
+	margin-left: 150px;
+	margin-top: 15px;
+}
+.uploadDate{
+	margin-left: 300px;
+	margin-top: -60px;
+}
+.peopleGroup{
+	margin-left: 300px;
+	margin-top: 10px;
+}
+.category{
+	margin-left: 300px;
+	margin-top: 15px;
+}
+.releaseDate{
+	margin-left: 500px;
+	margin-top: -60px;
+}
+.artForm{
+	margin-left: 500px;
+	margin-top: 10px;
+}
+.license{
+	margin-left: 500px;
+	margin-top: 15px;
+}
+.miscellaneous{
+	margin-left: 10px;
+	margin-top: 30px;
+}
+.relatedContent{
+	margin-left: 780px;
+	margin-top: -1520px;
+}
+.moreFromArtist{
+	font-size: 20px;
+}
+.relatedThumbnail{
+	margin-top: 50px;
+	height: 60px;
+	width: 105px;
+	background-color: #282828;
+}
+.songTitle{
+	font-weight: bold;
+	font-size: 15px;
+	margin-top: -60px;
+	margin-left: 110px;
+}
+.songArtist{
+	font-size: 15px;
+	margin-left: 110px;
+}
+.related{
+	font-size: 20px;
+	margin-top: 40px;
+}

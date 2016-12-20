@@ -1,16 +1,78 @@
+//- extends layout
+
+//- block content
+//- 	include nav
+
+//- 	h2.center deelip kumar - Love
+//- 	<audio class="center" controls>
+//- 		<source src="/media/deelipKumar-Love.mp3" type="audio/mpeg">
+//- 	</audio>
+//- 	br
+//- 	h2.center=pageModel.title
+//- 	<video class="center" width="400" controls="controls">
+//- 		<source src=#{pageModel.filePath} type="video/ogg">
+//- 	</video>
+//- 	br
+//- 	include footer
+
 extends layout
 
 block content
 	include nav
-
-	h2.center deelip kumar - Love
-	<audio class="center" controls>
-		<source src="/media/deelipKumar-Love.mp3" type="audio/mpeg">
+	.title=pageModel.title
+	.songBox
+	<audio style="width: 700px; margin-left: 50px; margin-bottom:20px" controls>
+		<source src=#{pageModel.filePath} type="audio/mpeg">
 	</audio>
-	br
-	h2.center=pageModel.title
-	<video class="center" width="400" controls="controls">
-		<source src=#{pageModel.filePath} type="video/ogg">
-	</video>
-	br
+	#views #{pageModel.views} views
+	#datePosted July 17, 2016
+	.infoBox
+		.descriptionTitle Description
+		.descriptionBox
+			.descriptionText=pageModel.description
+		.tagTitle Tag
+		.tagBox
+			.tags
+				.artist Artist: #{pageModel.artist}
+				.region Region: 
+				.producer Producer: 
+				.album Album: #{pageModel.album}
+				.language Language: #{pageModel.language}
+				.genre Genre: #{pageModel.genre}
+				.uploadDate Upload Date: 06/17/2016
+				.peopleGroup People Group: #{pageModel.peopleGroup}
+				.category Category: Music
+				.releaseDate Released: 06/17/2016
+				.artForm Art Form: #{pageModel.contentType}
+				.license License: Creative Commons
+				.miscellaneous Miscellaneous: Ancient Hebrew, Tribal Worship, Moses, Aaron, Ramses, Smoke, Fire, Pillar, Red Sea, Biblical, Palestine Israel Hebrew, Hebrews, Good Music
 	include footer
+	.relatedContent
+		.moreFromArtist More From Artist
+			.container
+				.relatedThumbnail(style="margin-top:20px !important;")
+				.songTitle 40 Years
+				.songArtist Moses and Aaron
+				.relatedThumbnail
+				.songTitle Milk and Honey
+				.songArtist Moses and Aaron
+				.relatedThumbnail
+				.songTitle Mount Sinai
+				.songArtist Moses and Aaron
+		.related Related
+			.container
+				.relatedThumbnail(style="margin-top:20px !important;")
+				.songTitle Yeha Noha
+				.songArtist Sacred Spirit
+				.relatedThumbnail
+				.songTitle Yeha Noha
+				.songArtist Sacred Spirit
+				.relatedThumbnail
+				.songTitle Yeha Noha
+				.songArtist Sacred Spirit
+				.relatedThumbnail
+				.songTitle Yeha Noha
+				.songArtist Sacred Spirit
+				.relatedThumbnail
+				.songTitle Yeha Noha
+				.songArtist Sacred Spirit
