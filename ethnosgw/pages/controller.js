@@ -4,6 +4,9 @@ var url = require('url');
 var countries = require('country-data').countries;
 
 exports.home = function(req,res){
+	if (typeof dbClient == 'undefined'){
+		return res.render('home');
+	}
 	var pageModel = {};
 	var searchObj = {};
 	pageCache.getMongo("media",searchObj,{mongoClient:dbClient, limit:10, sort:{_id:-1}},function(results1){
@@ -47,4 +50,8 @@ var getMapData = function(callback){
 		}
 		callback(countries);
 	})
+}
+
+function noDB(res){
+	res.render('search');
 }

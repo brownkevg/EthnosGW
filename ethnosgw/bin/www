@@ -29,6 +29,12 @@ var server = http.createServer(app);
  */
 
  MongoClient.connect('mongodb://localhost:27017/test', function(err, db){
+  if(err){
+    server.listen(port, function(){
+      console.log("Listening on port " + app.get('port'));
+    });
+    return console.dir(err);
+  }
   dbClient=db;
    assert.equal(null, err);
    console.log("Successfully connected to MongoDB.");
