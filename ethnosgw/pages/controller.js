@@ -52,6 +52,7 @@ var getMapData = function(callback){
 	})
 }
 
+// remove if not used
 function noDB(res){
 	res.render('search');
 }

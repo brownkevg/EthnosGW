@@ -15,6 +15,14 @@ var countries = require('country-data').countries;
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Glow' });
 // });
+// ************* temp routes for design
+router.get('/upload1', function(req, res, next){
+	res.render('upload1');
+})
+router.get('/upload2', function(req, res, next){
+	res.render('upload2', {countries:sortCountries(countries.all)});
+})
+// ************* end temp routes
 
 router.get('/search', function(req, res, next) {
 	res.render('search', {title: 'Glow'})
@@ -50,7 +58,6 @@ router.post('/testPost', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		debugger;
 		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
