@@ -27,7 +27,6 @@ exports.page = function(req,res){
 	var searchObj = {route: {$regex:'^' + page + '$',$options:'i'}}
 	pageCache.getMongo("media",searchObj,{mongoClient:dbClient},function(results){
 		if(results == null || results.length !== 1){
-			debugger;
 			res.status(404);
 			res.render('error',{title:'Error: 404',msg:"Sorry, we couldn't find the page you were looking for.", url:url});
 			return;

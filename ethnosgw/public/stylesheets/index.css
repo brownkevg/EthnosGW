@@ -38,6 +38,11 @@
 	display: inline;
 	padding-bottom: 15px;
 }
+#rightColumn a{
+	text-decoration: none;
+	color:#000;
+	display:block;
+}
 
 #rightColumn .content{
 	/*padding: 40px 40px;*/
@@ -61,6 +66,7 @@
 #rightColumn .item .title{
 	font-size:18px;
 	font-weight: 800;
+	width:175px;
 }
 #rightColumn .item .artist{
 	font-size:18px;

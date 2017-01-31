@@ -5,7 +5,6 @@ exports.upload = function(req,res){
 	var dataObj = {countries:sortCountries(countries.all)}
 	if(typeof fileName !== 'undefined')
 		dataObj.filePath = "https://s3.us-east-2.amazonaws.com/ethnosgw/"+fileName
-	debugger;
 	res.render('upload2',dataObj)
 }
 
@@ -13,7 +12,6 @@ exports.uploadContent = function(req,res){
 	var content = req.body;
 	content.views = 0;
 	content.route = req.body.title.replace(/ /g,'-').toLowerCase();
-	debugger;
 	//Will need to check for the uniqueness of a route
 	dbClient.collection('media').save(content,function(err, result){
 		res.status(200).end(JSON.stringify({success:true}));

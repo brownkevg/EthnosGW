@@ -1,4 +1,4 @@
-.title{
+.infoBox .title{
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -67,55 +67,55 @@
 	font-size: 10px;
 	font-style: italic;
 }
-.artist{
+.infoBox .artist{
 	margin-left: 10px;
 	margin-top: 0px;
 }
-.region{
+.infoBox .region{
 	margin-left: 10px;
 	margin-top: 10px;
 }
-.producer{
+.infoBox .producer{
 	margin-left: 10px;
 	margin-top: 15px;
 }
-.album{
+.infoBox .album{
 	margin-left: 150px;
 	margin-top: -60px;
 }
-.language{
+.infoBox .language{
 	margin-left: 150px;
 	margin-top: 10px;
 }
-.genre{
+.infoBox .genre{
 	margin-left: 150px;
 	margin-top: 15px;
 }
-.uploadDate{
+.infoBox .uploadDate{
 	margin-left: 300px;
 	margin-top: -60px;
 }
-.peopleGroup{
+.infoBox .peopleGroup{
 	margin-left: 300px;
 	margin-top: 10px;
 }
-.category{
+.infoBox .category{
 	margin-left: 300px;
 	margin-top: 15px;
 }
-.releaseDate{
+.infoBox .releaseDate{
 	margin-left: 500px;
 	margin-top: -60px;
 }
-.artForm{
+.infoBox .artForm{
 	margin-left: 500px;
 	margin-top: 10px;
 }
-.license{
+.infoBox .license{
 	margin-left: 500px;
 	margin-top: 15px;
 }
-.miscellaneous{
+.infoBox .miscellaneous{
 	margin-left: 10px;
 	margin-top: 30px;
 }

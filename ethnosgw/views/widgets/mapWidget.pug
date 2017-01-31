@@ -58,7 +58,6 @@ script.
 		$('#mapCountryList').append('<div class="mapListItem"><a>Country List</div><hr>')
 
 		for(var i = 0; i < selected.regions.length; i++){
-			//- debugger;
 			var htmlString = '<div class="mapListItem"><a>'+selected.regions[i]+'</a><p>'+selected.titles[i]+'</p><p>'+selected.copy[i]+'</p></div><hr>'
 			$('#mapCountryList').append(htmlString)
 		}

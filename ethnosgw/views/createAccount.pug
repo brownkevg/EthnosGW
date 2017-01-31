@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	include nav
+
+
+
+	#createAccount.container
+		.headerTitle Create Account
+		form#createAccountForm(onSubmit="return createUser()")
+			input(type="text" placeholder="First Name" name="firstName")
+			input(type="text" placeholder="Last Name" name="lastName")
+			input(type="text" placeholder="Email" name="email")
+			input.pass1(type="password" placeholder="Password" name="password")
+			input.pass2(type="password" placeholder="Confirm Password")
+			input.btn.btn-success.createUserSubmit(type="submit")
+		.errorContainer
+		
+
+
+
+
+	include footer
+
+	script.
+		//This will all probably be scrapped at some point. Standby.
+		var createUser = function(){
+			var pass1 = $('.pass1').val();
+			var pass2 = $('.pass2').val();
+			var $form = $('#createAccountForm')
+			var formData = $form.serializeArray().reduce(function(obj, item){
+				obj[item.name] = item.value;
+				return obj;
+			}, {});
+			if(pass1 === pass2){
+				$.ajax({
+					type:'POST',
+					url:'/createNewUser',
+					data: formData,
+					success:function(data){
+						if(!data.success){
+							$('.errorContainer').append('<p>'+data.errors[0]+'<p>');
+						}else{
+							//empty error container and form and give success message
+							$('.errorContainer').empty();
+						}
+					},
+					dataType:'json'
+				})
+			}else{
+				$('.errorContainer').append('<p>Password does not match</p>')
+			}
+			return false;
+		}

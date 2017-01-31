@@ -56,7 +56,7 @@ block content
 			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
 				#rightColumn
 					.banner
-					.container(style="padding:40px 40px;")
+					.rightContainer(style="padding:40px 40px;")
 						p.heading popular
 						
 						-var popular = pageModel.popular
@@ -69,7 +69,7 @@ block content
 										.item
 											.image
 											.description
-												.title=popular[i].title
+												a.title(href=popular[i].route)=popular[i].title
 												.artist=popular[i].artist
 												.publisher=popular[i].publisher
 												.view=popular[i].views
@@ -87,7 +87,7 @@ block content
 										.item
 											.image
 											.description
-												.title=recommended[i].title
+												a.title(href=recommended[i].route)=recommended[i].title
 												.artist=recommended[i].artist
 												.publisher=recommended[i].publisher
 												.views=recommended[i].views
