@@ -4,21 +4,17 @@ extends layout
 
 block content
 	include nav
-	style.
-		.inputItem label{
-			margin-right: 30px;
-		}
-		.inputItem input[type=file]{
-			display: inline-block;
-		}
-	#uploadContainer.container(style="padding:30px")
+	#uploadContainer.container
 		.row
-			h2 Upload
 			form(id="bucket-form" action='/testPost', method="post" enctype="multipart/form-data")
-				.inputItem
-					label File
-					input.inputField(type="file" name="fileLocation" for="fileLocation")
-					input.fileSubmit.btn.btn-success(type="submit" value="Upload")
+				.outerBox
+					input.fileSubmit.btn.innerBox(type="submit" value="Upload")
+				.contentSelection
+					h3 SELECT CONTENT TO UPLOAD
+					h4.description 	SUPPORTED FILE FORMATS ARE: ogg, mp4
+					.inputItem
+						input.inputField(type="file" name="fileLocation" for="fileLocation")
+							
 			
 	div.modal.fade#pleaseWaitDialog(data-backdrop="static",data-keyboard="false")
 		div.modal-dialog
@@ -33,6 +29,7 @@ block content
 	include footer
 
 	script.
+
 
 		$('.fileSubmit').click(function(){
 			$("#pleaseWaitDialog").modal('show');

@@ -56,9 +56,9 @@ block content
 			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
 				#rightColumn
 					.banner
-					.rightContainer(style="padding:40px 40px;")
+					- if (typeof(pageModel) !== 'undefined'){
+					.container(style="padding:40px 40px;")
 						p.heading popular
-						
 						-var popular = pageModel.popular
 						-for(var j = 0; j < 2; j++)
 							-var init = j*5
@@ -94,6 +94,7 @@ block content
 													span  views
 									-else
 										continue
+						-}
 						//- .content
 						//- 	-for(var i = 0; i < 5; i++)
 						//- 		.item
