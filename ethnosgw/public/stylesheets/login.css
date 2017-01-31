@@ -1,0 +1,41 @@
+.loginContainer{
+	/*width:100px;*/
+	/*height:100px;*/
+	/*background-color: red;*/
+	padding:20px;
+}
+.headerTitle{
+	font-size:40px;
+	text-align: center;
+}
+.loginContainer input{
+	display: block;
+	margin:0 auto;
+	padding:10px;
+	margin-top:10px;
+}
+.loginContainer .loginSubmit{
+	width:200px;
+}
+.createAccountTitle{
+	text-align: center;
+	font-size:25px;
+	padding-top: 20px
+}
+.createAccount{
+	display:block;
+	font-size:20px;
+	text-align: center;
+	width:175px;
+	height:50px;
+	margin:0 auto;
+	vertical-align: middle;
+	background-color: #22324F;
+	color:#FFF;
+	vertical-align: middle;
+	line-height: 50px;
+	border-radius: 5px;
+}
+.createAccount:hover{
+	text-decoration: none;
+}
