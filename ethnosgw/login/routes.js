@@ -1,34 +1,47 @@
 var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
-module.exports = function(app){
+module.exports = function(app, passport){
+
 	app.get('/login', function(req, res){
-		res.render('login', {title:'Login'});
+		res.render('login', {message: req.flash('loginMessage')})
 	});
-	app.post('/login',
-		passport.authenticate('local', {
-			successReturnToOrRedirect: '/',
-			failureRedirect: '/login',
-			failureFlash: true
+
+	// process the login form
+	app.post('/login', passport.authenticate('local-login',{
+		successRedirect: '/profile',
+		failureRedirect: '/login',
+		failureFlash: true
+	}));
+
+	app.get('/signup', function(req, res){
+		res.render('signup', {message: req.flash('signupMessage')})
+	});
+
+	// process the signup form
+	app.post('/signup', passport.authenticate('local-signup',{
+		successRedirect: '/',
+		failureRedirect: '/signup',
+		failureFlash: true
+	}));
+
+	app.get('/profile', isLoggedIn, function(req, res){
+		res.render('profile', {
+			user: req.user // get the user out of the session and pass to template
 		})
-	);
+	});
+
 	app.get('/logout', function(req, res){
-		if(typeof req.user != 'undefined'){
-			for(var i in webAdminClients){
-				if(req.user.user == webAdminClients[i].username){
-					var simpleUser = webAdminClients.splice(i, 1); //remove client from list immediately
-				}
-			}
-			if(typeof simpleUser !== 'undefined'){
-				io.sockets.emit('userListUpdated', {user: simpleUser[0], list: webAdminClients});
-			}
-			console.log(req.user.user + ' has logged out.');
-			req.logout();
-		}
+		req.logout();
 		res.redirect('/');
 	});
-	// app.all('/*',ensureLoggedIn('/login'));
-	app.get('/defaultroute',function(req,res){
-		res.redirect(req.session.req.user.route || "/");
-	});
+
+	// route middleware to make sure a user is logged in
+	function isLoggedIn(req, res, next){
+		// if user is authenticated in the session, carry on
+		if(req.isAuthenticated())
+			return next();
+
+		res.redirect('/');
+	}
 }
