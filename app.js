@@ -29,7 +29,7 @@ var dbClient=null;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-//require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
