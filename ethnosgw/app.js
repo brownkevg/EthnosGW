@@ -6,12 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var router = express.Router();
 var session = require('express-session');
-// var MemoryStore = require('session-memory-store')(session);
-var passport = require('passport');
-var flash = require('connect-flash');
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/test')
+var MemoryStore = require('session-memory-store')(session);
 
 //mongoDB
 var mongo = require('mongodb');
@@ -29,8 +24,8 @@ var dbClient=null;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-require('./config/passport')(passport); // pass passport for configuration
-
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,11 +37,26 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
+var SessionStore = new MemoryStore();
 
-app.use(session({secret: 'glow'})); // session secret
+app.use(session({
+  key: 'glow.key',
+  secret: 'glow',
+  store: SessionStore
+}));
+
+
+
+// Passport login
+var flash = require('connect-flash');
+var passport = require('passport');
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(passport.session({secret:'glow.key', key:'glow', store: SessionStore}));
+
+app.use(flash());
+
+//Init login
+require('./login/init')(SessionStore);
 
 // mongodb
 app.use(function(req,res,next){
@@ -60,7 +70,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 //Routes
-require('./login/routes')(app, passport);
+require('./login/routes')(app);
 require('./upload/routes')(app);
 require('./pages/routes')(app); //NOTE: This needs to be last
 
@@ -95,5 +105,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 module.exports = app;

@@ -15,7 +15,7 @@ exports.home = function(req,res){
 		pageCache.getMongo("media",searchObj,{mongoClient:dbClient, limit:10},function(results2){
 			pageModel.recommended = results2
 			getMapData(function(mapData){
-				res.render('home',{pageModel:pageModel,mapData:mapData, user:req.user});
+				res.render('home',{pageModel:pageModel,mapData:mapData});
 			})	
 		})		
 	})
@@ -34,7 +34,7 @@ exports.page = function(req,res){
 			res.render('error',{title:'Error: 404',msg:"Sorry, we couldn't find the page you were looking for.", url:url});
 			return;
 		}
-		res.render('media',{pageModel:results[0],user:req.user});
+		res.render('media',{pageModel:results[0]});
 
 	})
 }

@@ -9,10 +9,8 @@ nav.navigation
 		a.navItem(href="/") account
 		a.navItem(href="/") about
 		a.navItem(href="/") resources
-		-if(user)
-			a.navItem.login(href="/profile")=user.local.firstName
-		-else
-			a.navItem.login(href="/login") login
+		a.navItem.login(href="/login") login
+		//- .user
 	.container-fluid.bottomNav
 		a.navItemBottom(href="/") News
 		a.navItemBottom(href="/") Forums
