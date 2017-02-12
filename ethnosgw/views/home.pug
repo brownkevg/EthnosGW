@@ -1,0 +1,119 @@
+extends layout
+
+block content
+	include nav
+	.container-fluid(style="padding:0")
+		.columnContainer
+			.col-md-2(style="background-color:#F0F0F0; display:flex; flex-direction:column")
+				include widgets/mapModal
+				#leftColumn
+					p.header(style="margin-top:0") Browse
+					div
+						select.refineItem(for="language" name="language")
+							option(value="") Language
+							option(value="English") English
+							option(value="Spanish") Spanish
+							option(value="French") French
+							option(value="German") German
+						//- p.columnItem(style="display:inline") language
+					div
+						select.refineItem(for="Location" name="Location")
+							option(value="") Location
+							option(value="North America") North America
+							option(value="Middle East") Middle East
+							option(value="Asia") Asia
+							option(value="Europe") Europe
+						//- p.columnItem(style="display:inline") location
+					div
+						select.refineItem(for="Genre" name="Genre")
+							option(value="") Genre
+							option(value="Worship") Worship
+							option(value="Folk") Folk
+							option(value="Gospel") Gospel
+						//- p.columnItem(style="display:inline") genre
+					div
+						select.refineItem(for="artForm" name="artForm")
+							option(value="") Art Form
+							option(value="Drama") Drama
+							option(value="Visual Arts") Visual Arts
+							option(value="Dance") Dance
+							option(value="Music") Music
+							option(value="Film") Film
+							option(value="Poetry") Poetry
+							option(value="Other") Other
+						//- p.columnItem(style="display:inline") art form
+					
+					.mapLink(type="button" data-toggle="modal" data-target="#myModal")
+						p.header.map Map
+						.mapAreaColumn(style="width:150px; height:97.5px;")
+							include widgets/mapWidgetColumn
+					p.header.collections My Collections
+					p.columnItem Righteous Tunes
+					p.columnItem Turkish Worship
+					p.columnItem Indian Christian
+					p.columnItem Radical Sermons
+					p.columnItem Mad Percussion
+			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
+				#rightColumn
+					.banner
+					//- .rightContainer(style="padding:40px 40px;")
+					- if (typeof(pageModel) !== 'undefined'){
+					.rightContainer(style="padding:40px 40px;")
+						p.heading popular
+						-var popular = pageModel.popular
+						-for(var j = 0; j < 2; j++)
+							-var init = j*5
+							-var condition = j*5+5
+							.content
+								-for(var i = init; i < condition; i++)
+									-if(typeof popular[i] !== 'undefined')
+										.item
+											.image
+											.description
+												a.title(href=popular[i].route)=popular[i].title
+												.artist=popular[i].artist
+												.publisher=popular[i].publisher
+												.view=popular[i].views
+													span  views
+									-else
+										continue
+						p.heading(style="padding-top:15px") recommended
+						-var recommended = pageModel.recommended
+						-for(var j = 0; j < 2; j++)
+							-var init = j*5
+							-var condition = j*5+5
+							.content
+								-for(var i = init; i < condition; i++)
+									-if(typeof recommended[i] !== 'undefined')
+										.item
+											.image
+											.description
+												a.title(href=recommended[i].route)=recommended[i].title
+												.artist=recommended[i].artist
+												.publisher=recommended[i].publisher
+												.views=recommended[i].views
+													span  views
+									-else
+										continue
+						-}
+						//- .content
+						//- 	-for(var i = 0; i < 5; i++)
+						//- 		.item
+						//- 			.image
+						//- 			.description
+						//- 				.title Yeha Noha
+						//- 				.artist Sacred Spirit
+						//- 				.publisher Swedish Music Publishing
+						//- 				.views 240,000 views
+
+	include footer
+
+
+
+
+
+
+
+
+
+

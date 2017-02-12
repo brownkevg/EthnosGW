@@ -1,9 +1,9 @@
 nav.navigation
-	
-	.container-fluid
+	.container-fluid.topNav
 		.lu-monogram-nav.hidden-xs
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
+<<<<<<< HEAD
 		.navbar-logo
 			a(href='/')
 				img(alt='Ethnos' src='images/LU-Monogram.svg')
@@ -30,3 +30,18 @@ script.
 		$(".navigation ul").toggleClass("change")
 		$(".navigation ul li").toggleClass("change")
 	})
+=======
+		form.searchBar
+			input.searchBarInput(type="text" placeholder="Search Music...")
+		a.navItem(href="/upload") upload
+		a.navItem(href="/") account
+		a.navItem(href="/") about
+		a.navItem(href="/") resources
+		a.navItem.login(href="/login") login
+		//- .user
+	.container-fluid.bottomNav
+		a.navItemBottom(href="/") News
+		a.navItemBottom(href="/") Forums
+		a.navItemBottom(href="/") Publishing Resources
+		a.navItemBottom(href="/") Contact Us
+>>>>>>> almostMaster

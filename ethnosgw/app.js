@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var router = express.Router();
+var session = require('express-session');
+var MemoryStore = require('session-memory-store')(session);
 
 //mongoDB
 var mongo = require('mongodb');
@@ -34,14 +37,43 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
+var SessionStore = new MemoryStore();
+
+app.use(session({
+  key: 'glow.key',
+  secret: 'glow',
+  store: SessionStore
+}));
+
+
+
+// Passport login
+var flash = require('connect-flash');
+var passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session({secret:'glow.key', key:'glow', store: SessionStore}));
+
+app.use(flash());
+
+//Init login
+require('./login/init')(SessionStore);
+
 // mongodb
 app.use(function(req,res,next){
   req.db = db;
   next();
 });
 
+app.use(router);
+
 app.use('/', routes);
 app.use('/users', users);
+
+//Routes
+require('./login/routes')(app);
+require('./upload/routes')(app);
+require('./pages/routes')(app); //NOTE: This needs to be last
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

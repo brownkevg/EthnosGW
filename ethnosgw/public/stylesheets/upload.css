@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1
 {
 	margin-top: 50px;
@@ -75,3 +76,65 @@ h2
 	padding: 10px 20px;
 	color: white;
 }
+=======
+#uploadContainer{
+	padding:30px;
+}
+#uploadContainer .inputItem{
+	padding:15px 0px;
+}
+#uploadContainer .inputItem label{
+	width: 150px;
+}
+#uploadContainer .submitButton{
+	width: 150px;
+}
+.modal-header h1{
+	color:#000;
+}
+.inputItem input[type=file]{
+	display: inline-block;
+}
+.inputItem label{
+	margin-right: 30px;
+}
+/*upload1*/
+.outerBox{
+	float:left;
+	height:200px;
+	width:200px;
+	background-color: #E5E5E5;
+	position:relative;
+}
+.innerBox{
+	text-align: center;
+	color: white;
+	height: 45px;
+	width:140px;
+	background-color: #82A3D7;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	font-size: 25px;
+	border-radius: 0px;
+}
+.innerBox:hover{
+	color: #dddddd;
+}
+.innerBox h3{
+	margin-top:10px;
+}
+.contentSelection{
+	float:left;
+	margin-left:20px;
+}
+#uploadContainer .contentSelection .inputItem label{
+	margin-right: 10px;
+	width: auto;
+}
+.contentSelection h4.description{
+	margin-top:20px;
+}
+/*upload2*/
+>>>>>>> almostMaster

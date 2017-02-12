@@ -1,5 +1,6 @@
 script.
 	$(document).ready(function(){
+	var mapData = !{JSON.stringify(mapData)}
 		jQuery('#vmap').vectorMap({
 			backgroundColor: '#FFF',
 			borderColor: '#333',
@@ -9,7 +10,7 @@ script.
 			selectedColor: '#161e31',
 			enableZoom: false,
 			showTooltip: false,
-			selectedRegions: selected.regions,
+			selectedRegions: !{JSON.stringify(mapData)},
 			multiSelectRegion: true,
 			scaleColors: ['#929292', '#A6A6A6', '#C8C8C8','#CCCCCC'],
 			values: sample_data,
@@ -57,7 +58,6 @@ script.
 		$('#mapCountryList').append('<div class="mapListItem"><a>Country List</div><hr>')
 
 		for(var i = 0; i < selected.regions.length; i++){
-			//- debugger;
 			var htmlString = '<div class="mapListItem"><a>'+selected.regions[i]+'</a><p>'+selected.titles[i]+'</p><p>'+selected.copy[i]+'</p></div><hr>'
 			$('#mapCountryList').append(htmlString)
 		}
