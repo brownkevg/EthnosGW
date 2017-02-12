@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	include nav
+	
+
+	.container.loginContainer
+		.col-sm-6.col-sm-offset-3
+			.headerTitle GLOW
+			form(action="/login" method="post")
+				.form-group
+					input.form-control(type="text" placeholder="email" name="email")
+				.form-group
+					input.form-control(type="password" placeholder="password" name="password")
+				input.btn.btn-success.loginSubmit(type="submit")
+			.createAccountTitle Don't have an account? Create one here.
+			a(href="/signup").createAccount Create Account
+
+
+
+	include footer

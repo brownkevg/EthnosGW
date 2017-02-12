@@ -1,0 +1,68 @@
+#search{
+	margin-top: 25px;
+}
+#search .searchHeader{
+	font-size: 30px;
+	text-transform: uppercase;
+	font-weight: 900;
+	letter-spacing: .1px;
+	color:white;
+}
+#search .rowSelect{
+	display: flex;
+	justify-content: center;
+}
+#search .searchInput{
+	width: 300px;
+	border-color:white;
+	background-color:black;
+	border-radius:0;
+}
+#search .col-md-4{
+	padding:0;
+}
+#search .inputHeader{
+	color:white;
+	padding: 15px 0 5px 0;
+}
+#search .searchButton{
+	background-color: #000;
+	margin-top: 20px;
+	color: white;
+	font-size: 11px;
+	padding: 8px 25px;
+	font-weight: 600;
+	border: none;
+	margin-left: 220px;
+}
+#search .searchOption{
+	color:red;
+}
+#search hr{
+}
+
+#searchResults{
+	padding:0px;
+	display: flex;
+	justify-content: center;
+}
+#searchResults .result{
+	display:inline-block;
+	margin-right: 50px;
+}
+#searchResults .artwork{
+	background-color: white;
+	width: 200px;
+	height: 200px;
+}
+#searchResults .title{
+	padding-top: 5px;
+	color: white;
+	font-weight:900;
+	font-size:12px;
+	margin-bottom:0px;
+}
+#searchResults .artist{
+	color:white;
+	font-size:10px;
+}

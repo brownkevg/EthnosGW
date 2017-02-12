@@ -1,0 +1,70 @@
+script.
+	$(document).ready(function(){
+	var mapData = !{JSON.stringify(mapData)}
+		jQuery('#vmap').vectorMap({
+			backgroundColor: '#FFF',
+			borderColor: '#333',
+			map: 'world_en',
+			color: '#A1A2A3',
+			hoverOpacity: .85,
+			selectedColor: '#161e31',
+			enableZoom: false,
+			showTooltip: false,
+			selectedRegions: !{JSON.stringify(mapData)},
+			multiSelectRegion: true,
+			scaleColors: ['#929292', '#A6A6A6', '#C8C8C8','#CCCCCC'],
+			values: sample_data,
+			normalizeFunction: 'polynomial',
+			onRegionClick: function(event,code,region){
+				if(selected.regions.indexOf(code) > -1){
+					if(typeof navObj[code] !== 'undefined'){
+						var a = document.createElement('a');
+						a.href = navObj[code]; //Will not work until UPR's are given a pdf link
+						a.target = '_blank';
+						a.click();
+					}
+					event.preventDefault()
+				}else{
+					event.preventDefault()
+				}
+			}
+		});
+
+		for(var i = 0; i < selected.regions.length; i++){
+			var code = selected.regions[i];
+			var $content = selected.titles[i];
+			$("path#jqvmap1_" + code).qtip({
+				content: $content,
+				position: {
+					target: 'mouse',
+					my: 'bottom center',
+					at: 'top center',
+					adjust:{
+						y: -25
+					}
+				},
+				style: {
+					classes: 'qtip-bootstrap',
+				},
+				show: {
+					effect: function(){
+						$(this).fadeTo(250, 1);
+					},
+					delay: 40,
+				},
+			});
+		}
+
+		$('#mapCountryList').append('<div class="mapListItem"><a>Country List</div><hr>')
+
+		for(var i = 0; i < selected.regions.length; i++){
+			var htmlString = '<div class="mapListItem"><a>'+selected.regions[i]+'</a><p>'+selected.titles[i]+'</p><p>'+selected.copy[i]+'</p></div><hr>'
+			$('#mapCountryList').append(htmlString)
+		}
+
+		})
+
+block content
+	.mapArea
+		.mapLabel
+			#vmap

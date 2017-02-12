@@ -1,0 +1,20 @@
+nav.navigation
+	.container-fluid.topNav
+		.lu-monogram-nav.hidden-xs
+			a(href="http://www.liberty.edu")
+				img(src="/images/LU-Monogram.svg")
+		form.searchBar
+			input.searchBarInput(type="text" placeholder="Search Music...")
+		a.navItem(href="/upload") upload
+		a.navItem(href="/") account
+		a.navItem(href="/") about
+		a.navItem(href="/") resources
+		-if(user)
+			a.navItem.login(href="/profile")=user.local.firstName
+		-else
+			a.navItem.login(href="/login") login
+	.container-fluid.bottomNav
+		a.navItemBottom(href="/") News
+		a.navItemBottom(href="/") Forums
+		a.navItemBottom(href="/") Publishing Resources
+		a.navItemBottom(href="/") Contact Us
