@@ -4,86 +4,97 @@ extends layout
 
 block content
 	include nav
-	style.
-		.inputItem label{
-			margin-right: 30px;
-		}
-		.inputItem input[type=file]{
-			display: inline-block;
-		}
-	#uploadContainer.container(style="padding:30px")
+	#uploadContainer.container
 		.row
-			h2 Upload
 			form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
-				.inputItem.hidden
-					input.inputField(type='text' name='filePath' value=filePath)
-				.inputItem
-					label File Type
-					select.inputField(for="fileType" name="fileType")
-						option(value="") - Please Select One -
-						option(value="Song") Song
-						option(value="Video") Video
-						option(value="Poem") Poem
-				.inputItem
-					label Content Type
-					select.inputField(for="contentType" name="contentType")
-						option(value="") - Please Select One -
-						option(value="Drama") Drama
-						option(value="Visual Arts") Visual Arts
-						option(value="Dance") Dance
-						option(value="Music") Music
-						option(value="Film") Film
-						option(value="Poetry") Poetry
-						option(value="Other") Other
-				.inputItem
-					label Title
-					input.inputField(type='text' name="title" for="title")
-				.inputItem
-					label Album
-					input.inputField(type='text' name="album" for="album")
-				.inputItem
-					label Artist
-					input.inputField(type='text' name="artist" for="artist")
-				.inputItem
-					label Publisher
-					input.inputField(type='text' name="publisher" for="publisher")
-				.inputItem
-					label Genre
-					input.inputField(type='text' name="genre" for="genre")
-				.inputItem
-					label Description
-					textarea.inputField(name="description" for="description")
-				.inputItem
-					label Lyrics
-					textarea.inputField(name="lyrics" for="lyrics")
-				.inputItem
-					label Language
-					select.inputField(for="language" name="language")
-						option(value="") - Please Select One -
-						option(value="English") English
-						option(value="Spanish") Spanish
-						option(value="German") German
-						option(value="French") French
-						option(value="Italian") Italian
-						option(value="Swahili") Swahili
-						option(value="Portuguese") Portuguese
-						option(value="Garhwali") Garhwali
-						//- This will eventually be grabbed from a database
-				.inputItem
-					label People Group
-					select.inputField(for="peopleGroup" name="peopleGroup")
-						option(value="") - Please Select One -
-						option(value="PlaceHolder") PlaceHolder
-				.inputItem
-					label Country
-					select.inputField(for="country" name="country")
-						each country in countries
-							option(value=country.alpha2) #{country.name}
-				.inputItem
-					label Remain Anonymous?
-					input.inputField(type='checkbox' name="anonymous")
+				.container
+					.col-xl-2.col-lg-3.col-md-4.col-sm-12
+						.outerBox.upload2
+							img(src="images/musicNote.PNG")
+						.col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
+							input.inputField(type="file" name="cover" for="cover")
+					.col-xl-10.col-lg-9
+						h3 What is this?
+					.col-xl-5.col-lg-4.col-md-4.col-sm-12
+						.inputItem.hidden
+							input.inputField(type='text' name='filePath' value=filePath)
+						.inputItem
+							label File Type
+							select.inputField(for="fileType" name="fileType")
+								option(value="") - Please Select One -
+								option(value="Song") Song
+								option(value="Video") Video
+								option(value="Poem") Poem
+						.inputItem
+							label Content Type
+							select.inputField(for="contentType" name="contentType")
+								option(value="") - Please Select One -
+								option(value="Drama") Drama
+								option(value="Visual Arts") Visual Arts
+								option(value="Dance") Dance
+								option(value="Music") Music
+								option(value="Film") Film
+								option(value="Poetry") Poetry
+								option(value="Other") Other
+						.inputItem
+							label Language
+							select.inputField(for="language" name="language")
+								option(value="") - Please Select One -
+								option(value="English") English
+								option(value="Spanish") Spanish
+								option(value="German") German
+								option(value="French") French
+								option(value="Italian") Italian
+								option(value="Swahili") Swahili
+								option(value="Portuguese") Portuguese
+								option(value="Garhwali") Garhwali
+								//- This will eventually be grabbed from a database
+						.inputItem
+							label People Group
+							select.inputField(for="peopleGroup" name="peopleGroup")
+								option(value="") - Please Select One -
+								option(value="PlaceHolder") PlaceHolder
+						.inputItem
+							label Country
+							select.inputField(for="country" name="country")
+								each country in countries
+									option(value=country.alpha2) #{country.name}
+					.col-xl-4.col-lg-4.col-md-4.col-sm-12
+						.inputItem
+							label Title
+							input.inputField(type='text' name="title" for="title")
+						.inputItem
+							label Album
+							input.inputField(type='text' name="album" for="album")
+						.inputItem
+							label Artist
+							input.inputField(type='text' name="artist" for="artist")
+						.inputItem
+							label Publisher
+							input.inputField(type='text' name="publisher" for="publisher")
+						.inputItem
+							label Genre
+							input.inputField(type='text' name="genre" for="genre")
+					.col-xl-12.col-lg-12.col-md-12.col-sm-12
+						.inputItem
+							label Description
+							textarea.inputField(name="description" for="description")
+						.inputItem
+							label Lyrics
+							textarea.inputField(name="lyrics" for="lyrics")
+						.inputItem
+							label Remain Anonymous?
+							input.inputField(type='checkbox' name="anonymous")
 
-				input.btn.btn-success.submitButton(type='submit' value='Submit')
+						input.btn.btn-success.submitButton(type='submit' value='Submit')
+		.row
+			.container
+				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
+					img(src="images/concert.jpg")
+					.overlay
+						p#sentOne For tips, read up with the <a href="#">GLOW upload guide </a>.
+						p#sentTwo Know which license to use? Read about the different <a href="#">licenses</a>.
+						p#sentThree Find out what content is allowed <a href="#">here</a>.
 
 	#successContainer.hidden
 		h2 Upload Complete

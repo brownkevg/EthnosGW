@@ -14,7 +14,7 @@ exports.uploadContent = function(req,res){
 	content.route = req.body.title.replace(/ /g,'-').toLowerCase();
 	//Will need to check for the uniqueness of a route
 	dbClient.collection('media').save(content,function(err, result){
-		res.status(200).end(JSON.stringify({success:true}));
+		// res.status(200).end(JSON.stringify({success:true}));
 	})
 }
 
