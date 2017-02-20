@@ -6,13 +6,16 @@ block content
 	include nav
 	#uploadContainer.container
 		.row
-			form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
-				.container
+			.container
+				form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
 					.col-xl-2.col-lg-3.col-md-4.col-sm-12
 						.outerBox.upload2
 							img(src="images/musicNote.PNG")
 						.col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
-							input.inputField(type="file" name="cover" for="cover")
+							input.inputField(type="file" name="fileLocation" for="fileLocation")
+							//- .inputItem.temp
+							//- 	input.fileSubmit.btn.innerBox(type="submit" value="Upload")
+				form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
 					.col-xl-10.col-lg-9
 						h3 What is this?
 					.col-xl-5.col-lg-4.col-md-4.col-sm-12
@@ -109,3 +112,6 @@ block content
 							span.sr-only 100% Complete
 
 	include footer
+
+	script.
+		

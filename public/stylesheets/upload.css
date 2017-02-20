@@ -24,8 +24,6 @@
 }
 #helpImg{
 	padding:0;
-	margin-left:15px;
-	margin-right:15px;
 	margin-top:30px;
 	margin-bottom:10px;
 	position:relative;
@@ -116,4 +114,9 @@ p#sentTwo, p#sentThree{
 .inputItem textarea[name=lyrics]{
 	width:100%;
 	height:150px;
+}
+/*temp*/
+.inputItem.temp{
+	height:100px;
+	width:75px;
 }
