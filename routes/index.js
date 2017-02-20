@@ -53,12 +53,14 @@ router.post('/testPost', function(req, res){
 	// console.log(req.files.fileLocation);
 	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
-	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+	var fileName = file.originalFilename.replace(/ - /g,"_").replace(/ /g,"-")
+	debugger;
+	return s3fsImpl.writeFile(/*file.originalFilename*/fileName, stream).then(function(){
 		fs.unlink(file.path, function(err){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+fileName})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });

@@ -16,8 +16,8 @@ exports.home = function(req,res){
 			pageModel.recommended = results2
 			getMapData(function(mapData){
 				res.render('home',{pageModel:pageModel,mapData:mapData, user:req.user});
-			})	
-		})		
+			})
+		})
 	})
 }
 
@@ -35,7 +35,6 @@ exports.page = function(req,res){
 			return;
 		}
 		res.render('media',{pageModel:results[0],user:req.user});
-
 	})
 }
 

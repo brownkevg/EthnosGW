@@ -10,6 +10,7 @@ nav.navigation
 		a.navItem(href="/") about
 		a.navItem(href="/") resources
 		-if(user)
+			a.navItem.logout(href="/logout") logout
 			a.navItem.login(href="/profile")=user.local.firstName
 		-else
 			a.navItem.login(href="/login") login

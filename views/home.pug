@@ -55,7 +55,7 @@ block content
 					p.columnItem Mad Percussion
 			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
 				#rightColumn
-					.banner
+					img.banner(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
 					//- .rightContainer(style="padding:40px 40px;")
 					- if (typeof(pageModel) !== 'undefined'){
 					.rightContainer(style="padding:40px 40px;")
@@ -68,7 +68,7 @@ block content
 								-for(var i = init; i < condition; i++)
 									-if(typeof popular[i] !== 'undefined')
 										.item
-											.image
+											img.image(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
 											.description
 												a.title(href=popular[i].route)=popular[i].title
 												.artist=popular[i].artist
@@ -86,7 +86,7 @@ block content
 								-for(var i = init; i < condition; i++)
 									-if(typeof recommended[i] !== 'undefined')
 										.item
-											.image
+											img.image(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
 											.description
 												a.title(href=recommended[i].route)=recommended[i].title
 												.artist=recommended[i].artist
