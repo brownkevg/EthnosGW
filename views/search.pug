@@ -2,40 +2,24 @@ extends layout
 
 block content
 	include nav
-	.container-fluid.index
-		.container
-			#search
-				p.searchHeader Search
-				-var testData=['Music','Other','test']
-				.rowSelect
-					.column(style="width: 350px")
-						.inputHeader Keywords
-						input.searchInput(type='text')
-					.column(style="width: 350px")
-						.inputHeader Language
-						select.searchInput(data=testData)
-							-for(var i = 0; i < testData.length; i++)
-								option.searchOption(value=testData[i])=testData[i]
-				.rowSelect
-					.column(style="width: 350px")
-						.inputHeader Art Form
-						select.searchInput
-					.column(style="width: 350px")
-						.inputHeader Genre
-						select.searchInput
-				button.searchButton SEARCH
-				hr
-
-			#searchResults
-				.result
-					.artwork
-					p.title MEZMUR 19
-					p.artist Turkish, Song
-				.result
-					.artwork
-					p.title MEZMUR 19
-					p.artist Turkish, Song
-				.result
-					.artwork
-					p.title MEZMUR 19
-					p.artist Turkish, Song
+	.container-fluid.index(style="padding:0")
+		//- .columnContainer
+		include widgets/leftColumnWidget
+		.col-md-7#search
+			p.resultsHeader Results
+			-for(var i = 0; i < results.length; i++)
+				.searchItem
+					img.itemImage(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
+					.itemInfo
+						-var title = (results[i].title.length > 30) ? results[i].title.substr(0,30) + "..." : results[i].title
+						p.title=title
+						span
+						p.artist
+							| #{results[i].artist} | 
+							span
+							| #{results[i].publisher}
+						.viewRow
+							p.published Oct 21, 2016
+							p.views #{results[i].views} views
+						p.contentType=results[i].contentType
+	include footer

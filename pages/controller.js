@@ -2,6 +2,7 @@ var cache = require('mongo-atm');
 var pageCache = new cache({ttl:60,limit:500});
 var url = require('url');
 var countries = require('country-data').countries;
+var functions = require('../miscFunctions/functions')
 
 exports.home = function(req,res){
 	if (typeof dbClient == 'undefined'){
@@ -14,7 +15,7 @@ exports.home = function(req,res){
 		searchObj = {};
 		pageCache.getMongo("media",searchObj,{mongoClient:dbClient, limit:10},function(results2){
 			pageModel.recommended = results2
-			getMapData(function(mapData){
+			functions.getMapData(function(mapData){
 				res.render('home',{pageModel:pageModel,mapData:mapData, user:req.user});
 			})
 		})
@@ -38,17 +39,7 @@ exports.page = function(req,res){
 	})
 }
 
-var getMapData = function(callback){
-	var searchObj = {$and:[{country:{$ne:""}},{country:{$exists:true}}]}
-	pageCache.getMongo("media",searchObj,{mongoClient:dbClient},function(results){
-		var countries = []
-		var item = {};
-		for(var i = 0; i < results.length; i++){
-			countries.push(results[i].country)
-		}
-		callback(countries);
-	})
-}
+
 
 // remove if not used
 function noDB(res){

@@ -24,10 +24,6 @@ router.get('/upload2', function(req, res, next){
 })
 // ************* end temp routes
 
-router.get('/search', function(req, res, next) {
-	res.render('search', {title: 'Glow'})
-})
-
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});
 })

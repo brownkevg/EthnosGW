@@ -1,3 +1,21 @@
+//- extends layout
+
+//- block content
+//-     include nav
+
+//-     h2.center deelip kumar - Love
+//-     <audio class="center" controls>
+//-         <source src="/media/deelipKumar-Love.mp3" type="audio/mpeg">
+//-     </audio>
+//-     br
+//-     h2.center=pageModel.title
+//-     <video class="center" width="400" controls="controls">
+//-         <source src=#{pageModel.filePath} type="video/ogg">
+//-     </video>
+//-     br
+//-     include footer
+
+
 extends layout
 
 block content
@@ -7,6 +25,10 @@ block content
 	<audio style="width: 700px; margin-left: 50px; margin-bottom:20px" controls>
 		<source src=#{pageModel.filePath} type="audio/mpeg">
 	</audio>
+	//- <video class="center songBox" width="400" controls="controls">
+	//- 	<source src=#{pageModel.filePath} type="video/ogg">
+	//- </video>
+	
 	#views #{pageModel.views} views
 	#datePosted July 17, 2016
 	.infoBox
