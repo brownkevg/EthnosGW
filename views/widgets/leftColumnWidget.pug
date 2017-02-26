@@ -2,31 +2,29 @@
 	include mapModal
 	#leftColumn
 		p.header(style="margin-top:0") Browse
-		div
-			select.refineItem(for="language" name="language")
+		form(action="/search" method="GET")
+			select.refineItem(for="Language" name="language")
 				option(value="") Language
 				option(value="English") English
 				option(value="Spanish") Spanish
 				option(value="French") French
 				option(value="German") German
+				option(value="Italian") Italian
 			//- p.columnItem(style="display:inline") language
-		div
-			select.refineItem(for="Location" name="Location")
+			select.refineItem(for="Location" name="location")
 				option(value="") Location
 				option(value="North America") North America
 				option(value="Middle East") Middle East
 				option(value="Asia") Asia
 				option(value="Europe") Europe
 			//- p.columnItem(style="display:inline") location
-		div
-			select.refineItem(for="Genre" name="Genre")
+			select.refineItem(for="Genre" name="genre")
 				option(value="") Genre
 				option(value="Worship") Worship
 				option(value="Folk") Folk
 				option(value="Gospel") Gospel
 			//- p.columnItem(style="display:inline") genre
-		div
-			select.refineItem(for="artForm" name="artForm")
+			select.refineItem(for="ArtForm" name="artForm")
 				option(value="") Art Form
 				option(value="Drama") Drama
 				option(value="Visual Arts") Visual Arts
@@ -36,6 +34,7 @@
 				option(value="Poetry") Poetry
 				option(value="Other") Other
 			//- p.columnItem(style="display:inline") art form
+			input(type="submit" value="submit")
 		
 		.mapLink(type="button" data-toggle="modal" data-target="#myModal")
 			p.header.map Map
