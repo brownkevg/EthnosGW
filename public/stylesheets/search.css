@@ -19,7 +19,7 @@
 	float:left;
 }
 #search .itemInfo{
-	/*width: 100%;*/
+	min-width: 320px;
 	height: 100%;
 	float: left;
 	display: inline;

@@ -21,13 +21,16 @@ extends layout
 block content
 	include nav
 	.title=pageModel.title
-	img.songBox(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
-	<audio style="width: 700px; margin-left: 50px; margin-bottom:20px" controls>
-		<source src=#{pageModel.filePath} type="audio/mpeg">
-	</audio>
-	//- <video class="center songBox" width="400" controls="controls">
-	//- 	<source src=#{pageModel.filePath} type="video/ogg">
-	//- </video>
+	-var fileType = pageModel.fileType
+	if fileType === "Video"
+		<video class="center songBox" width="400" controls="controls">
+			<source src=#{pageModel.filePath} type="video/ogg">
+		</video>
+	else
+		img.songBox(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
+		<audio style="width: 700px; margin-left: 50px; margin-bottom:20px" controls>
+			<source src=#{pageModel.filePath} type="audio/mpeg">
+		</audio>
 	
 	#views #{pageModel.views} views
 	#datePosted July 17, 2016
