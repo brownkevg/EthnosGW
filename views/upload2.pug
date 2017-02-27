@@ -10,17 +10,22 @@ block content
 				form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
 					.col-xl-2.col-lg-3.col-md-4.col-sm-12
 						.outerBox.upload2
-							img(src="images/musicNote.PNG")
-						.col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
-							input.inputField(type="file" name="fileLocation" for="fileLocation")
-							//- .inputItem.temp
-							//- 	input.fileSubmit.btn.innerBox(type="submit" value="Upload")
+							if filePathCover
+								img(src=filePathCover)
+							else
+								img(src="images/musicNote.PNG")
+						//- .col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
+						//- 	input.inputField(type="file" name="fileLocation" for="fileLocation")
+						//- 	//- .inputItem.temp
+						//- 	//- 	input.fileSubmit.btn.innerBox(type="submit" value="Upload")
 				form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
 					.col-xl-10.col-lg-9
 						h3 What is this?
 					.col-xl-5.col-lg-4.col-md-4.col-sm-12
 						.inputItem.hidden
 							input.inputField(type='text' name='filePath' value=filePath)
+						.inputItem.hidden
+							input.inputField(type='text' name='filePathCover' value=filePathCover)
 						.inputItem
 							label File Type
 							select.inputField(for="fileType" name="fileType")
