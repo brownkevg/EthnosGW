@@ -20,7 +20,16 @@ router.get('/upload1', function(req, res, next){
 	res.render('upload1');
 })
 router.get('/upload2', function(req, res, next){
-	res.render('upload2', {countries:sortCountries(countries.all)});
+	res.render('upload2');
+})
+router.get('/upload3', function(req, res, next){
+	res.render('upload3', {countries:sortCountries(countries.all)});
+})
+router.get('/upload4', function(req, res, next){
+	res.render('upload4');
+})
+router.get('/success', function(req, res, next){
+	res.render('success');
 })
 // ************* end temp routes
 
@@ -58,8 +67,35 @@ router.post('/testPost', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
+	});
+});
+// album cover
+router.post('/cover', function(req, res){
+	// console.log(req.files.fileLocation);
+	var file = req.files.fileLocation;
+	var stream = fs.createReadStream(file.path);
+	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+		fs.unlink(file.path, function(err){
+			if(err)
+				console.error(err);
+		})
+		res.render('upload3',{countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+	});
+});
+// additional file(s)
+router.post('/additionalFile', function(req, res){
+	// console.log(req.files.fileLocation);
+	var file = req.files.fileLocation;
+	var stream = fs.createReadStream(file.path);
+	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+		fs.unlink(file.path, function(err){
+			if(err)
+				console.error(err);
+		})
+		res.render('success')
+		
 	});
 });
 /* end AWS bucket */
