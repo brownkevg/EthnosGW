@@ -115,6 +115,16 @@ p#sentTwo, p#sentThree{
 	width:100%;
 	height:150px;
 }
+.success{
+	text-align:center;
+	height:200px;
+}
+.success h1{
+	color:black;
+}
+.success a{
+	font-size:17px;
+}
 /*temp*/
 .inputItem.temp{
 	height:100px;
