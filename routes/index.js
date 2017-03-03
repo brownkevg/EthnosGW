@@ -33,10 +33,6 @@ router.get('/success', function(req, res, next){
 })
 // ************* end temp routes
 
-router.get('/search', function(req, res, next) {
-	res.render('search', {title: 'Glow'})
-})
-
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});
 })
@@ -62,12 +58,13 @@ router.post('/testPost', function(req, res){
 	// console.log(req.files.fileLocation);
 	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
-	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+	var fileName = file.originalFilename.replace(/ - /g,"_").replace(/ /g,"-")
+	return s3fsImpl.writeFile(/*file.originalFilename*/fileName, stream).then(function(){
 		fs.unlink(file.path, function(err){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+fileName})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });

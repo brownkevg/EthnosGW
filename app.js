@@ -60,6 +60,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 //Routes
+require('./search/routes')(app);
 require('./login/routes')(app, passport);
 require('./upload/routes')(app);
 require('./pages/routes')(app); //NOTE: This needs to be last

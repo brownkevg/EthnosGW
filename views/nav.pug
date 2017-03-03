@@ -3,13 +3,15 @@ nav.navigation
 		.lu-monogram-nav.hidden-xs
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
-		form.searchBar
-			input.searchBarInput(type="text" placeholder="Search Music...")
+		form.searchBar(action="/search" method="GET")
+			input.searchBarInput(type="text" placeholder="Search Music..." name="searchTerm")
+			input.navItem.search(type="submit" value="submit")
 		a.navItem(href="/upload") upload
 		a.navItem(href="/") account
 		a.navItem(href="/") about
 		a.navItem(href="/") resources
 		-if(user)
+			a.navItem.logout(href="/logout") logout
 			a.navItem.login(href="/profile")=user.local.firstName
 		-else
 			a.navItem.login(href="/login") login
