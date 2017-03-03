@@ -17,7 +17,9 @@ exports.home = function(req,res){
 		pageCache.getMongo("media",searchObj,{mongoClient:dbClient, limit:10},function(results2){
 			pageModel.recommended = results2
 			functions.getMapData(function(mapData){
-				res.render('home',{pageModel:pageModel,mapData:mapData, user:req.user});
+				functions.getLanguages(function(languageData){
+					res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData});
+				})
 			})
 		})
 	})

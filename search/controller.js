@@ -22,8 +22,10 @@ exports.search=function(req,res){
 	}
 	find(searchString,function(searchResults){
 		functions.getMapData(function(mapData){
-			res.render('search',{results:searchResults,mapData:mapData})
-		})
+			functions.getLanguages(function(languageData){
+				res.render('search',{results:searchResults,mapData:mapData,languageData:languageData})
+			});
+		});
 	});
 	
 }

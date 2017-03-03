@@ -5,11 +5,8 @@
 		form(action="/search" method="GET")
 			select.refineItem(for="Language" name="language")
 				option(value="") Language
-				option(value="English") English
-				option(value="Spanish") Spanish
-				option(value="French") French
-				option(value="German") German
-				option(value="Italian") Italian
+				-for(var i = 0; i < languageData.length; i++)
+					option(value=[languageData[i]])=languageData[i]
 			//- p.columnItem(style="display:inline") language
 			select.refineItem(for="Location" name="location")
 				option(value="") Location

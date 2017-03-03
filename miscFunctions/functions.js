@@ -11,3 +11,8 @@ exports.getMapData = function(callback){
 		callback(countries);
 	})
 }
+exports.getLanguages = function(callback){
+	dbClient.collection("media").distinct("lng",function(err,languages){
+		callback(languages);
+	})
+}
