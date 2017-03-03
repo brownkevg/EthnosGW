@@ -10,6 +10,8 @@ exports.upload = function(req,res){
 
 exports.uploadContent = function(req,res){
 	var content = req.body;
+	if(req.user.local.email !== 'undefined') // Need to do checks for whether they are logged in or not.
+		content.user = req.user.local.email;
 	content.views = 0;
 	content.route = req.body.title.replace(/ /g,'-').toLowerCase();
 	//Will need to check for the uniqueness of a route

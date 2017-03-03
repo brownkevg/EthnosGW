@@ -50,7 +50,6 @@ router.post('/testPost', function(req, res){
 	var file = req.files.fileLocation;
 	var stream = fs.createReadStream(file.path);
 	var fileName = file.originalFilename.replace(/ - /g,"_").replace(/ /g,"-")
-	debugger;
 	return s3fsImpl.writeFile(/*file.originalFilename*/fileName, stream).then(function(){
 		fs.unlink(file.path, function(err){
 			if(err)

@@ -8,7 +8,7 @@ block content
 		.col-md-7#search
 			p.resultsHeader Results
 			-for(var i = 0; i < results.length; i++)
-				.searchItem
+				a.searchItem(href=results[i].route)
 					img.itemImage(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
 					.itemInfo
 						-var title = (results[i].title.length > 30) ? results[i].title.substr(0,30) + "..." : results[i].title

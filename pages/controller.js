@@ -1,3 +1,4 @@
+var mongo = require('mongodb');
 var cache = require('mongo-atm');
 var pageCache = new cache({ttl:60,limit:500});
 var url = require('url');
@@ -35,7 +36,12 @@ exports.page = function(req,res){
 			res.render('error',{title:'Error: 404',msg:"Sorry, we couldn't find the page you were looking for.", url:url});
 			return;
 		}
-		res.render('media',{pageModel:results[0],user:req.user});
+		var mediaData = results[0];
+		debugger;
+		dbClient.collection('media').update({_id:mongo.ObjectId(mediaData._id)},{$inc:{views:1}},{upsert:false},function(err,results){
+			res.render('media',{pageModel:mediaData,user:req.user});
+		})
+		
 	})
 }
 
