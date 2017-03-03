@@ -37,7 +37,6 @@ exports.page = function(req,res){
 			return;
 		}
 		var mediaData = results[0];
-		debugger;
 		dbClient.collection('media').update({_id:mongo.ObjectId(mediaData._id)},{$inc:{views:1}},{upsert:false},function(err,results){
 			res.render('media',{pageModel:mediaData,user:req.user});
 		})

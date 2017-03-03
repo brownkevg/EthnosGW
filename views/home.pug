@@ -20,8 +20,10 @@ block content
 							.content
 								-for(var i = init; i < condition; i++)
 									-if(typeof popular[i] !== 'undefined')
+										-var imagePath = (typeof popular[i].filePathCover !== 'undefined' && popular[i].filePathCover !== "") ? popular[i].filePathCover : "/images/concert.jpg"
 										.item
-											img.image(src=popular[i].filePathCover)
+											.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+												img.image(src=imagePath)
 											.description
 												a.title(href=popular[i].route)=popular[i].title
 												.artist=popular[i].artist
@@ -38,8 +40,10 @@ block content
 							.content
 								-for(var i = init; i < condition; i++)
 									-if(typeof recommended[i] !== 'undefined')
+										-var imagePath = (typeof recommended[i].filePathCover !== 'undefined' && recommended[i].filePathCover !== "") ? recommended[i].filePathCover : "/images/concert.jpg"
 										.item
-											img.image(src=popular[i].filePathCover)
+											.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+												img.image(src=imagePath)
 											.description
 												a.title(href=recommended[i].route)=recommended[i].title
 												.artist=recommended[i].artist

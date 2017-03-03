@@ -5,7 +5,9 @@ nav.navigation
 				img(src="/images/LU-Monogram.svg")
 		form.searchBar(action="/search" method="GET")
 			input.searchBarInput(type="text" placeholder="Search Music..." name="searchTerm")
-			input.navItem.search(type="submit" value="submit")
+			.searchIconContainer(style="background-color:#22334F;display:inline;padding:6.5px")
+				input(type="image" style="height:20px;vertical-align:middle" src="/images/search-white.png" alt="Submit Form")
+			//- input.navItem.search(type="submit" value="submit")
 		a.navItem(href="/upload") upload
 		a.navItem(href="/") account
 		a.navItem(href="/") about
