@@ -16,20 +16,23 @@ var countries = require('country-data').countries;
 //   res.render('index', { title: 'Glow' });
 // });
 // ************* temp routes for design
+router.get('/upload', function(req, res, next){
+	res.render('upload1',{user:req.user});
+})
 router.get('/upload1', function(req, res, next){
-	res.render('upload1');
+	res.render('upload1',{user:req.user});
 })
 router.get('/upload2', function(req, res, next){
-	res.render('upload2');
+	res.render('upload2',{user:req.user});
 })
 router.get('/upload3', function(req, res, next){
-	res.render('upload3', {countries:sortCountries(countries.all)});
+	res.render('upload3', {user:req.user,countries:sortCountries(countries.all)});
 })
 router.get('/upload4', function(req, res, next){
-	res.render('upload4');
+	res.render('upload4',{user:req.user});
 })
 router.get('/success', function(req, res, next){
-	res.render('success');
+	res.render('success',{user:req.user});
 })
 // ************* end temp routes
 
@@ -64,7 +67,7 @@ router.post('/testPost', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload2',{countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+fileName})
+		res.render('upload2',{user:req.user,countries:sortCountries(countries.all), filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+fileName})
 		// res.render('upload2',{filePath:"https://s3.us-east-2.amazonaws.com/ethnosgw/" + file.fileName, countries:sortCountries(countries.all)});
 	});
 });
@@ -78,7 +81,7 @@ router.post('/cover', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload3',{countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		res.render('upload3',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 	});
 });
 // additional file(s)
@@ -91,7 +94,7 @@ router.post('/additionalFile', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('success')
+		res.render('success',{user:req.user})
 		
 	});
 });

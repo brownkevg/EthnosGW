@@ -32,17 +32,27 @@ exports.page = function(req,res){
 		return;
 	}
 	var searchObj = {route: {$regex:'^' + page + '$',$options:'i'}}
-	pageCache.getMongo("media",searchObj,{mongoClient:dbClient},function(results){
+	pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:1},function(results){
 		if(results == null || results.length !== 1){
 			res.status(404);
 			res.render('error',{title:'Error: 404',msg:"Sorry, we couldn't find the page you were looking for.", url:url});
 			return;
 		}
 		var mediaData = results[0];
-		dbClient.collection('media').update({_id:mongo.ObjectId(mediaData._id)},{$inc:{views:1}},{upsert:false},function(err,results){
-			res.render('media',{pageModel:mediaData,user:req.user});
+		// debugger;
+		searchObj = {user:mediaData.user};
+		pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:3},function(artistResults){
+			searchObj = {user:mediaData.user,album:mediaData.album}
+			pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:3},function(albumResults){
+				searchObj = {country:mediaData.country} // ********** Need to figure out how we are querying related content. Which parameters? **********
+				pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:2},function(relatedResults){
+					dbClient.collection('media').update({_id:mongo.ObjectId(mediaData._id)},{$inc:{views:1}},{upsert:false},function(err,results){
+						// debugger;
+						res.render('media',{pageModel:mediaData,user:req.user,moreFromArtist:artistResults,moreFromAlbum:albumResults,relatedContent:relatedResults});
+					})
+				})
+			})
 		})
-		
 	})
 }
 

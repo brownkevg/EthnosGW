@@ -136,18 +136,38 @@
 	margin-left: 10px;
 	margin-top: 30px;
 }
-/*.relatedContent{
-	margin-left: 780px;
-	margin-top: -1520px;
-}*/
+.relatedContent{
+	margin-top: 20px
+}
 .moreFromArtist{
 	font-size: 20px;
 }
-.relatedThumbnail{
-	margin-top: 50px;
+.moreFromAlbum{
+	font-size: 20px;
+}
+.relatedContent .imageContainer{
+	width:105px;
 	height: 60px;
+	overflow:hidden;
+	position:relative;
+	display:inline;
+	float:left;
+	margin-top: 15px;
+}
+.relatedContent .relatedImage{
+	height:auto;
 	width: 105px;
-	background-color: #282828;
+	display: inline;
+	float:left;
+	position: absolute;
+	top:-25%;
+}
+.relatedItem .itemInfo{
+	min-width: 320px;
+	height: 100%;
+	float: left;
+	display: inline;
+	margin-left: 12.5px;
 }
 .songTitle{
 	font-weight: bold;
@@ -162,4 +182,15 @@
 .related{
 	font-size: 20px;
 	margin-top: 40px;
+}
+.relatedContent .relatedItem{
+	width: 100%;
+	height: 60px;
+	padding: 12.5px;
+	text-decoration: none;
+	color:#000;
+}
+.relatedContent .relatedSection{
+	float:left;
+	margin-bottom: 20px;
 }

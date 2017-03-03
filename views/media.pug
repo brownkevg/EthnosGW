@@ -63,33 +63,41 @@ block content
 						.miscellaneous Miscellaneous: Ancient Hebrew, Tribal Worship, Moses, Aaron, Ramses, Smoke, Fire, Pillar, Red Sea, Biblical, Palestine Israel Hebrew, Hebrews, Good Music
 		.col-md-4.col-sm-4
 			.relatedContent
-				.moreFromArtist More From Artist
-					.container
-						.relatedThumbnail(style="margin-top:20px !important;")
-						.songTitle 40 Years
-						.songArtist Moses and Aaron
-						.relatedThumbnail
-						.songTitle Milk and Honey
-						.songArtist Moses and Aaron
-						.relatedThumbnail
-						.songTitle Mount Sinai
-						.songArtist Moses and Aaron
-				.related Related
-					.container
-						.relatedThumbnail(style="margin-top:20px !important;")
-						.songTitle Yeha Noha
-						.songArtist Sacred Spirit
-						.relatedThumbnail
-						.songTitle Yeha Noha
-						.songArtist Sacred Spirit
-						.relatedThumbnail
-						.songTitle Yeha Noha
-						.songArtist Sacred Spirit
-						.relatedThumbnail
-						.songTitle Yeha Noha
-						.songArtist Sacred Spirit
-						.relatedThumbnail
-						.songTitle Yeha Noha
-						.songArtist Sacred Spirit
+				.relatedSection
+					p.moreFromArtist More From Artist
+					-for(var i = 0; i < moreFromArtist.length; i++)
+						-var imagePath = (typeof moreFromArtist[i].filePathCover !== 'undefined' && moreFromArtist[i].filePathCover !== "") ? moreFromArtist[i].filePathCover : "/images/concert.jpg"
+						a.relatedItem(href=moreFromArtist[i].route)
+							.imageContainer
+								img.relatedImage(src=imagePath)
+							.itemInfo
+								-var title = (moreFromArtist[i].title.length > 30) ? moreFromArtist[i].title.substr(0,30) + "..." : moreFromArtist[i].title
+								p.songTitle=title
+								p.songArtist=moreFromArtist[i].artist
+
+				.relatedSection
+					p.moreFromAlbum More From Album
+					-for(var i = 0; i < moreFromAlbum.length; i++)
+						-var imagePath = (typeof moreFromAlbum[i].filePathCover !== 'undefined' && moreFromAlbum[i].filePathCover !== "") ? moreFromAlbum[i].filePathCover : "/images/concert.jpg"
+						a.relatedItem(href=moreFromAlbum[i].route)
+							.imageContainer
+								img.relatedImage(src=imagePath)
+							.itemInfo
+								-var title = (moreFromAlbum[i].title.length > 30) ? moreFromAlbum[i].title.substr(0,30) + "..." : moreFromAlbum[i].title
+								p.songTitle=title
+								p.songArtist=moreFromAlbum[i].artist
+
+
+				.relatedSection
+					p.moreFromAlbum Related
+					-for(var i = 0; i < relatedContent.length; i++)
+						-var imagePath = (typeof relatedContent[i].filePathCover !== 'undefined' && relatedContent[i].filePathCover !== "") ? relatedContent[i].filePathCover : "/images/concert.jpg"
+						a.relatedItem(href=relatedContent[i].route)
+							.imageContainer
+								img.relatedImage(src=imagePath)
+							.itemInfo
+								-var title = (relatedContent[i].title.length > 30) ? relatedContent[i].title.substr(0,30) + "..." : relatedContent[i].title
+								p.songTitle=title
+								p.songArtist=relatedContent[i].artist
 	include footer
 	
