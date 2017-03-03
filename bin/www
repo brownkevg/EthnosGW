@@ -11,6 +11,18 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var engines = require('consolidate');
 
+// Handles throw err
+// MongoError causes app to start without mongo
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  console.log("Node NOT Exiting...");
+  if(err = 'MongoError'){
+    server.listen(port, function(){
+      console.log("Listening on port " + app.get('port'));
+    });
+  }
+});
+
 /**
  * Get port from environment and store in Express.
  */
@@ -30,9 +42,6 @@ var server = http.createServer(app);
 
  MongoClient.connect('mongodb://localhost:27017/test', function(err, db){
   if(err){
-    server.listen(port, function(){
-      console.log("Listening on port " + app.get('port'));
-    });
     return console.dir(err);
   }
   dbClient=db;
