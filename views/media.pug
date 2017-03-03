@@ -33,7 +33,8 @@ block content
 					<source src=#{pageModel.filePath} type="video/ogg">
 				</video>
 			else
-				img.songBox(src="http://thevillagechurch.net/mediafiles/uploaded/m/0e3350345_1408459731_mission-worship-spanning.jpg")
+				.imageContainer(style="width: 700px; height: 380px; overflow:hidden; position:relative")
+					img.songBox(src=pageModel.filePathCover)
 				<audio style="width: 700px;" controls>
 					<source src=#{pageModel.filePath} type="audio/mpeg">
 				</audio>

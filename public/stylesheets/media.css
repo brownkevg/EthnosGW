@@ -23,9 +23,12 @@
 	font-size: 25px;
 }
 .songBox{
-	height: 380px;
+	/*height: 380px;*/
+	height: auto;
 	width: 700px;
 	background-color: #282828;
+	position: absolute;
+	top:-25%;
 	/*margin-bottom: 20px;*/
 }
 #views{
