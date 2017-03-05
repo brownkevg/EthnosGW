@@ -64,15 +64,25 @@ img.bg {
 .navigation li{
 	display: inline-block;
 }
-.navigation li.signIn{
+/*.navigation li.signIn button{
 	background-color: #3F98F8;
-}
+}*/
 .navigation li a{
 	display: block;
 	color: white;
 	text-align: center;
 	padding: 17px 16px;
 	text-decoration: none;
+}
+.navigation li.signIn button#loginButton{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 17px 16px;
+	text-decoration: none;
+	background-color: #3F98F8;
+	border-color: : #3F98F8 !important;
+	border-style: none;
 }
 .navigation li a:hover{
 	background-color: #111;
@@ -100,6 +110,9 @@ img.bg {
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
+}
+.show{
+	display: block;
 }
 @media screen and (max-width: 768px){
 	.navbar-logo{

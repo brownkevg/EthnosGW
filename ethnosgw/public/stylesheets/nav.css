@@ -37,6 +37,12 @@
 	display: inline-block;
 	float: right;
 }
-.login{
+.btn.btn-primary{
 	float:right;
+	margin-top: 3px;
+	padding: 14px;
+	width: auto;
+	height: auto;
+	margin: 0px;
+	border-radius: 0px;
 }

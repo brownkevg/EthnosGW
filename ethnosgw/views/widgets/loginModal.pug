@@ -1,0 +1,25 @@
+button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
+  Launch Login
+
+.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+        h5(class="modal-title" id="exampleModalLabel") Login
+      .modal-body
+        form(action="/login" method="post")
+          input(type="text" placeholder="Email" name="email")
+          input(type="text" placeholder="Password" name="password" style="margin-bottom: 10px;")
+          button(type="submit" class="btn btn-primary" id="submitLogin" value="Log In") Enter
+        a(href="#") Forgot your password?
+        p Don't have an account? Click <a href="#">Here</a>
+      //- .modal-footer
+      //-   button(type="button" class="btn btn-secondary" id="closeLogin" data-dismiss="modal") Close
+      //-   //- button(type="submit" class="btn btn-primary" id="submitLogin" value="Log In") Enter
+
+script.
+  $(".btn.btn-primary").click(function(){
+    $("#myModal").modal('toggle')
+  })

@@ -1,3 +1,28 @@
+.loginModal{
+	display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.loginWindow{
+	position: absolute;
+	left: 40%;
+	top: 10%;
+	height: 350px;
+	width: 275px;
+	background-color: #F0F0F0; 
+}
+.loginWindow h1{
+	font-weight: thin;
+	font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
 .loginContainer{
 	/*width:100px;*/
 	/*height:100px;*/
@@ -8,12 +33,12 @@
 	font-size:40px;
 	text-align: center;
 }
-.loginContainer input{
+/*.loginContainer input{
 	display: block;
 	margin:0 auto;
 	padding:10px;
 	margin-top:10px;
-}
+}*/
 .loginContainer .loginSubmit{
 	width:200px;
 }
@@ -39,3 +64,35 @@
 .createAccount:hover{
 	text-decoration: none;
 }
+.modal-header button{
+	top: -30px;
+}
+.modal-content{
+	width: 300px;
+	position: fixed;
+	left: 40%;
+}
+.modal-body input{
+	display: block;
+	margin:0 auto;
+	padding:10px;
+	margin-top:10px;
+}
+.modal-body a, p{
+	font-size: 8px
+}
+.btn.btn-primary#submitLogin{
+	float:right;
+	padding: 6px 12px;
+	margin-top: 8px;
+}
+.btn.btn-secondary#closeLogin{
+	border-radius: 0px;
+}
+.modal-header button{
+	float:right !important;
+}
+/*#myModal{
+	width: 100%;
+	left: 35%;
+}*/
