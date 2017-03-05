@@ -70,12 +70,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 //Routes
-<<<<<<< HEAD:ethnosgw/app.js
 require('./login/routes')(app);
-=======
-require('./search/routes')(app);
-require('./login/routes')(app, passport);
->>>>>>> master:app.js
 require('./upload/routes')(app);
 require('./pages/routes')(app); //NOTE: This needs to be last
 

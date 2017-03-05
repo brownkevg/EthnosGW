@@ -19,7 +19,6 @@
 	height: 30px;
 	padding-left:10px;
 	width: 400px;
-	color:#FFF;
 }
 .navItem{
 	padding: 10px 20px;
@@ -40,16 +39,10 @@
 }
 .btn.btn-primary{
 	float:right;
-<<<<<<< HEAD:ethnosgw/public/stylesheets/nav.css
 	margin-top: 3px;
 	padding: 14px;
 	width: auto;
 	height: auto;
 	margin: 0px;
 	border-radius: 0px;
-=======
-}
-.logout{
-	float:right;
->>>>>>> master:public/stylesheets/nav.css
 }
