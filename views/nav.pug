@@ -3,6 +3,7 @@ nav.navigation
 		.lu-monogram-nav.hidden-xs
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
+<<<<<<< HEAD:ethnosgw/views/nav.pug
 		.navbar-logo
 			a(href='/')
 				img(alt='Ethnos' src='images/LU-Monogram.svg')
@@ -12,10 +13,18 @@ nav.navigation
 			.bar3
 		form.searchBar
 			input.searchBarInput(type="text" placeholder="Search Music...")
+=======
+		form.searchBar(action="/search" method="GET")
+			input.searchBarInput(type="text" placeholder="Search Music..." name="searchTerm")
+			.searchIconContainer(style="background-color:#22334F;display:inline;padding:6.5px")
+				input(type="image" style="height:20px;vertical-align:middle" src="/images/search-white.png" alt="Submit Form")
+			//- input.navItem.search(type="submit" value="submit")
+>>>>>>> master:views/nav.pug
 		a.navItem(href="/upload") upload
 		a.navItem(href="/") account
 		a.navItem(href="/") about
 		a.navItem(href="/") resources
+<<<<<<< HEAD:ethnosgw/views/nav.pug
 		include widgets/loginModal
 
 .container-fluid.bottomNav
@@ -36,3 +45,15 @@ script.
 		$(".navigation ul").toggleClass("change")
 		$(".navigation ul li").toggleClass("change")
 	})
+=======
+		-if(user)
+			a.navItem.logout(href="/logout") logout
+			a.navItem.login(href="/profile")=user.local.firstName
+		-else
+			a.navItem.login(href="/login") login
+	.container-fluid.bottomNav
+		a.navItemBottom(href="/") News
+		a.navItemBottom(href="/") Forums
+		a.navItemBottom(href="/") Publishing Resources
+		a.navItemBottom(href="/") Contact Us
+>>>>>>> master:views/nav.pug

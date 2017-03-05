@@ -1,0 +1,132 @@
+#uploadContainer{
+	padding:30px;
+}
+#uploadContainer .inputItem{
+	padding:15px 0px;
+}
+#uploadContainer .inputItem label{
+	width: 100px;
+}
+#uploadContainer .submitButton{
+	width: 150px;
+}
+.inputItem select[name=country]{
+	width:160px;
+}
+.modal-header h1{
+	color:#000;
+}
+.inputItem input[type=file]{
+	display: inline-block;
+}
+.inputItem label{
+	margin-right: 30px;
+}
+#helpImg{
+	padding:0;
+	margin-top:30px;
+	margin-bottom:10px;
+	position:relative;
+}
+#helpImg img{
+	width:100%;
+}
+.overlay{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(90,115,150,.5);
+}
+.overlay p{
+	font-weight:100;
+	font-size: 22px;
+	color:white;
+}
+p#sentOne{
+	margin-left:30px;
+	margin-top:130px;
+}
+p#sentTwo, p#sentThree{
+	margin-left:30px;
+	margin-top:30px;
+}
+.overlay p a{
+	color:white;
+	text-decoration: underline;
+}
+
+/*upload1*/
+.outerBox{
+	float:left;
+	height:200px;
+	width:200px;
+	background-color: #E5E5E5;
+	position:relative;
+}
+.innerBox{
+	text-align: center;
+	color: white;
+	height: 45px;
+	width:140px;
+	background-color: #82A3D7;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	font-size: 25px;
+	border-radius: 0px;
+}
+.innerBox:hover{
+	color: #dddddd;
+}
+.innerBox h3{
+	margin-top:10px;
+}
+.contentSelection{
+	/*float:left;
+	margin-left:20px;*/
+}
+#uploadContainer .contentSelection .inputItem label{
+	margin-right: 10px;
+	width: auto;
+}
+.contentSelection h4.description{
+	margin-top:20px;
+}
+/*upload2*/
+.outerBox.upload2 img{
+	width:200px;
+	height:200px;
+}
+#uploadCover{
+	margin-top:60px;
+}
+.bottom{
+	float:left;
+	display:inline-block;
+}
+.inputItem textarea[name=description]{
+	width:100%;
+	height:150px;
+}
+.inputItem textarea[name=lyrics]{
+	width:100%;
+	height:150px;
+}
+.success{
+	text-align:center;
+	height:200px;
+}
+.success h1{
+	color:black;
+}
+.success a{
+	font-size:17px;
+}
+/*temp*/
+.inputItem.temp{
+	height:100px;
+	width:75px;
+}

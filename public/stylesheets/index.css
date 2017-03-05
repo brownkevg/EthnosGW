@@ -7,7 +7,7 @@
 #leftColumn{
 	padding: 10px;
 }
-.header{
+.loginContainer .header{
 	text-decoration: underline;
 	font-size:16px;
 	font-weight: 800;
@@ -60,8 +60,10 @@
 }
 #rightColumn .item .image{
 	width: 175px;
-	height: 100px;
+	height: auto;
 	background-color: #282828;
+	position: absolute;
+	top:-25%;
 }
 #rightColumn .item .title{
 	font-size:18px;

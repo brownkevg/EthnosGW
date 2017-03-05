@@ -1,22 +1,40 @@
+#media .mediaHeader{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#media .title{
+	font-size: 28px;
+	/*padding-top: 10px;
+	padding-bottom: 10px;*/
+	font-weight: 700;
+	display: inline;
+}
+#media .rightHeader{
+	display: inline;
+	font-size:16px;
+	font-weight: 100;
+	opacity: .75;
+	padding-left: 10px;
+}
 .infoBox .title{
-	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-weight: bold;
 	font-size: 25px;
 }
 .songBox{
-	height: 380px;
+	/*height: 380px;*/
+	height: auto;
 	width: 700px;
 	background-color: #282828;
-	margin-left: 50px;
+	position: absolute;
+	top:-25%;
 	/*margin-bottom: 20px;*/
 }
 #views{
 	font-size: 20px;
 	color: #304A66;
-	margin-left: 50px;
-	margin-top: -10px;
+	margin-top: 0px;
 	margin-bottom: 10px;
 }
 #datePosted{
@@ -30,7 +48,6 @@
 	height: 800px;
 	width: 700px;
 	background-color: #E8E9EC;
-	margin-left: 50px;
 	margin-bottom: 30px;
 	margin-top: 0px;
 }
@@ -120,17 +137,37 @@
 	margin-top: 30px;
 }
 .relatedContent{
-	margin-left: 780px;
-	margin-top: -1520px;
+	margin-top: 20px
 }
 .moreFromArtist{
 	font-size: 20px;
 }
-.relatedThumbnail{
-	margin-top: 50px;
+.moreFromAlbum{
+	font-size: 20px;
+}
+.relatedContent .imageContainer{
+	width:105px;
 	height: 60px;
+	overflow:hidden;
+	position:relative;
+	display:inline;
+	float:left;
+	margin-top: 15px;
+}
+.relatedContent .relatedImage{
+	height:auto;
 	width: 105px;
-	background-color: #282828;
+	display: inline;
+	float:left;
+	position: absolute;
+	top:-25%;
+}
+.relatedItem .itemInfo{
+	min-width: 320px;
+	height: 100%;
+	float: left;
+	display: inline;
+	margin-left: 12.5px;
 }
 .songTitle{
 	font-weight: bold;
@@ -145,4 +182,15 @@
 .related{
 	font-size: 20px;
 	margin-top: 40px;
+}
+.relatedContent .relatedItem{
+	width: 100%;
+	height: 60px;
+	padding: 12.5px;
+	text-decoration: none;
+	color:#000;
+}
+.relatedContent .relatedSection{
+	float:left;
+	margin-bottom: 20px;
 }
