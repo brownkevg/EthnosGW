@@ -10,7 +10,7 @@ var countries = require('country-data').countries;
 
 exports.uploadContent = function(req,res){
 	var content = req.body;
-	if(req.user.local.email !== 'undefined') // Need to do checks for whether they are logged in or not.
+	if(typeof req.user !== 'undefined') // Need to do checks for whether they are logged in or not.
 		content.user = req.user.local.email;
 	content.views = 0;
 	content.route = req.body.title.replace(/ /g,'-').toLowerCase();

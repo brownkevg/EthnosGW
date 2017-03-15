@@ -21,83 +21,116 @@ extends layout
 block content
 	include nav
 	#media.container
-		.col-md-8.col-sm-8
-			.mediaHeader
-				.title=pageModel.title
-				.artist.rightHeader by #{pageModel.artist}
-				span.rightHeader |
-				.publisher.rightHeader=pageModel.publisher
-			-var fileType = pageModel.fileType
-			if fileType === "Video"
-				<video class="songBox" width="400" controls="controls">
-					<source src=#{pageModel.filePath} type="video/ogg">
-				</video>
-			else
-				.imageContainer(style="width: 700px; height: 380px; overflow:hidden; position:relative")
-					img.songBox(src=pageModel.filePathCover)
-				<audio style="width: 700px;" controls>
-					<source src=#{pageModel.filePath} type="audio/mpeg">
-				</audio>
-			
-			#views #{pageModel.views} views
-			#datePosted July 17, 2016
-			.infoBox
-				.descriptionTitle Description
-				.descriptionBox
-					.descriptionText=pageModel.description
-				.tagTitle Tag
-				.tagBox
-					.tags
-						.artist Artist: #{pageModel.artist}
-						.region Region: 
-						.producer Producer: 
-						.album Album: #{pageModel.album}
-						.language Language: #{pageModel.language}
-						.genre Genre: #{pageModel.genre}
-						.uploadDate Upload Date: 06/17/2016
-						.peopleGroup People Group: #{pageModel.peopleGroup}
-						.category Category: Music
-						.releaseDate Released: 06/17/2016
-						.artForm Art Form: #{pageModel.contentType}
-						.license License: Creative Commons
-						.miscellaneous Miscellaneous: Ancient Hebrew, Tribal Worship, Moses, Aaron, Ramses, Smoke, Fire, Pillar, Red Sea, Biblical, Palestine Israel Hebrew, Hebrews, Good Music
-		.col-md-4.col-sm-4
-			.relatedContent
-				.relatedSection
-					p.moreFromArtist More From Artist
-					-for(var i = 0; i < moreFromArtist.length; i++)
-						-var imagePath = (typeof moreFromArtist[i].filePathCover !== 'undefined' && moreFromArtist[i].filePathCover !== "") ? moreFromArtist[i].filePathCover : "/images/concert.jpg"
-						a.relatedItem(href=moreFromArtist[i].route)
-							.imageContainer
-								img.relatedImage(src=imagePath)
-							.itemInfo
-								-var title = (moreFromArtist[i].title.length > 30) ? moreFromArtist[i].title.substr(0,30) + "..." : moreFromArtist[i].title
-								p.songTitle=title
-								p.songArtist=moreFromArtist[i].artist
+		
+			.col-md-9
+				.content
+					.mediaHeader
+						.title=pageModel.title
+						.artist.rightHeader by #{pageModel.artist}
+						span.rightHeader |
+						.publisher.rightHeader=pageModel.publisher
+					-var fileType = pageModel.fileType
+					if fileType === "Video"
+						<video class="mediaImage" width="400" controls="controls">
+							<source src=#{pageModel.filePath} type="video/ogg">
+						</video>
+					else
+						.row
+							.imageContainer(style="width:100%; position:relative; display:block")
+								img.img-responsive.mediaImage(src=pageModel.filePathCover)
+							<audio style="width: 100%;" controls>
+								<source src=#{pageModel.filePath} type="audio/mpeg">
+							</audio>
+					.mediaInfo
+						.views #{pageModel.views} views
+						.datePosted July 17, 2016
+					.description
+						#accordion.panel-group(role="tablist" aria-multiselectable="true")
+							.panel.panel-default
+								.panel-heading(role="tab" id="headingOne")
+									h4.panel-title
+										a(role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") Description
+								#collapseOne.panel-collapse.collapse.in(role="tabpanel" aria-labelledby="headingOne")
+									.panel-body=pageModel.description
+							.panel.panel-default
+								.panel-heading(role="tab" id="headingTwo")
+									h4.panel-title
+										a(role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo") Tags
+								#collapseTwo.panel-collapse.collapse(role="tabpanel" aria-labelledby="headingTwo")
+									.panel-body
+										table
+											tr
+												td
+													p Artist: <span>#{pageModel.artist}</span>
+												td
+													p Album: <span>#{pageModel.album}</span>
+												td
+													p Upload Date:
+												td
+													p Released:
+											tr
+												td
+													p Region:
+												td
+													p Language: <span>#{pageModel.lng}</span>
+												td
+													p People Group: <span>#{pageModel.peopleGroup}</span>
+												td
+													p Art Form: <span>#{pageModel.contentType}</span>
+											tr
+												td
+													p Producer:
+												td
+													p Genre:
+												td
+													p Category:
+												td
+													p License:
 
-				.relatedSection
-					p.moreFromAlbum More From Album
-					-for(var i = 0; i < moreFromAlbum.length; i++)
-						-var imagePath = (typeof moreFromAlbum[i].filePathCover !== 'undefined' && moreFromAlbum[i].filePathCover !== "") ? moreFromAlbum[i].filePathCover : "/images/concert.jpg"
-						a.relatedItem(href=moreFromAlbum[i].route)
-							.imageContainer
-								img.relatedImage(src=imagePath)
-							.itemInfo
-								-var title = (moreFromAlbum[i].title.length > 30) ? moreFromAlbum[i].title.substr(0,30) + "..." : moreFromAlbum[i].title
-								p.songTitle=title
-								p.songArtist=moreFromAlbum[i].artist
+
+							.panel.panel-default
+								.panel-heading(role="tab" id="headingThree")
+									h4.panel-title
+										a(role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree") Comments
+								#collapseThree.panel-collapse.collapse(role="tabpanel" aria-labelledby="headingThree")
+									.panel-body
+			.col-md-3
+				.relatedContent
+					.relatedSection
+						p.moreFromArtist More From Artist
+						-for(var i = 0; i < moreFromArtist.length; i++)
+							-var imagePath = (typeof moreFromArtist[i].filePathCover !== 'undefined' && moreFromArtist[i].filePathCover !== "") ? moreFromArtist[i].filePathCover : "/images/concert.jpg"
+							a.relatedItem(href=moreFromArtist[i].route)
+								.imageContainer
+									img.relatedImage(src=imagePath)
+								.itemInfo
+									-var title = (moreFromArtist[i].title.length > 30) ? moreFromArtist[i].title.substr(0,30) + "..." : moreFromArtist[i].title
+									p.relatedTitle=title
+									p.relatedArtist=moreFromArtist[i].artist
+
+					.relatedSection
+						p.moreFromAlbum More From Album
+						-for(var i = 0; i < moreFromAlbum.length; i++)
+							-var imagePath = (typeof moreFromAlbum[i].filePathCover !== 'undefined' && moreFromAlbum[i].filePathCover !== "") ? moreFromAlbum[i].filePathCover : "/images/concert.jpg"
+							a.relatedItem(href=moreFromAlbum[i].route)
+								.imageContainer
+									img.relatedImage(src=imagePath)
+								.itemInfo
+									-var title = (moreFromAlbum[i].title.length > 30) ? moreFromAlbum[i].title.substr(0,30) + "..." : moreFromAlbum[i].title
+									p.relatedTitle=title
+									p.relatedArtist=moreFromAlbum[i].artist
 
 
-				.relatedSection
-					p.moreFromAlbum Related
-					-for(var i = 0; i < relatedContent.length; i++)
-						-var imagePath = (typeof relatedContent[i].filePathCover !== 'undefined' && relatedContent[i].filePathCover !== "") ? relatedContent[i].filePathCover : "/images/concert.jpg"
-						a.relatedItem(href=relatedContent[i].route)
-							.imageContainer
-								img.relatedImage(src=imagePath)
-							.itemInfo
-								-var title = (relatedContent[i].title.length > 30) ? relatedContent[i].title.substr(0,30) + "..." : relatedContent[i].title
-								p.songTitle=title
-								p.songArtist=relatedContent[i].artist
+					.relatedSection
+						p.moreFromAlbum Related
+						-for(var i = 0; i < relatedContent.length; i++)
+							-var imagePath = (typeof relatedContent[i].filePathCover !== 'undefined' && relatedContent[i].filePathCover !== "") ? relatedContent[i].filePathCover : "/images/concert.jpg"
+							a.relatedItem(href=relatedContent[i].route)
+								.imageContainer
+									img.relatedImage(src=imagePath)
+								.itemInfo
+									-var title = (relatedContent[i].title.length > 30) ? relatedContent[i].title.substr(0,30) + "..." : relatedContent[i].title
+									p.relatedTitle=title
+									p.relatedArtist=relatedContent[i].artist
 	include footer
 	
