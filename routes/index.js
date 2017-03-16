@@ -81,7 +81,8 @@ router.post('/cover', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('upload3',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		debugger;
+		res.render('upload4',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 	});
 });
 // additional file(s)
@@ -94,7 +95,8 @@ router.post('/additionalFile', function(req, res){
 			if(err)
 				console.error(err);
 		})
-		res.render('success',{user:req.user})
+		debugger;
+		res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 		
 	});
 });

@@ -57,6 +57,10 @@
 	/*margin-top: -35px;*/
 	display:inline;
 }
+#media .additionalFile{
+	margin-top: 10px;
+	display: block;
+}
 #media .description{
 	margin-top:20px;
 }

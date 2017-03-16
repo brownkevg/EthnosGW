@@ -14,9 +14,10 @@ exports.uploadContent = function(req,res){
 		content.user = req.user.local.email;
 	content.views = 0;
 	content.route = req.body.title.replace(/ /g,'-').toLowerCase();
+	debugger;
 	//Will need to check for the uniqueness of a route
 	dbClient.collection('media').save(content,function(err, result){
-		res.render('upload4');
+		res.render('success');
 	})
 }
 
