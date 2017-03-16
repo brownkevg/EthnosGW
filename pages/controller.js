@@ -18,7 +18,11 @@ exports.home = function(req,res){
 			pageModel.recommended = results2
 			functions.getMapData(function(mapData){
 				functions.getLanguages(function(languageData){
-					res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData});
+					// debugger;
+					getCountryCounts(function(countryCounts){
+						// debugger;
+						res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData,countryCounts:countryCounts});
+					})		
 				})
 			})
 		})
@@ -39,7 +43,6 @@ exports.page = function(req,res){
 			return;
 		}
 		var mediaData = results[0];
-		// debugger;
 		searchObj = {user:mediaData.user};
 		pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:3},function(artistResults){
 			searchObj = {user:mediaData.user,album:mediaData.album}
@@ -47,13 +50,27 @@ exports.page = function(req,res){
 				searchObj = {country:mediaData.country} // ********** Need to figure out how we are querying related content. Which parameters? **********
 				pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:2},function(relatedResults){
 					dbClient.collection('media').update({_id:mongo.ObjectId(mediaData._id)},{$inc:{views:1}},{upsert:false},function(err,results){
-						// debugger;
 						res.render('media',{pageModel:mediaData,user:req.user,moreFromArtist:artistResults,moreFromAlbum:albumResults,relatedContent:relatedResults});
-					})
-				})
-			})
+					});
+				});
+			});
+		});
+	});
+};
+
+function getCountryCounts(callback){
+	dbClient.collection('media').aggregate([{$group:{_id:"$country",count:{$sum:1}}}],function(err,results){
+		for(var i = 0; i < results.length; i++){
+			results[i].name = countries[results[i]._id].name
+		}
+		results.sort(function(a, b){
+		    if(a.name < b.name) return -1;
+		    if(a.name > b.name) return 1;
+		    return 0;
 		})
+		callback(results)
 	})
+	
 }
 
 
