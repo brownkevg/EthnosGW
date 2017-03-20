@@ -1,24 +1,67 @@
 nav.navigation
 	.container-fluid.topNav
-		.lu-monogram-nav.hidden-xs
+		.lu-monogram-nav
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
-		form.searchBar(action="/search" method="GET")
-			input.searchBarInput(type="text" placeholder="Search Music..." name="searchTerm")
-			.searchIconContainer(style="background-color:#22334F;display:inline;padding:6.5px")
-				input(type="image" style="height:20px;vertical-align:middle" src="/images/search-white.png" alt="Submit Form")
-			//- input.navItem.search(type="submit" value="submit")
-		a.navItem(href="/upload") upload
-		a.navItem(href="/") account
-		a.navItem(href="/about") about
-		a.navItem(href="/") resources
-		-if(user)
-			a.navItem.logout(href="/logout") logout
-			a.navItem.login(href="/profile")=user.local.firstName
-		-else
-			a.navItem.login(href="/login") login
+		.menu-icon
+			.bar1
+			.bar2
+			.bar3
+		.log
+			-if(user)
+					a.navItem.logout(href="/logout") logout
+					a.navItem.login(href="/profile")=user.local.firstName
+			-else
+					a.navItem.login(href="/login") login
+		.title
+			h1 <a href='/'>GLOW</a>
+		ul
+			li
+				form.searchBar(action="/search" method="GET")
+					input.searchBarInput(type="text" placeholder="Search Music..." name="searchTerm")
+					.searchIconContainer(style="background-color:#22334F;display:inline;padding:6.5px")
+						input(type="image" style="height:20px;vertical-align:middle" src="/images/search-white.png" alt="Submit Form")
+					//- input.navItem.search(type="submit" value="submit")
+			li
+				a.navItem(href="/upload") upload
+			li
+				a.navItem(href="/") account
+			li
+				a.navItem(href="/about") about
+			li
+				a.navItem(href="/") resources
 	.container-fluid.bottomNav
-		a.navItemBottom(href="/") News
-		a.navItemBottom(href="/") Forums
-		a.navItemBottom(href="/") Publishing Resources
-		a.navItemBottom(href="/") Contact Us
+		ul
+			li
+				a.navItemBottom(href="/") News
+			li
+				a.navItemBottom(href="/") Forums
+			li
+				a.navItemBottom(href="/") Publishing Resources
+			li
+				a.navItemBottom(href="/") Contact Us
+//- nav.navigation
+//- 	.container
+//- 		.navbar-logo
+//- 			img(alt='Ethnos' src='images/ethnos-logo.png')
+//- 		.menu-icon
+//- 			.bar1
+//- 			.bar2
+//- 			.bar3
+//- 		ul
+//- 			li
+//- 				a(href="#") VISION
+//- 			li
+//- 				a(href="#") CATALOG
+//- 			li
+//- 				a(href="#") RESOURCES
+//- 			li
+//- 				a(href="#") TRAINING
+//- 			li 
+//- 				a(href="#") FORUM
+script.
+	$(".menu-icon").click(function(){
+		$(this).toggleClass("change")
+		$(".navigation ul").toggleClass("change")
+		$(".navigation ul li").toggleClass("change")
+	})
