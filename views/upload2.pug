@@ -10,14 +10,15 @@ block content
 				.container
 					.col-xl-2.col-lg-3.col-md-4.col-sm-12
 						.outerBox
-							input.fileSubmit.btn.innerBox(type="submit" value="Upload")
+							input.fileSubmit.btn.innerBox(type="button" value="Upload")
 						.inputItem.hidden
 							input.inputField(type='text' name='filePath' value=filePath)
 					.col-xl-10.col-lg-9.col-md-8.col-sm-12.contentSelection
 						h3 SELECT ALBUM COVER TO UPLOAD
 						h4.description 	SUPPORTED FILE FORMATS ARE: JPEG, PNG, GIF
 						.inputItem
-							input.inputField(type="file" name="fileLocation" for="fileLocation")
+							input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
+						.blocked
 		.row
 			.container
 				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
@@ -43,5 +44,11 @@ block content
 
 
 		$('.fileSubmit').click(function(){
-			$("#pleaseWaitDialog").modal('show');
+			var fileVal= $("#inputFile");
+			if(fileVal.val() == ""){
+				$('.blocked').empty().append($('<h3>Please Select a File.</h3>').hide().fadeIn(500));
+			}else{
+				$('#bucket-form').submit();
+				$("#pleaseWaitDialog").modal('show');
+			}
 		})
