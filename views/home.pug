@@ -6,53 +6,53 @@ block content
 		.columnContainer
 			include widgets/leftColumnWidget
 			
-			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
-				#rightColumn
-					img.banner(src="/images/concert.jpg")
-					//- .rightContainer(style="padding:40px 40px;")
-					- if (typeof(pageModel) !== 'undefined'){
-					.rightContainer(style="padding:40px 40px;")
-						p.heading popular
-						-var popular = pageModel.popular
-						-for(var j = 0; j < 2; j++)
-							-var init = j*5
-							-var condition = j*5+5
-							.content
-								-for(var i = init; i < condition; i++)
-									-if(typeof popular[i] !== 'undefined')
-										-var imagePath = (typeof popular[i].filePathCover !== 'undefined' && popular[i].filePathCover !== "") ? popular[i].filePathCover : "/images/concert.jpg"
-										.item
-											.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
-												img.image(src=imagePath)
-											.description
-												a.title(href=popular[i].route)=popular[i].title
-												.artist=popular[i].artist
-												.publisher=popular[i].publisher
-												.view=popular[i].views
-													span  views
-									-else
-										continue
-						p.heading(style="padding-top:15px") recommended
-						-var recommended = pageModel.recommended
-						-for(var j = 0; j < 2; j++)
-							-var init = j*5
-							-var condition = j*5+5
-							.content
-								-for(var i = init; i < condition; i++)
-									-if(typeof recommended[i] !== 'undefined')
-										-var imagePath = (typeof recommended[i].filePathCover !== 'undefined' && recommended[i].filePathCover !== "") ? recommended[i].filePathCover : "/images/concert.jpg"
-										.item
-											.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
-												img.image(src=imagePath)
-											.description
-												a.title(href=recommended[i].route)=recommended[i].title
-												.artist=recommended[i].artist
-												.publisher=recommended[i].publisher
-												.views=recommended[i].views
-													span  views
-									-else
-										continue
-						-}
+				//- .col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
+			#rightColumn
+				img.banner(src="/images/concert.jpg")
+				//- .rightContainer(style="padding:40px 40px;")
+				- if (typeof(pageModel) !== 'undefined'){
+				.rightContainer(style="padding:40px 40px;")
+					p.heading popular
+					-var popular = pageModel.popular
+					-for(var j = 0; j < 2; j++)
+						-var init = j*5
+						-var condition = j*5+5
+						.content
+							-for(var i = init; i < condition; i++)
+								-if(typeof popular[i] !== 'undefined')
+									-var imagePath = (typeof popular[i].filePathCover !== 'undefined' && popular[i].filePathCover !== "") ? popular[i].filePathCover : "/images/concert.jpg"
+									.item
+										.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+											img.image(src=imagePath)
+										.description
+											a.title(href=popular[i].route)=popular[i].title
+											.artist=popular[i].artist
+											.publisher=popular[i].publisher
+											.view=popular[i].views
+												span  views
+								-else
+									continue
+					p.heading(style="padding-top:15px") recommended
+					-var recommended = pageModel.recommended
+					-for(var j = 0; j < 2; j++)
+						-var init = j*5
+						-var condition = j*5+5
+						.content
+							-for(var i = init; i < condition; i++)
+								-if(typeof recommended[i] !== 'undefined')
+									-var imagePath = (typeof recommended[i].filePathCover !== 'undefined' && recommended[i].filePathCover !== "") ? recommended[i].filePathCover : "/images/concert.jpg"
+									.item
+										.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+											img.image(src=imagePath)
+										.description
+											a.title(href=recommended[i].route)=recommended[i].title
+											.artist=recommended[i].artist
+											.publisher=recommended[i].publisher
+											.views=recommended[i].views
+												span  views
+								-else
+									continue
+					-}
 						//- .content
 						//- 	-for(var i = 0; i < 5; i++)
 						//- 		.item
