@@ -57,7 +57,15 @@ exports.page = function(req,res){
 		});
 	});
 };
-
+exports.about = function(req, res){
+	functions.getMapData(function(mapData){
+				functions.getLanguages(function(languageData){
+					getCountryCounts(function(countryCounts){
+						res.render('about',{mapData:mapData,user:req.user,languageData:languageData,countryCounts:countryCounts});
+					})		
+				})
+			})
+}
 function getCountryCounts(callback){
 	dbClient.collection('media').aggregate([{$group:{_id:"$country",count:{$sum:1}}}],function(err,results){
 		for(var i = 0; i < results.length; i++){
@@ -71,11 +79,4 @@ function getCountryCounts(callback){
 		callback(results)
 	})
 	
-}
-
-
-
-// remove if not used
-function noDB(res){
-	res.render('search');
 }

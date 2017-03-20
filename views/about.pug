@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	include nav
+	.container-fluid(style="padding:0")
+		.columnContainer
+			include widgets/leftColumnWidget
+			
+			.col-md-10(style="background-color:blue; height: auto; background-color:#FFF;padding:0")
+				#rightColumn(class='about')
+					h1 ABOUT GLOW
+					h3 What is GLOW?
+					p GLOW stands for Global Library of Worship
+					p We seek to meet the needs of Christian artists all over the world while protecting their rights.
+					p For artists, we want to provide a tool that allows you to share the content you create freely with people from the same background, ethnicity or language in a way that also protects your rights as a content creator.
+					p For listeners and churches, we want to provide access to the content created by these artists so that you can worship freely in your language and with music from your culture.
+					h3 Who is behind this?
+					p GLOW is created, sponsored and maintained by Liberty University, the worlds largest Christian university.
+					p Liberty University seeks to foster global worship initiatives by providing everyone with the same religious freedoms afforded to people in the United States.
+					h3 How do I get started?
+					p To find music and music resources, simply type in the search bar above. Tags include the name of the song, artist, publisher, and more.
+					p To  upload, click "upload" next to the search bar and go through the steps until the process is finished. After the upload is verified by the moderators you will be able to watch, listen, read or share your content.
+					img(id="musicBuilding" src="/images/musicBuilding.png")
+
+	include footer
