@@ -63,6 +63,9 @@ img.bg {
 .verticalLine{
 	border-left: 1px solid #333333;
 }
+.verticalLine hr{
+	display:none;
+}
 #footer p{
 	color: #FFF;
 }
@@ -74,4 +77,15 @@ img.bg {
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
+}
+@media screen and (max-width: 445px){
+	#footerContent{
+		display:block;
+	}
+	#footerContent .verticalLine{
+		border:none;
+	}
+	.verticalLine hr{
+	display:block;
+}
 }
