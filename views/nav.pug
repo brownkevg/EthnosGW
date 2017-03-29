@@ -9,10 +9,10 @@ nav.navigation
 			.bar3
 		.log
 			-if(user)
-					a.navItem.logout(href="/logout") logout
+					include widgets/registerModal
 					a.navItem.login(href="/profile")=user.local.firstName
 			-else
-					a.navItem.login(href="/login") login
+					include widgets/loginModal
 		.title
 			h1 <a href='/'>GLOW</a>
 		ul
@@ -60,6 +60,11 @@ nav.navigation
 //- 			li 
 //- 				a(href="#") FORUM
 script.
+	$("#loginButton").click(function(){
+	debugger;
+		$(".loginModal").addClass('show')
+		//- $(".loginModal").getElementsByClassName("close")[0]
+	})
 	$(".menu-icon").click(function(){
 		$(this).toggleClass("change")
 		$(".navigation ul").toggleClass("change")
