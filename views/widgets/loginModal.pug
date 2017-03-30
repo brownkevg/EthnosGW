@@ -1,4 +1,4 @@
-button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal")
+button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
   Launch Login
 
 .modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
@@ -12,9 +12,9 @@ button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#l
         form(action="/login" method="post")
           input(type="text" placeholder="Email" name="email")
           input(type="text" placeholder="Password" name="password" style="margin-bottom: 10px;")
-          button(type="submit" class="btn btn-primary" id="submitLogin" value="Log In") Enter
+          button(type="submit" class="btn btn-primary loginSubmit") Enter
         a(href="#") Forgot your password?
-        p Don't have an account? Click <a class="btn btn-register" data-toggle="modal" data-target="#registrationModal">Here</a>
+        p Don't have an account? Click <a class="btn btn-register" data-toggle="modal" href="/signup">Here</a>
 
 script.
   $(".btn.btn-primary").click(function(){

@@ -30,9 +30,9 @@
 	font-size:40px;
 	text-align: center;
 }
-.loginContainer .loginSubmit{
+/*.loginContainer .loginSubmit{
 	width:200px;
-}
+}*/
 .createAccountTitle{
 	text-align: center;
 	font-size:25px;
@@ -72,7 +72,7 @@
 .modal-body a, p{
 	font-size: 8px
 }
-.btn.btn-primary#submitLogin{
+.btn.btn-primary.loginSubmit{
 	float:right;
 	padding: 6px 12px;
 	margin-top: 8px;
