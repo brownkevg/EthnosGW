@@ -91,6 +91,7 @@
 }
 .btn.btn-register{
 	padding-left: 0px;
+	margin-top: -1px;
 }
 .btn.btn-secondary#closeLogin{
 	border-radius: 0px;
