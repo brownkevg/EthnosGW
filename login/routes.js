@@ -1,5 +1,7 @@
 var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+var cache = require('mongo-atm');
+var pageCache = new cache({ttl:60,limit:500});
 
 module.exports = function(app, passport){
 
@@ -26,9 +28,16 @@ module.exports = function(app, passport){
 	}));
 
 	app.get('/profile', isLoggedIn, function(req, res){
-		res.render('profile', {
-			user: req.user // get the user out of the session and pass to template
+		var searchObj = {
+			user:req.user.local.email
+		}
+		pageCache.getMongo("media",searchObj,{mongoClient:dbClient,limit:5},function(uploads){
+			res.render('profile', {
+				user: req.user, // get the user out of the session and pass to template
+				uploads:uploads
+			})
 		})
+		
 	});
 
 	app.get('/logout', function(req, res){

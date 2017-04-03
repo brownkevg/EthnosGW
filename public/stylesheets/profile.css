@@ -1,0 +1,24 @@
+#profile{
+	padding:12px;
+}
+#profile .nameHeader{
+	font-size:25px;
+}
+#profile .about{
+	margin-top:15px;
+}
+#profile .userImage{
+	width: 175px;
+	height: 175px;
+	background-color: #161E30;
+	float:left;
+	margin-right:15px;
+}
+#profile .bio, #profile .header{
+	/*float:left;*/
+	padding-left:15px;
+	font-size:18px;
+}
+#profile #rightColumn{
+	margin-top:40px;
+}

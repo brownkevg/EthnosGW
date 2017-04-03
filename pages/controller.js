@@ -18,9 +18,7 @@ exports.home = function(req,res){
 			pageModel.recommended = results2
 			functions.getMapData(function(mapData){
 				functions.getLanguages(function(languageData){
-					// debugger;
 					getCountryCounts(function(countryCounts){
-						// debugger;
 						res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData,countryCounts:countryCounts});
 					})		
 				})

@@ -5,8 +5,9 @@
 		form(action="/search" method="GET")
 			select.refineItem(for="Language" name="language")
 				option(value="") Language
-				-for(var i = 0; i < languageData.length; i++)
-					option(value=[languageData[i]])=languageData[i]
+				-if(typeof languageData !== 'undefined')
+					-for(var i = 0; i < languageData.length; i++)
+						option(value=[languageData[i]])=languageData[i]
 			//- p.columnItem(style="display:inline") language
 			select.refineItem(for="Location" name="location")
 				option(value="") Location

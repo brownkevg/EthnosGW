@@ -60,7 +60,6 @@ script.
 		$('#mapCountryList').append('<div class="mapListItem"><p>Country List</p><p>Number of Uploads</p></div><hr>')
 		
 		for(var i = 0; i < countryCounts.length; i++){
-			debugger;
 			var htmlString = '<div class="mapListItem"><a>'+countryCounts[i].name+'</a><p>'+countryCounts[i].count+'</p></div><hr>'
 			$('#mapCountryList').append(htmlString)
 		}

@@ -3,22 +3,35 @@ extends layout
 block content
 	include nav
 
-	.container
-		.page-header.text-center
-			h1 <span class="fa fa-anchor"></span> Profile Page
-			a.btn.btn-default.btn-sm(href="/logout") Logout
+	#profile.container
 		.row
-			.col-sm-6
-				.well
-					h3 <span class="fa fa-user"> Local
-					p=user._id
-					br
-					p=user.local.email
-					br
-					p=user.local.password
-
-				.home
-					a(href="/") Home
-						
+			-var fullName = user.local.firstName + " " + user.local.lastName;
+			.nameHeader=fullName
+			.about
+				.userImage
+				.header Bio:
+				.bio=user.bio
+		.row
+			#rightColumn
+				.rightContainer
+					p.heading uploads
+					-for(var j = 0; j < 2; j++)
+						-var init = j*5
+						-var condition = j*5+5
+						.content
+							-for(var i = init; i < condition; i++)
+								-if(typeof uploads[i] !== 'undefined')
+									-var imagePath = (typeof uploads[i].filePathCover !== 'undefined' && uploads[i].filePathCover !== "") ? uploads[i].filePathCover : "/images/concert.jpg"
+									.item
+										.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+											img.image(src=imagePath)
+										.description
+											a.title(href=uploads[i].route)=uploads[i].title
+											.artist=uploads[i].artist
+											.publisher=uploads[i].publisher
+											.view=uploads[i].views
+												span  views
+								-else
+									continue
 
 	include footer

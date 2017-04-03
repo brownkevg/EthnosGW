@@ -37,11 +37,13 @@ module.exports = function(passport){
 				} else {
 					// create new user
 					var newUser = new User();
-					debugger;
 					newUser.local.email = email;
 					newUser.local.password = newUser.generateHash(password);
 					newUser.local.firstName = req.body.firstName;
 					newUser.local.lastName = req.body.lastName;
+					var route = req.body.firstName + req.body.lastName;
+					newUser.route = route.replace(/ /g,'-').toLowerCase();
+					newUser.bio = "";
 
 					newUser.save(function(err){
 						if (err)
