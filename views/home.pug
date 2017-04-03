@@ -21,11 +21,11 @@ block content
 							-for(var i = init; i < condition; i++)
 								-if(typeof popular[i] !== 'undefined')
 									-var imagePath = (typeof popular[i].filePathCover !== 'undefined' && popular[i].filePathCover !== "") ? popular[i].filePathCover : "/images/concert.jpg"
-									.item
+									a.item(href=popular[i].route)
 										.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
 											img.image(src=imagePath)
 										.description
-											a.title(href=popular[i].route)=popular[i].title
+											.title=popular[i].title
 											.artist=popular[i].artist
 											.publisher=popular[i].publisher
 											.view=popular[i].views
@@ -41,11 +41,11 @@ block content
 							-for(var i = init; i < condition; i++)
 								-if(typeof recommended[i] !== 'undefined')
 									-var imagePath = (typeof recommended[i].filePathCover !== 'undefined' && recommended[i].filePathCover !== "") ? recommended[i].filePathCover : "/images/concert.jpg"
-									.item
+									a.item(href=recommended[i].route)
 										.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
 											img.image(src=imagePath)
 										.description
-											a.title(href=recommended[i].route)=recommended[i].title
+											.title=recommended[i].title
 											.artist=recommended[i].artist
 											.publisher=recommended[i].publisher
 											.views=recommended[i].views

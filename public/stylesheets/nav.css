@@ -19,7 +19,7 @@
 	height: 29px;
 	padding-left:10px;
 	width: 400px;
-	color:#FFF;
+	color:#82a3d7;
 }
 .navItem{
 	padding: 10px 20px;
@@ -126,6 +126,11 @@
 	color: #fff;
 	width: 44px;
 	margin: 0 20px 0 7px;
+}
+.glowLogo{
+	float:left;
+	display: inline-block;
+	margin: 12px 20px 0 7px;
 }
 .lu-monogram-nav img{
 	margin: 10px 0 10px 5px;

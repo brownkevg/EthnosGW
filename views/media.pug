@@ -36,7 +36,8 @@ block content
 						</video>
 					else
 						.imageHeaderContainer
-							img.img-responsive.mediaImage(src=pageModel.filePathCover)
+							-var imagePath = (typeof pageModel.filePathCover !== 'undefined' && pageModel.filePathCover !== "") ? pageModel.filePathCover : "/images/default_media_playback_bg.png"
+							img.img-responsive.mediaImage(src=imagePath)
 						<audio style="width: 100%;" controls>
 							<source src=#{pageModel.filePath} type="audio/mpeg">
 						</audio>
@@ -101,7 +102,7 @@ block content
 						.relatedSection
 							p.moreFromArtist More From Artist
 							-for(var i = 0; i < moreFromArtist.length; i++)
-								-var imagePath = (typeof moreFromArtist[i].filePathCover !== 'undefined' && moreFromArtist[i].filePathCover !== "") ? moreFromArtist[i].filePathCover : "/images/concert.jpg"
+								-var imagePath = (typeof moreFromArtist[i].filePathCover !== 'undefined' && moreFromArtist[i].filePathCover !== "") ? moreFromArtist[i].filePathCover : "/images/default_media_playback_bg.png"
 								a.relatedItem(href=moreFromArtist[i].route)
 									.imageContainer
 										img.relatedImage(src=imagePath)
@@ -113,7 +114,7 @@ block content
 						.relatedSection
 							p.moreFromAlbum More From Album
 							-for(var i = 0; i < moreFromAlbum.length; i++)
-								-var imagePath = (typeof moreFromAlbum[i].filePathCover !== 'undefined' && moreFromAlbum[i].filePathCover !== "") ? moreFromAlbum[i].filePathCover : "/images/concert.jpg"
+								-var imagePath = (typeof moreFromAlbum[i].filePathCover !== 'undefined' && moreFromAlbum[i].filePathCover !== "") ? moreFromAlbum[i].filePathCover : "/images/default_media_playback_bg.png"
 								a.relatedItem(href=moreFromAlbum[i].route)
 									.imageContainer
 										img.relatedImage(src=imagePath)
@@ -126,7 +127,7 @@ block content
 						.relatedSection
 							p.moreFromAlbum Related
 							-for(var i = 0; i < relatedContent.length; i++)
-								-var imagePath = (typeof relatedContent[i].filePathCover !== 'undefined' && relatedContent[i].filePathCover !== "") ? relatedContent[i].filePathCover : "/images/concert.jpg"
+								-var imagePath = (typeof relatedContent[i].filePathCover !== 'undefined' && relatedContent[i].filePathCover !== "") ? relatedContent[i].filePathCover : "/images/default_media_playback_bg.png"
 								a.relatedItem(href=relatedContent[i].route)
 									.imageContainer
 										img.relatedImage(src=imagePath)
