@@ -35,7 +35,9 @@ router.get('/success', function(req, res, next){
 	res.render('success',{user:req.user});
 })
 // ************* end temp routes
-
+router.get('/news', function(req, res, next){
+	res.render('news',{user:req.user});
+})
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});
 })
