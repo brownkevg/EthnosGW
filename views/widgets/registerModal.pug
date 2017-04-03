@@ -1,4 +1,4 @@
-.modal.fade#myRegisterModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+.modal.fade#registerModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
   .modal-dialog(role="document")
     .modal-content
       .modal-header
@@ -6,22 +6,22 @@
           span(aria-hidden="true") &times;
         h5(class="modal-title" id="exampleModalLabel") Create an Account
       .modal-body
-        form#createAccountForm(action='/submit' method='post')
+        form#createAccountForm(action='/signup' method='post')
           .form-group
             input(type="text" placeholder="First Name" name="firstName")
           input(type="text" placeholder="Last Name" name="lastName")
           .form-group
             input(type="text" placeholder="Email" name="email")
           .form-group
-            input.pass1(type="password" placeholder="Password" style="margin-bottom: 10px;")
+            input.pass1(type="password" placeholder="Password" style="margin-bottom: 10px;" name="password")
           .form-group
             input.pass2(type="password" placeholder="Confirm Password")
           input.btn.btn-register.createUserSubmit(type="submit" value="Register")
-          p Already have an account? <a class="btn btn-register" data-toggle="modal" data-target="#registrationModal">Login</a>
+          p Already have an account? <a class="register" data-toggle="modal" data-target="#registrationModal">Login</a>
         .errorContainer
 
 script.
-  $(".btn.btn-register").click(function(){
-    $("#myModal").modal('toggle')
-    $("#myRegisterModal").modal('toggle')
+  $(".register").click(function(){
+    $("#loginModal").modal('toggle')
+    $("#registerModal").modal('toggle')
   })

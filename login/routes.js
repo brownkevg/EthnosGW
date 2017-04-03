@@ -5,9 +5,9 @@ var pageCache = new cache({ttl:60,limit:500});
 
 module.exports = function(app, passport){
 
-	app.get('/login', function(req, res){
-		res.render('login', {message: req.flash('loginMessage')})
-	});
+	// app.get('/login', function(req, res){
+	// 	res.render('login', {message: req.flash('loginMessage')})
+	// });
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login',{
@@ -16,14 +16,14 @@ module.exports = function(app, passport){
 		failureFlash: true
 	}));
 
-	app.get('/signup', function(req, res){
-		res.render('signup', {message: req.flash('signupMessage')})
-	});
+	// app.get('/signup', function(req, res){
+	// 	res.render('signup', {message: req.flash('signupMessage')})
+	// });
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup',{
-		successRedirect: '/',
-		failureRedirect: '/signup',
+		successRedirect: '/profile',
+		failureRedirect: '/',
 		failureFlash: true
 	}));
 

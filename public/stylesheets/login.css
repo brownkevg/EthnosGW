@@ -69,8 +69,8 @@
 	padding:10px;
 	margin-top:10px;
 }
-.modal-body a, p{
-	font-size: 8px
+.modal-body a, .modal-body p{
+	font-size: 12px
 }
 .btn.btn-primary#submitLogin{
 	float:right;

@@ -9,10 +9,12 @@ nav.navigation
 			.bar3
 		.log
 			-if(user)
-					include widgets/registerModal
-					a.navItem.login(href="/profile")=user.local.firstName
+				a.navItem.logout(href="/logout") Logout
+				a.navItem.login(href="/profile")=user.local.firstName
+
 			-else
-					include widgets/loginModal
+				include widgets/loginModal
+				include widgets/registerModal
 		.title
 			h1 <a href='/'>GLOW</a>
 		ul
@@ -40,25 +42,7 @@ nav.navigation
 				a.navItemBottom(href="/") Publishing Resources
 			li
 				a.navItemBottom(href="/") Contact Us
-//- nav.navigation
-//- 	.container
-//- 		.navbar-logo
-//- 			img(alt='Ethnos' src='images/ethnos-logo.png')
-//- 		.menu-icon
-//- 			.bar1
-//- 			.bar2
-//- 			.bar3
-//- 		ul
-//- 			li
-//- 				a(href="#") VISION
-//- 			li
-//- 				a(href="#") CATALOG
-//- 			li
-//- 				a(href="#") RESOURCES
-//- 			li
-//- 				a(href="#") TRAINING
-//- 			li 
-//- 				a(href="#") FORUM
+
 script.
 	$("#loginButton").click(function(){
 	debugger;

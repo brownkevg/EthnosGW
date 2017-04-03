@@ -26,11 +26,9 @@ module.exports = function(passport){
 		// User.findOne won't fire unless data is sent back
 		process.nextTick(function(){
 			// checking if user trying to login already exists
-			// var accounts = dbClient.collection('users');
 			User.findOne({'local.email':email}, function(err, user){
 				if(err)
 					return done(err);
-
 				// check to see if there is already a user with that email
 				if(user){
 					return done(null, false, req.flash('signupMessage', 'There already exists an account with that email.'))

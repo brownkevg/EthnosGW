@@ -137,6 +137,7 @@
 .log a{
 	text-align: center;
 	padding: 17px 16px;
+	display:inline-block;
 }
 @media screen and (max-width: 1024px){
 	.lu-monogram-nav{
