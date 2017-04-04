@@ -138,6 +138,9 @@
 	text-align: center;
 	padding: 17px 16px;
 }
+#google_translate_element{
+	margin-top: 10px;
+}
 @media screen and (max-width: 1024px){
 	.lu-monogram-nav{
 		display:none;
