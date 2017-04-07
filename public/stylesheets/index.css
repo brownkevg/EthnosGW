@@ -67,7 +67,10 @@
 	height: auto;
 	background-color: #282828;
 	position: absolute;
-	top:-25%;
+	/*top:-25%;*/
+	top:0;
+	bottom:0;
+	margin: 0 auto;
 }
 #rightColumn .item .title{
 	font-size:18px;

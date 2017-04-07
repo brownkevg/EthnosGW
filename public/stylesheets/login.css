@@ -58,10 +58,11 @@
 .modal-header button{
 	top: -30px;
 }
-.modal-content{
+.modal-content.login{
 	width: 300px;
 	position: fixed;
-	left: 40%;
+	left: 50%;
+	margin-left:-150px;
 }
 .modal-body input{
 	display: block;

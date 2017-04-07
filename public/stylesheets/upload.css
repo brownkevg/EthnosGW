@@ -59,11 +59,18 @@ p#sentTwo, p#sentThree{
 
 /*upload1*/
 .outerBox{
-	float:left;
+	/*float:left;
 	height:200px;
 	width:200px;
 	background-color: #E5E5E5;
+	position:relative;*/
+	width:175px;
+	height: 60px;
+	overflow:hidden;
 	position:relative;
+	display:inline;
+	float:left;
+	margin-top: 15px;
 }
 .innerBox{
 	text-align: center;
@@ -97,8 +104,14 @@ p#sentTwo, p#sentThree{
 }
 /*upload2*/
 .outerBox.upload2 img{
-	width:200px;
-	height:200px;
+	/*width:200px;
+	height:200px;*/
+	width:175px;
+	height:auto;
+	position:absolute;
+	top:0;
+	bottom:0;
+	margin: 0 auto;
 }
 #uploadCover{
 	margin-top:60px;

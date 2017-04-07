@@ -31,7 +31,7 @@ block content
 						.publisher.rightHeader=pageModel.publisher
 					-var fileType = pageModel.fileType
 					if fileType === "Video"
-						<video class="mediaImage" width="400" controls="controls">
+						<video class="videoImage" width="400" controls="controls">
 							<source src=#{pageModel.filePath} type="video/ogg">
 						</video>
 					else

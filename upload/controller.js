@@ -13,7 +13,7 @@ exports.uploadContent = function(req,res){
 	if(typeof req.user !== 'undefined') // Need to do checks for whether they are logged in or not.
 		content.user = req.user.local.email;
 	content.views = 0;
-	content.route = req.body.title.replace(/ /g,'-').toLowerCase();
+	content.route = req.body.title.replace(/ |\./g,'-').toLowerCase(); // replace " " and "."
 	//Will need to check for the uniqueness of a route
 	dbClient.collection('media').save(content,function(err, result){
 		res.render('success');

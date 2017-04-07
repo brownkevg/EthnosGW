@@ -39,6 +39,14 @@
 	position: absolute;
 	top:-25%;
 }
+#media .videoImage{
+	height: auto;
+	width: 100%;
+	margin:0 auto;
+	background-color: #282828;
+	/*position: absolute;
+	top:-25%;*/
+}
 #media .mediaInfo{
 	margin-top: 10px;
 }
