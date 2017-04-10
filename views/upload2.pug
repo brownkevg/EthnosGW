@@ -5,6 +5,12 @@ extends layout
 block content
 	include nav
 	#uploadContainer.container
+		.row.uploadNav
+			span.upload1.previousPage Upload Audio or Video/
+			span.upload2.activePage Album Cover/
+			span.upload3 Additional File/
+			span.upload4 Audio or Video Information/
+			span.success Finished
 		.row
 			form(id="bucket-form" action='/cover', method="post" enctype="multipart/form-data")
 				.container
@@ -13,12 +19,16 @@ block content
 							input.fileSubmit.btn.innerBox(type="button" value="Upload")
 						.inputItem.hidden
 							input.inputField(type='text' name='filePath' value=filePath)
+						.inputItem.hidden
+							input.inputField.skip( type='text' name='skip' value="false")
 					.col-xl-10.col-lg-9.col-md-8.col-sm-12.contentSelection
 						h3 SELECT ALBUM COVER TO UPLOAD
 						h4.description 	SUPPORTED FILE FORMATS ARE: JPEG, PNG, GIF
-						.inputItem
-							input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
 						.blocked
+						.buttonRow
+								input.fileSubmit(type="button" value="Upload")
+								input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
+								input#skipPage(type="button" value="skip")
 		.row
 			.container
 				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
@@ -51,4 +61,9 @@ block content
 				$('#bucket-form').submit();
 				$("#pleaseWaitDialog").modal('show');
 			}
+		})
+
+		$('#skipPage').click(function(){
+			$('input:text.skip').val("true");
+			$('#bucket-form').submit();
 		})

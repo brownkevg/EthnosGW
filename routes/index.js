@@ -75,30 +75,38 @@ router.post('/testPost', function(req, res){
 });
 // album cover
 router.post('/cover', function(req, res){
-	// console.log(req.files.fileLocation);
-	var file = req.files.fileLocation;
-	var stream = fs.createReadStream(file.path);
-	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
-		fs.unlink(file.path, function(err){
-			if(err)
-				console.error(err);
-		})
-		res.render('upload4',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
-	});
+	// console.log(req.body.skip);
+	if(req.body.skip == "true"){
+		res.render('upload4',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:""})
+	}else{
+		var file = req.files.fileLocation;
+		var stream = fs.createReadStream(file.path);
+		return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+			fs.unlink(file.path, function(err){
+				if(err)
+					console.error(err);
+			})
+			res.render('upload4',{user:req.user,countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+		});
+	}
 });
 // additional file(s)
 router.post('/additionalFile', function(req, res){
 	// console.log(req.files.fileLocation);
-	var file = req.files.fileLocation;
-	var stream = fs.createReadStream(file.path);
-	return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
-		fs.unlink(file.path, function(err){
-			if(err)
-				console.error(err);
-		})
-		res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
-		
-	});
+	if(req.body.skip == "true"){
+		res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:""})
+	}else{
+		var file = req.files.fileLocation;
+		var stream = fs.createReadStream(file.path);
+		return s3fsImpl.writeFile(file.originalFilename, stream).then(function(){
+			fs.unlink(file.path, function(err){
+				if(err)
+					console.error(err);
+			})
+			res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+			
+		});
+	}
 });
 /* end AWS bucket */
 

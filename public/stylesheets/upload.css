@@ -143,3 +143,23 @@ p#sentTwo, p#sentThree{
 	height:100px;
 	width:75px;
 }
+.uploadNav{
+	text-align:center;
+}
+.uploadNav span{
+	font-size:29px;
+	color:gray;
+}
+.uploadNav span.previousPage{
+	color:#505050;
+}
+.uploadNav span.activePage{
+	color:#319ED9;
+}
+.buttonRow{
+	
+}
+.buttonRow input{
+	display:inline-block;
+	margin-left:20px;
+}

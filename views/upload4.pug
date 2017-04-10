@@ -5,6 +5,12 @@ extends layout
 block content
 	include nav
 	#uploadContainer.container
+		.row.uploadNav
+			span.upload1.previousPage Upload Audio or Video/
+			span.upload2.previousPage Album Cover/
+			span.upload3.activePage Additional File/
+			span.upload4 Audio or Video Information/
+			span.success Finished
 		.row
 			form(id="bucket-form" action='/additionalFile', method="post" enctype="multipart/form-data")
 				.container
@@ -18,9 +24,13 @@ block content
 							input.inputField(type='text' name='filePath' value=filePath)
 						.inputItem.hidden
 							input.inputField(type='text' name='filePathCover' value=filePathCover)
-						.inputItem
-							input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
+						.inputItem.hidden
+							input.inputField.skip( type='text' name='skip' value="false")
 						.blocked
+						.buttonRow
+								input.fileSubmit(type="button" value="Upload")
+								input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
+								input#skipPage(type="button" value="skip")
 		.row
 			.container
 				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
@@ -53,4 +63,9 @@ block content
 				$('#bucket-form').submit();
 				$("#pleaseWaitDialog").modal('show');
 			}
+		})
+
+		$('#skipPage').click(function(){
+			$('input:text.skip').val("true");
+			$('#bucket-form').submit();
 		})

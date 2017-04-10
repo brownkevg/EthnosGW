@@ -5,6 +5,12 @@ extends layout
 block content
 	include nav
 	#uploadContainer.container
+		.row.uploadNav
+			span.upload1.previousPage Upload Audio or Video/
+			span.upload2.previousPage Album Cover/
+			span.upload3.previousPage Additional File/
+			span.upload4.activePage Audio or Video Information/
+			span.success Finished
 		.row
 			.container
 				form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
