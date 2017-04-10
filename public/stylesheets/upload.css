@@ -59,18 +59,19 @@ p#sentTwo, p#sentThree{
 
 /*upload1*/
 .outerBox{
-	/*float:left;
+	float:left;
 	height:200px;
 	width:200px;
 	background-color: #E5E5E5;
-	position:relative;*/
-	width:175px;
-	height: 60px;
 	overflow:hidden;
 	position:relative;
 	display:inline;
 	float:left;
 	margin-top: 15px;
+}
+.outerBox.upload3{
+	width:175px;
+	height: 60px;
 }
 .innerBox{
 	text-align: center;
@@ -156,10 +157,54 @@ p#sentTwo, p#sentThree{
 .uploadNav span.activePage{
 	color:#319ED9;
 }
-.buttonRow{
-	
+.red{
+	color:red;
 }
 .buttonRow input{
 	display:inline-block;
-	margin-left:20px;
+	margin-right:20px;
+}
+@media only screen and (min-width: 250px) {
+	p#sentOne{
+		margin-left:30px;
+		margin-top:5vh;
+		font-size:2.5vw;
+	}
+	p#sentTwo, p#sentThree{
+		margin-left:30px;
+		margin-top:1vh;
+		font-size:2.5vw;
+	}
+}
+@media only screen and (min-width: 768px) {
+	p#sentOne{
+		margin-left:30px;
+		margin-top:50px;
+		font-size: 22px;
+	}
+	p#sentTwo, p#sentThree{
+		margin-left:30px;
+		margin-top:20px;
+		font-size: 22px;
+	}
+}
+@media only screen and (min-width: 992px) {
+	p#sentOne{
+		margin-left:30px;
+		margin-top:100px;
+	}
+	p#sentTwo, p#sentThree{
+		margin-left:30px;
+		margin-top:25px;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	p#sentOne{
+		margin-left:30px;
+		margin-top:130px;
+	}
+	p#sentTwo, p#sentThree{
+		margin-left:30px;
+		margin-top:30px;
+	}
 }

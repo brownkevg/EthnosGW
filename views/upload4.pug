@@ -6,10 +6,10 @@ block content
 	include nav
 	#uploadContainer.container
 		.row.uploadNav
-			span.upload1.previousPage Upload Audio or Video/
+			span.upload1.previousPage Upload Main File/
 			span.upload2.previousPage Album Cover/
 			span.upload3.activePage Additional File/
-			span.upload4 Audio or Video Information/
+			span.upload4 Main File Information/
 			span.success Finished
 		.row
 			form(id="bucket-form" action='/additionalFile', method="post" enctype="multipart/form-data")
@@ -20,17 +20,18 @@ block content
 					.col-xl-10.col-lg-9.col-md-8.col-sm-12.contentSelection
 						h3 SELECT ADDITIONAL FILE TO UPLOAD
 						h4.description 	SUPPORTED FILE FORMATS ARE: PDF
+						p ...Such as chord chart, sheet music, powerpoint, or additional image
 						.inputItem.hidden
 							input.inputField(type='text' name='filePath' value=filePath)
 						.inputItem.hidden
 							input.inputField(type='text' name='filePathCover' value=filePathCover)
 						.inputItem.hidden
 							input.inputField.skip( type='text' name='skip' value="false")
-						.blocked
 						.buttonRow
 								input.fileSubmit(type="button" value="Upload")
 								input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
 								input#skipPage(type="button" value="skip")
+						.blocked
 		.row
 			.container
 				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg

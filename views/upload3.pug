@@ -6,16 +6,16 @@ block content
 	include nav
 	#uploadContainer.container
 		.row.uploadNav
-			span.upload1.previousPage Upload Audio or Video/
+			span.upload1.previousPage Upload Main File/
 			span.upload2.previousPage Album Cover/
 			span.upload3.previousPage Additional File/
-			span.upload4.activePage Audio or Video Information/
+			span.upload4.activePage Main File Information/
 			span.success Finished
 		.row
 			.container
 				form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
 					.col-xl-2.col-lg-3.col-md-4.col-sm-12
-						.outerBox.upload2
+						.outerBox.upload3
 							if filePathCover
 								img(src=filePathCover)
 							else
@@ -27,6 +27,7 @@ block content
 				form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
 					.col-xl-10.col-lg-9
 						h3 What is this?
+							span.red (*Required Field)
 					.col-xl-5.col-lg-4.col-md-4.col-sm-12
 						.inputItem.hidden
 							input.inputField(type='text' name='filePath' value=filePath)
@@ -67,17 +68,27 @@ block content
 								//- This will eventually be grabbed from a database
 						.inputItem
 							label People Group
-							select.inputField(for="peopleGroup" name="peopleGroup")
-								option(value="") - Please Select One -
-								option(value="PlaceHolder") PlaceHolder
+							input.inputField(type='text' name="peopleGroup" for="peopleGroup")
 						.inputItem
 							label Country
 							select.inputField(for="country" name="country")
 								each country in countries
 									option(value=country.alpha2) #{country.name}
+						.inputItem
+							label License
+								span.red *
+							select.inputField(for="license" name="lng")
+								option(value="") - Please Select One -
+								option(value="license1") license 1
+								option(value="license2") license 2
+								option(value="license3") license 3
+								//- This will eventually be grabbed from a database
+							span &nbsp; &nbsp;
+								span.glyphicon.glyphicon-question-sign
 					.col-xl-4.col-lg-4.col-md-4.col-sm-12
 						.inputItem
 							label Title
+								span.red *
 							input.inputField(type='text' name="title" for="title")
 						.inputItem
 							label Album
