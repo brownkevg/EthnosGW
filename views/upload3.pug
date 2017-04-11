@@ -57,14 +57,8 @@ block content
 							label Language
 							select.inputField(for="language" name="lng")
 								option(value="") - Please Select One -
-								option(value="English") English
-								option(value="Spanish") Spanish
-								option(value="German") German
-								option(value="French") French
-								option(value="Italian") Italian
-								option(value="Swahili") Swahili
-								option(value="Portuguese") Portuguese
-								option(value="Garhwali") Garhwali
+								each language in languages
+									option(value=language.language) #{language.language}
 								//- This will eventually be grabbed from a database
 						.inputItem
 							label People Group
@@ -77,7 +71,7 @@ block content
 						.inputItem
 							label License
 								span.red *
-							select.inputField(for="license" name="lng")
+							select.inputField(for="license" name="license")
 								option(value="") - Please Select One -
 								option(value="license1") license 1
 								option(value="license2") license 2

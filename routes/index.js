@@ -9,6 +9,7 @@ multipartyMiddleware = multiparty();
 router.use(multipartyMiddleware);
 var bucketName = 'ethnosgw';
 var countries = require('country-data').countries;
+var languages = require('language-list')().getData();
 // end AWS
 
 /* GET home page. */
@@ -26,7 +27,7 @@ router.get('/upload2', function(req, res, next){
 	res.render('upload2',{user:req.user});
 })
 router.get('/upload3', function(req, res, next){
-	res.render('upload3', {user:req.user,countries:sortCountries(countries.all)});
+	res.render('upload3', {user:req.user,countries:sortCountries(countries.all),languages:sortLanguages(languages)});
 })
 router.get('/upload4', function(req, res, next){
 	res.render('upload4',{user:req.user});
@@ -94,7 +95,7 @@ router.post('/cover', function(req, res){
 router.post('/additionalFile', function(req, res){
 	// console.log(req.files.fileLocation);
 	if(req.body.skip == "true"){
-		res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:""})
+		res.render('upload3',{user:req.user, countries:sortCountries(countries.all),languages:sortLanguages(languages), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:""})
 	}else{
 		var file = req.files.fileLocation;
 		var stream = fs.createReadStream(file.path);
@@ -103,7 +104,8 @@ router.post('/additionalFile', function(req, res){
 				if(err)
 					console.error(err);
 			})
-			res.render('upload3',{user:req.user, countries:sortCountries(countries.all), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
+			
+			res.render('upload3',{user:req.user, countries:sortCountries(countries.all),languages:sortLanguages(languages), filePath:req.body.filePath, filePathCover:req.body.filePathCover, additionalFile:"https://s3.us-east-2.amazonaws.com/ethnosgw/"+file.name})
 			
 		});
 	}
@@ -119,6 +121,16 @@ function sortCountries(countries){
 		return 0;
 	})
 	return countries
+}
+function sortLanguages(languages){
+	languages.sort(function(a,b){
+		if (a.language < b.language)
+			return -1;
+		if (a.language > b.language)
+			return 1;
+		return 0;
+	})
+	return languages
 }
 
 module.exports = router;

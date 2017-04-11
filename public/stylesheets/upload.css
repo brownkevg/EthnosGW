@@ -10,7 +10,7 @@
 #uploadContainer .submitButton{
 	width: 150px;
 }
-.inputItem select[name=country]{
+.inputItem select[name=country], .inputItem select[name=lng]{
 	width:160px;
 }
 .modal-header h1{
@@ -63,6 +63,12 @@ p#sentTwo, p#sentThree{
 	height:200px;
 	width:200px;
 	background-color: #E5E5E5;
+/*<<<<<<< Updated upstream
+=======
+	position:relative;
+	width:175px;
+	height: 175px;
+>>>>>>> Stashed changes*/
 	overflow:hidden;
 	position:relative;
 	display:inline;
