@@ -18,9 +18,11 @@ exports.home = function(req,res){
 			pageModel.recommended = results2
 			functions.getMapData(function(mapData){
 				functions.getLanguages(function(languageData){
-					getCountryCounts(function(countryCounts){
-						res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData,countryCounts:countryCounts});
-					})		
+					functions.getCountries(function(countryData){
+						getCountryCounts(function(countryCounts){
+							res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData,countryData:countryData,countryCounts:countryCounts});
+						})
+					})	
 				})
 			})
 		})
