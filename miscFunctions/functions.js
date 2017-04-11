@@ -14,8 +14,14 @@ exports.getLanguages = function(callback){
 exports.getCountries = function(callback){
 	dbClient.collection("media").distinct("country",function(err,countries){
 		var converted = [];
-		for(var i = 0; i < countries.length; i++)
-			converted.push(lookup.countries({alpha2:countries[i]})[0].name)
+		var obj;
+		for(var i = 0; i < countries.length; i++){
+			obj = {
+				code:countries[i],
+				name:lookup.countries({alpha2:countries[i]})[0].name
+			}
+			converted.push(obj)
+		}
 		callback(sortCountries(converted));
 	})
 }

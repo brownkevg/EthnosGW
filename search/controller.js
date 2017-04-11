@@ -8,10 +8,10 @@ exports.search=function(req,res){
 		if(typeof searchString.$and === 'undefined') searchString.$and = [];
 		searchString.$and.push({"lng":req.query.language})
 	} 
-	if(typeof req.query.location !== 'undefined' && req.query.location !== ""){
+	if(typeof req.query.country !== 'undefined' && req.query.country !== ""){
 		if(typeof searchString.$and === 'undefined') searchString.$and = [];
-	searchString.$and.push({"location":req.query.location})
-	} // Ask about this. Should it be location, or country
+		searchString.$and.push({"country":req.query.country})
+	}
 	if(typeof req.query.genre !== 'undefined' && req.query.genre !== ""){
 		if(typeof searchString.$and === 'undefined') searchString.$and = [];
 		searchString.$and.push({"genre":req.query.genre})
@@ -23,7 +23,9 @@ exports.search=function(req,res){
 	find(searchString,function(searchResults){
 		functions.getMapData(function(mapData){
 			functions.getLanguages(function(languageData){
-				res.render('search',{results:searchResults,mapData:mapData,languageData:languageData})
+				functions.getCountries(function(countryData){
+					res.render('search',{results:searchResults,mapData:mapData,languageData:languageData,countryData:countryData})
+				});
 			});
 		});
 	});

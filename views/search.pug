@@ -3,25 +3,35 @@ extends layout
 block content
 	include nav
 	.container-fluid.index(style="padding:0")
-		//- .columnContainer
-		include widgets/leftColumnWidget
-		.col-md-7#search
-			p.resultsHeader Results
-			-for(var i = 0; i < results.length; i++)
-				-var imagePath = (typeof results[i].filePathCover !== 'undefined' && results[i].filePathCover !== "") ? results[i].filePathCover : "/images/concert.jpg"
-				a.searchItem(href=results[i].route)
-					.imageContainer(style="width: 200px; height: 125px; overflow:hidden; position:relative;display:inline;float:left")
-						img.itemImage(src=imagePath)
-					.itemInfo
-						-var title = (results[i].title.length > 30) ? results[i].title.substr(0,30) + "..." : results[i].title
-						p.title=title
-						span
-						p.artist
-							| #{results[i].artist} | 
-							span
-							| #{results[i].publisher}
-						.viewRow
-							p.published Oct 21, 2016
-							p.views #{results[i].views} views
-						p.contentType=results[i].contentType
+		.columnContainer
+			include widgets/leftColumnWidget
+			.col-md-7#search
+				p.resultsHeader Results
+				-if(results.length === 0)
+					h4 No results
+				-else
+					-for(var i = 0; i < results.length; i++)
+						-if(typeof results[i].filePathCover !== 'undefined' && results[i].filePathCover !== "")
+							-var imagePath = results[i].filePathCover
+							-var className = "hidden";
+						-else
+							-var imagePath = "/images/default_media_playback_bg.png"
+							-var className = "glowLogoOverlay logoSmall"
+						
+						a.searchItem(href=results[i].route)
+							.imageContainer(style="width: 175px; height: 100px; overflow:hidden; position:relative")
+								img.itemImage(src=imagePath)
+								img(class=className src="/images/logo2.large.png")
+							.itemInfo
+								-var title = (results[i].title.length > 30) ? results[i].title.substr(0,30) + "..." : results[i].title
+								p.title=title
+								span
+								p.artist
+									| #{results[i].artist} | 
+									span
+									| #{results[i].publisher}
+								.viewRow
+									p.published Oct 21, 2016
+									p.views #{results[i].views} views
+								p.contentType=results[i].contentType
 	include footer

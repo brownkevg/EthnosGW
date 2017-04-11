@@ -72,8 +72,8 @@ function getCountryCounts(callback){
 			results[i].name = countries[results[i]._id].name
 		}
 		results.sort(function(a, b){
-		    if(a.name < b.name) return -1;
-		    if(a.name > b.name) return 1;
+		    if(a.count > b.count) return -1;
+		    if(a.count < b.count) return 1;
 		    return 0;
 		})
 		callback(results)

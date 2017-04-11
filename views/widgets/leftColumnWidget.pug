@@ -9,10 +9,10 @@
 					-for(var i = 0; i < languageData.length; i++)
 						option(value=[languageData[i]])=languageData[i]
 			//- p.columnItem(style="display:inline") language
-			select.refineItem(for="Location" name="location")
+			select.refineItem(for="Country" name="country")
 				option(value="") Country
 				each country in countryData
-					option(value=country) #{country}
+					option(value=country.code) #{country.name}
 			//- p.columnItem(style="display:inline") location
 			select.refineItem(for="Genre" name="genre")
 				option(value="") Genre
