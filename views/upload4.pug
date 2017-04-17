@@ -6,11 +6,11 @@ block content
 	include nav
 	#uploadContainer.container
 		.row.uploadNav
-			span.upload1.previousPage Upload Main File/
-			span.upload2.previousPage Album Cover/
-			span.upload3.activePage Additional File/
-			span.upload4 Main File Information/
-			span.success Finished
+			.uploadStatusBlock Upload Main File
+			.uploadStatusBlock Album Cover
+			.uploadStatusBlock.activePage Additional File
+			.uploadStatusBlock Main File Information
+			.uploadStatusBlock.success Finished
 		.row
 			form(id="bucket-form" action='/additionalFile', method="post" enctype="multipart/form-data")
 				.container
