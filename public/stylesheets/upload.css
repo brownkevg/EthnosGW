@@ -23,13 +23,15 @@
 	margin-right: 30px;
 }
 .uploadStatusBlock{
-	display: inline;
+	display: inline-table;
 	padding-left:10px;
 	padding-right:10px;
 	padding-top:10px;
 	padding-bottom:10px;
 	background-color: #E5E5E5;
 	margin-right:5px;
+	margin-top:10px;
+
 }
 .activePage{
 	background-color: #83A4D5;
