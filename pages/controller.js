@@ -19,7 +19,7 @@ exports.home = function(req,res){
 			functions.getMapData(function(mapData){
 				functions.getLanguages(function(languageData){
 					functions.getCountries(function(countryData){
-						getCountryCounts(function(countryCounts){
+						functions.getCountryCounts(function(countryCounts){
 							res.render('home',{pageModel:pageModel,mapData:mapData,user:req.user,languageData:languageData,countryData:countryData,countryCounts:countryCounts});
 						})
 					})	
@@ -59,24 +59,12 @@ exports.page = function(req,res){
 };
 exports.about = function(req, res){
 	functions.getMapData(function(mapData){
-				functions.getLanguages(function(languageData){
-					getCountryCounts(function(countryCounts){
-						res.render('about',{mapData:mapData,user:req.user,languageData:languageData,countryCounts:countryCounts});
-					})		
-				})
-			})
-}
-function getCountryCounts(callback){
-	dbClient.collection('media').aggregate([{$group:{_id:"$country",count:{$sum:1}}}],function(err,results){
-		for(var i = 0; i < results.length; i++){
-			results[i].name = countries[results[i]._id].name
-		}
-		results.sort(function(a, b){
-		    if(a.count > b.count) return -1;
-		    if(a.count < b.count) return 1;
-		    return 0;
-		})
-		callback(results)
-	})
-	
+		functions.getLanguages(function(languageData){
+			functions.getCountries(function(countryData){
+				functions.getCountryCounts(function(countryCounts){
+					res.render('about',{mapData:mapData,user:req.user,languageData:languageData,countryData:countryData,countryCounts:countryCounts});
+				});
+			});	
+		});
+	});
 }

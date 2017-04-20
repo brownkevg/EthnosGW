@@ -1,6 +1,7 @@
 var cache = require('mongo-atm');
 var pageCache = new cache({ttl:60,limit:500});
 var lookup = require('country-data').lookup;
+var countries = require('country-data').countries;
 exports.getMapData = function(callback){
 	dbClient.collection('media').distinct("country",{country:{$ne:""},country:{$exists:true}},function(err,results){
 		callback(results)
@@ -24,6 +25,20 @@ exports.getCountries = function(callback){
 		}
 		callback(sortCountries(converted));
 	})
+}
+exports.getCountryCounts = function(callback){
+	dbClient.collection('media').aggregate([{$group:{_id:"$country",count:{$sum:1}}}],function(err,results){
+		for(var i = 0; i < results.length; i++){
+			results[i].name = countries[results[i]._id].name
+		}
+		results.sort(function(a, b){
+		    if(a.count > b.count) return -1;
+		    if(a.count < b.count) return 1;
+		    return 0;
+		})
+		callback(results)
+	})
+	
 }
 
 function sortCountries(countries){

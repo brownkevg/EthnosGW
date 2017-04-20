@@ -10,6 +10,7 @@ router.use(multipartyMiddleware);
 var bucketName = 'ethnosgw';
 var countries = require('country-data').countries;
 var languages = require('language-list')().getData();
+var functions = require('../miscFunctions/functions')
 // end AWS
 
 /* GET home page. */
@@ -37,7 +38,15 @@ router.get('/success', function(req, res, next){
 })
 // ************* end temp routes
 router.get('/news', function(req, res, next){
-	res.render('news',{user:req.user});
+	functions.getLanguages(function(languageData){
+		functions.getMapData(function(mapData){
+			functions.getCountries(function(countryData){
+				functions.getCountryCounts(function(countryCounts){
+					res.render('news',{user:req.user,countryData:countryData,languageData:languageData,countryCounts:countryCounts,mapData:mapData});
+				});
+			});
+		});
+	});
 })
 router.get('/media', function(req, res, next){
 	res.render('media', {title: "Media Example"});
