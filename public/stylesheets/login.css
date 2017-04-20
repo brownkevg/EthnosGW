@@ -90,6 +90,12 @@
 	border-color: #357ebd;
 	border-radius: 0px;
 }
+.goBack{
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	border-radius: 0px;
+}
 .btn.btn-register{
 	padding-left: 0px;
 }
@@ -103,4 +109,17 @@
 	border-color: white;
 	-webkit-box-shadow:none;
 	box-shadow: none;
+}
+.modal-body .termsOfService{
+	display:inline-block;
+	margin-right:10px;
+}
+.modal-body .termsLink{
+	padding: 0px 10px 0px 0px;
+}
+#termsModal{
+	overflow-y: scroll;
+}
+#registerModal .invalidTerms{
+	color:red;
 }

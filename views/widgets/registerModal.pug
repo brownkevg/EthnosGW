@@ -16,12 +16,28 @@
             input.pass1(type="password" placeholder="Password" style="margin-bottom: 10px;" name="password")
           .form-group
             input.pass2(type="password" placeholder="Confirm Password")
+          .form-group
+            input.termsOfService(type="checkbox" name="termsOfService")
+            label I agree to the <a class="termsLink">Terms of Service</a>
           input.btn.btn-register.createUserSubmit(type="submit" value="Register")
           p Already have an account? <a class="register" data-toggle="modal" data-target="#registrationModal">Login</a>
+
         .errorContainer
 
 script.
   $(".register").click(function(){
     $("#loginModal").modal('toggle')
     $("#registerModal").modal('toggle')
+  })
+  $(".termsLink").click(function(){
+    $("#registerModal").modal('toggle')
+    $("#termsModal").modal('toggle')
+    //- $("body").addClass('modal-open')
+  })
+  $(".createUserSubmit").click(function(){
+    var checked = $(".termsOfService").is(':checked');
+    if(!checked){
+      event.preventDefault();
+      $(".errorContainer").append("<p class='invalidTerms'>* Please agree to the Terms of Service</p>")
+    }
   })

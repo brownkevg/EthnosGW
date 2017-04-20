@@ -18,6 +18,7 @@ nav.navigation
 			-else
 				include widgets/loginModal
 				include widgets/registerModal
+				include widgets/termsModal
 		.title
 			h1 <a href='/'>GLOW</a>
 		ul
@@ -48,9 +49,7 @@ nav.navigation
 
 script.
 	$("#loginButton").click(function(){
-	debugger;
-		$(".loginModal").addClass('show')
-		//- $(".loginModal").getElementsByClassName("close")[0]
+		$(".loginModal").modal('toggle')
 	})
 	$(".menu-icon").click(function(){
 		$(this).toggleClass("change")
