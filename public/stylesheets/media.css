@@ -90,7 +90,7 @@
 .relatedContent .relatedItem{
 	width: 100%;
 	height: 60px;
-	padding: 12.5px;
+	/*padding: 12.5px;*/
 	text-decoration: none;
 	color:#000;
 }
