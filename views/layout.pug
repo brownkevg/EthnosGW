@@ -27,3 +27,8 @@ html
 		link(rel='stylesheet', href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.css")
 	body
 		block content
+
+		script.
+			$(".btn.btn-primary.loginButton").click(function(){
+				$("#loginModal").modal('toggle')
+			})

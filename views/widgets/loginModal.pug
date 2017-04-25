@@ -1,6 +1,3 @@
-button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
-  Launch Login
-
 .modal.fade#loginModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
   .modal-dialog(role="document")
     .modal-content.login
@@ -15,8 +12,3 @@ button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#e
           button(type="submit" class="btn btn-primary" id="submitLogin" value="Log In") Enter
         a(href="#") Forgot your password?
         p Don't have an account? Click <a class="register">Here</a>
-
-script.
-  $(".btn.btn-primary").click(function(){
-    $("#loginModal").modal('toggle')
-  })

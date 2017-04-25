@@ -16,6 +16,8 @@ nav.navigation
 				a.navItem.login(href="/profile")=user.local.firstName
 
 			-else
+				button(type="button" class="btn btn-primary loginButton" data-toggle="modal" data-target="#exampleModal")
+					Launch Login
 				include widgets/loginModal
 				include widgets/registerModal
 				include widgets/termsModal
@@ -48,9 +50,6 @@ nav.navigation
 				a.navItemBottom(href="/") Contact Us
 
 script.
-	$("#loginButton").click(function(){
-		$(".loginModal").modal('toggle')
-	})
 	$(".menu-icon").click(function(){
 		$(this).toggleClass("change")
 		$(".navigation ul").toggleClass("change")
