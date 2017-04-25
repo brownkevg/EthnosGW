@@ -7,6 +7,9 @@
 #leftColumn{
 	padding: 20px;
 }
+#leftColumn .header{
+	font-size:20px;
+}
 .loginContainer .header{
 	text-decoration: underline;
 	font-size:16px;
