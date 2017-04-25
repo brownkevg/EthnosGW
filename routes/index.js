@@ -9,7 +9,7 @@ multipartyMiddleware = multiparty();
 router.use(multipartyMiddleware);
 var bucketName = 'ethnosgw';
 var countries = require('country-data').countries;
-var languages = require('language-list')().getData();
+var languages = require('../languages');
 var functions = require('../miscFunctions/functions')
 // end AWS
 
@@ -133,9 +133,9 @@ function sortCountries(countries){
 }
 function sortLanguages(languages){
 	languages.sort(function(a,b){
-		if (a.language < b.language)
+		if (a < b)
 			return -1;
-		if (a.language > b.language)
+		if (a > b)
 			return 1;
 		return 0;
 	})
