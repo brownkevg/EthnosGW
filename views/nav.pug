@@ -22,7 +22,9 @@ nav.navigation
 				include widgets/registerModal
 				include widgets/termsModal
 		.title
-			h1 <a href='/'>GLOW</a>
+			.glowLogo(style="width:100px")
+				a(href="/")
+					img(style="width:100px" src="/images/logo2.large.png")
 		ul
 			li
 				form.searchBar(action="/search" method="GET")
