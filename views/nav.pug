@@ -48,6 +48,7 @@ nav.navigation
 				a.navItemBottom(href="/") Publishing Resources
 			li
 				a.navItemBottom(href="/") Contact Us
+		#google_translate_element
 
 script.
 	$(".menu-icon").click(function(){
@@ -55,3 +56,6 @@ script.
 		$(".navigation ul").toggleClass("change")
 		$(".navigation ul li").toggleClass("change")
 	})
+	function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+	}
