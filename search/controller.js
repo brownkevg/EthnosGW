@@ -6,7 +6,8 @@ exports.search=function(req,res){
 	}
 	if(typeof req.query.language !== 'undefined' && req.query.language !== ""){
 		if(typeof searchString.$and === 'undefined') searchString.$and = [];
-		searchString.$and.push({"lng":req.query.language})
+		var language = JSON.parse(req.query.language)
+		searchString.$and.push({"lng":language[0]})
 	} 
 	if(typeof req.query.country !== 'undefined' && req.query.country !== ""){
 		if(typeof searchString.$and === 'undefined') searchString.$and = [];
