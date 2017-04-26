@@ -73,12 +73,15 @@ block content
 								span.red *
 							select.inputField(for="license" name="license")
 								option(value="") - Please Select One -
-								option(value="license1") license 1
-								option(value="license2") license 2
-								option(value="license3") license 3
+								option(value="attributionShareAlike") Attribution-ShareAlike
+								option(value="attributionNoDerivs") Attribution-NoDerivs
+								option(value="AttributionNonCommercial") Attribution-NonCommercial
+								option(value="attributionNonCommercialShareAlike") Attribution-NonCommericial-ShareAlike
+								option(value="AttributionNonCommercialNoDerivs") Attribution-NonCommercial-NoDerivs
 								//- This will eventually be grabbed from a database
 							span &nbsp; &nbsp;
-								span.glyphicon.glyphicon-question-sign
+								span.licenseModal.glyphicon.glyphicon-question-sign
+								include widgets/licenseModal
 					.col-xl-4.col-lg-4.col-md-4.col-sm-12
 						.inputItem
 							label Title
@@ -132,4 +135,7 @@ block content
 	include footer
 
 	script.
-		
+		$('.licenseModal').click(function(){
+			debugger;
+			$('#licenseModal').modal('toggle');
+		})

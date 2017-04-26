@@ -22,6 +22,9 @@
 .inputItem label{
 	margin-right: 30px;
 }
+.inputField{
+	width: 170px;
+}
 .uploadStatusBlock{
 	display: inline-table;
 	padding-left:10px;
@@ -35,6 +38,12 @@
 }
 .activePage{
 	background-color: #83A4D5;
+}
+#licenseModal h4{
+	margin-top:20px;
+}
+#licenseModal h4:first-child{
+	margin-top:0px;
 }
 #helpImg{
 	padding:0;
