@@ -106,7 +106,7 @@
 	font-weight: 100;
 	opacity:.6;
 }
-@media screen and (max-width: 590px){
+@media screen and (max-width: 768px){
 	#leftColumn{
 		display:none;
 	}

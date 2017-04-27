@@ -24,12 +24,14 @@ block content
 								img(class=className src="/images/logo2.large.png")
 							.itemInfo
 								-var title = (results[i].title.length > 30) ? results[i].title.substr(0,30) + "..." : results[i].title
-								p.title=title
+								p.title-search=title
 								span
-								p.artist
-									| #{results[i].artist} | 
-									span
-									| #{results[i].publisher}
+								if results[i].artist !=""
+									p.artist
+										| #{results[i].artist} 
+										span
+										if results[i].artist !=""
+											| | #{results[i].publisher}
 								.viewRow
 									p.published Oct 21, 2016
 									p.views #{results[i].views} views
