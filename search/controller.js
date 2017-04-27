@@ -24,8 +24,12 @@ exports.search=function(req,res){
 	find(searchString,function(searchResults){
 		functions.getMapData(function(mapData){
 			functions.getLanguages(function(languageData){
-				functions.getCountries(function(countryData){
-					res.render('search',{results:searchResults,mapData:mapData,languageData:languageData,countryData:countryData})
+				functions.getMapData(function(mapData){
+					functions.getCountries(function(countryData){
+						functions.getCountryCounts(function(countryCounts){
+							res.render('search',{results:searchResults,mapData:mapData,languageData:languageData,countryData:countryData,countryCounts:countryCounts})
+						});
+					});
 				});
 			});
 		});
