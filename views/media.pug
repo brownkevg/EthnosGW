@@ -26,8 +26,9 @@ block content
 				.content
 					.mediaHeader
 						.title=pageModel.title
-						.artist.rightHeader by #{pageModel.artist}
-						span.rightHeader |
+						if pageModel.artist != ""
+							.artist.rightHeader by #{pageModel.artist}
+							span.rightHeader |
 						.publisher.rightHeader=pageModel.publisher
 					-var fileType = pageModel.fileType
 					if fileType === "Video"
