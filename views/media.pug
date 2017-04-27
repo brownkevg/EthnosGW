@@ -28,6 +28,7 @@ block content
 						.title=pageModel.title
 						if pageModel.artist != ""
 							.artist.rightHeader by #{pageModel.artist}
+						if pageModel.publisher != ""
 							span.rightHeader |
 						.publisher.rightHeader=pageModel.publisher
 					-var fileType = pageModel.fileType
