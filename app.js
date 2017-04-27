@@ -59,6 +59,8 @@ app.use(router);
 app.use('/', routes);
 app.use('/users', users);
 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
 //Routes
 require('./search/routes')(app);
 require('./login/routes')(app, passport);

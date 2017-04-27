@@ -3,7 +3,7 @@ nav.navigation
 		.lu-monogram-nav
 			a(href="http://www.liberty.edu")
 				img(src="/images/LU-Monogram.svg")
-		.glowLogo(style="width:100px").hidden-sm.hidden-xs
+		.glowLogo(style="width:100px").hidden-sm.hidden-xs.hidden-nav-logo
 			a(href="/")
 				img(style="width:100px" src="/images/logo2.large.png")
 		.menu-icon
@@ -16,7 +16,7 @@ nav.navigation
 				a.navItem.login(href="/profile")=user.local.firstName
 
 			-else
-				button(type="button" class="btn btn-primary loginButton" data-toggle="modal" data-target="#exampleModal")
+				button(type="button" class="btn btn-primary loginButton navbar-btn" data-toggle="modal" data-target="#exampleModal")
 					Launch Login
 				include widgets/loginModal
 				include widgets/registerModal
@@ -25,6 +25,7 @@ nav.navigation
 			.glowLogo(style="width:100px")
 				a(href="/")
 					img(style="width:100px" src="/images/logo2.large.png")
+		.clearfix.visible-xs-block.visible-sm-block.visible-custom-block
 		ul
 			li
 				form.searchBar(action="/search" method="GET")

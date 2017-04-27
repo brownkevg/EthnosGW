@@ -144,9 +144,15 @@
 	padding: 17px 16px;
 	display:inline-block;
 }
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1081px){
 	.lu-monogram-nav{
 		display:none;
+	}
+	.hidden-nav-logo{
+		display:none;
+	}
+	.visible-custom-block{
+		display: block!important;
 	}
 	.navbar-logo{
 		/*float:none*/
