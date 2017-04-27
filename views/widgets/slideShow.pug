@@ -1,0 +1,73 @@
+.slideshow-container
+	.mySlides(style=" width:100%; height:400px; background:url('images/banner1.png') no-repeat center Top;").fadeSlide
+		.numbertext 
+		.textSlide Global Library of Music
+		.textSlideBtm Learn | Inspire | Create
+	.mySlides(style=" width:100%; height:400px; background:url('images/banner2.png') no-repeat center Top;").fadeSlide
+		.numbertext 
+		.textSlide Global Library of Music
+		.textSlideBtm Learn | Inspire | Create
+	.mySlides(style=" width:100%; height:400px; background:url('images/banner3.png') no-repeat center Top;").fadeSlide
+		.numbertext 
+		.textSlide Global Library of Music
+		.textSlideBtm Learn | Inspire | Create
+	a.prevSlide(onclick="plusSlides(-1)") &#10094;
+	a.nextSlide(onclick="plusSlides(1)") &#10095;
+br
+div(style="text-align:center")
+	span.dot(onclick="currentSlide(1)")
+	span.dot(onclick="currentSlide(2)")
+	span.dot(onclick="currentSlide(3)")
+
+script.
+	var slideIndex = 1;
+	var timer;
+	showSlidesAuto(false);
+
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	  clearTimeout(timer);
+	  showSlidesAuto(false);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	  clearTimeout(timer);
+	  showSlidesAuto(false);
+	}
+
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1} 
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none"; 
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block"; 
+	  dots[slideIndex-1].className += " active";
+	  
+	}
+
+	function showSlidesAuto(incrament) {
+	    var i;
+	    var slides = document.getElementsByClassName("mySlides");
+	    var dots = document.getElementsByClassName("dot");
+	    for (i = 0; i < slides.length; i++) {
+	        slides[i].style.display = "none"; 
+	    }
+	    for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  	}
+	    
+	    if(incrament == true)
+	    	slideIndex++
+	    if (slideIndex> slides.length) {slideIndex = 1} 
+	    slides[slideIndex-1].style.display = "block";
+	    dots[slideIndex-1].className += " active";
+	    timer = setTimeout(function(){showSlidesAuto(true)}, 10000); // Change image every 2 seconds
+	}
