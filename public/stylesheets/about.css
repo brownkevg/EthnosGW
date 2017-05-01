@@ -10,3 +10,13 @@
 	margin-bottom:30px;
 	width: 100%;
 }
+#libertySigniture{
+	color:#993300;
+}
+#aboutUploadLink{
+	color:#428bca !important;
+	font-size:20px;
+}
+a:hover#aboutUploadLink{
+	color:#2385db !important;
+}

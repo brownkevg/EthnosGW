@@ -45,6 +45,23 @@
   top:20px;
   width:220px;
 }
+.textSlideRight{
+  color: rgba(242,242,242,.8);
+  font-size: 28px;
+  font-weight:100;
+  text-align:right;
+  padding: 8px 12px;
+  position: absolute;
+  top:20px;
+  right:10px;
+  width:680px;
+}
+.textSlideRight a{
+  /*color: rgba(66, 139, 202, .8) !important;*/
+  color: rgba(242,242,242,.8) !important;
+  text-decoration: underline !important;
+  font-size:18px;
+}
 .textSlideBtm {
   color: #f2f2f2;
   font-size: 20px;
