@@ -158,6 +158,10 @@
 		/*float:none*/
 		float:none;
 	}
+	.glowLogo{
+		width:20px;
+		margin:12px 0px 0px 0px;
+	}
 	.menu-icon{
 		display:inline-block;
 	}

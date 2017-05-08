@@ -70,10 +70,13 @@
 .textSlideBtm {
   color: #f2f2f2;
   font-size: 20px;
-  padding: 8px 12px;
+  padding:8px 0px 8px 50px;
   position: absolute;
   bottom:20px;
   width: 100%;
+}
+.medium-br{
+  display:none;
 }
 /* Number text (1/3 etc) */
 .numbertext {
@@ -116,4 +119,63 @@
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
+}
+
+@media only screen and (max-width: 1200px){
+  .textSlideRight{
+    font-size:2.33vw;
+  }
+  .textSlideBtm{
+    font-size:20px;
+  }
+  .textSlide{
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 1055px){
+  .large-br{
+    display:none;
+  }
+  .medium-br{
+    display:block;
+  }
+  .textSlideRight{
+    font-size:2.33vw;
+  }
+  .textSlideBtm{
+    font-size:20px;
+  }
+  .textSlide{
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 770px){
+  .textSlideRight{
+    font-size:17.94px;
+  }
+}
+@media only screen and (max-width: 580px){
+  .textSlide, .textSlideRight{
+    position:relative;
+    width:100%;
+    padding:10px 44px 10px 44px;
+    text-align:center;
+    right:auto;
+    top:auto;
+  }
+  .textSlideBtm{
+    text-align: center;
+    padding:8px;
+  }
+  .textSlide{
+    font-size:10vw;
+  }
+  .large-br, .medium-br, .small-br{
+    display:none;
+  }
+}
+@media only screen and (max-width: 327px){
+  .textSlideRight{
+    font-size:14px;
+  }
 }
