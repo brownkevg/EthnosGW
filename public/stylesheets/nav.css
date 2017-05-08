@@ -188,9 +188,16 @@
 	.navigation .bottomNav li{
 	margin-left:auto;
 	margin-right:auto;
-}
+	}
+	.bottomNav{
+		display:block;
+	}
 }
 #google_translate_element{
 	margin-top: 10px;
+	height:40px;
+	width:150px;
+	margin-left:auto;
+	margin-right:auto;
 }
 /* end nav bar */
