@@ -42,7 +42,10 @@
 	width: calc(100% - 185px);
 }
 #rightColumn .item{
+	float:left;
 	display: inline;
+	height:195px;
+	margin-right:4vw;
 	padding-bottom: 15px;
 }
 #rightColumn a{
@@ -53,7 +56,8 @@
 
 #rightColumn .content{
 	/*padding: 40px 40px;*/
-	display: flex;
+	display: inline-block;
+	width:100%;
 	justify-content: space-between;
 }
 
