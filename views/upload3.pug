@@ -12,113 +12,112 @@ block content
 			.uploadStatusBlock.activePage Main File Information
 			.uploadStatusBlock Finished
 		.row
-			.container
-				form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
-					.col-xl-2.col-lg-3.col-md-4.col-sm-12
-						.outerBox.upload3
-							if filePathCover
-								img(src=filePathCover)
-							else
-								img(src="images/musicNote.PNG")
-						//- .col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
-						//- 	input.inputField(type="file" name="fileLocation" for="fileLocation")
-						//- 	//- .inputItem.temp
-						//- 	//- 	input.fileSubmit.btn.innerBox(type="submit" value="Upload")
-				form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
-					.col-xl-10.col-lg-9
-						h3 What is this?
-							span.red (*Required Field)
-					.col-xl-5.col-lg-4.col-md-4.col-sm-12
-						.inputItem.hidden
-							input.inputField(type='text' name='filePath' value=filePath)
-						.inputItem.hidden
-							input.inputField(type='text' name='filePathCover' value=filePathCover)
-						.inputItem.hidden
-							input.inputField(type='text' name='additionalFile' value=additionalFile)
-						.inputItem
-							label File Type
-							select.inputField(for="fileType" name="fileType")
-								option(value="") - Please Select One -
-								option(value="Song") Song
-								option(value="Video") Video
-								option(value="Poem") Poem
-						.inputItem
-							label Content Type
-							select.inputField(for="contentType" name="contentType")
-								option(value="") - Please Select One -
-								option(value="Drama") Drama
-								option(value="Visual Arts") Visual Arts
-								option(value="Dance") Dance
-								option(value="Music") Music
-								option(value="Film") Film
-								option(value="Poetry") Poetry
-								option(value="Other") Other
-						.inputItem
-							label Language
-							select.inputField(for="language" name="lng")
-								option(value="") - Please Select One -
-								each language in languages
-									option(value=language) #{language}
-								//- This will eventually be grabbed from a database
-						.inputItem
-							label People Group
-							input.inputField(type='text' name="peopleGroup" for="peopleGroup")
-						.inputItem
-							label Country
-							select.inputField(for="country" name="country")
-								each country in countries
-									option(value=country.alpha2) #{country.name}
-						.inputItem
-							label License
-								span.red *
-							select.inputField(for="license" name="license")
-								option(value="") - Please Select One -
-								option(value="attributionShareAlike") Attribution-ShareAlike
-								option(value="attributionNoDerivs") Attribution-NoDerivs
-								option(value="AttributionNonCommercial") Attribution-NonCommercial
-								option(value="attributionNonCommercialShareAlike") Attribution-NonCommericial-ShareAlike
-								option(value="AttributionNonCommercialNoDerivs") Attribution-NonCommercial-NoDerivs
-								//- This will eventually be grabbed from a database
-							span &nbsp; &nbsp;
-								span.licenseModal.glyphicon.glyphicon-question-sign
-								include widgets/licenseModal
-					.col-xl-4.col-lg-4.col-md-4.col-sm-12
-						.inputItem
-							label Title
-								span.red *
-							input.inputField(type='text' name="title" for="title")
-						.inputItem
-							label Album
-							input.inputField(type='text' name="album" for="album")
-						.inputItem
-							label Artist
-							input.inputField(type='text' name="artist" for="artist")
-						.inputItem
-							label Publisher
-							input.inputField(type='text' name="publisher" for="publisher")
-						.inputItem
-							label Genre
-							input.inputField(type='text' name="genre" for="genre")
-					.col-xl-12.col-lg-12.col-md-12.col-sm-12
-						.inputItem
-							label Description
-							textarea.inputField(name="description" for="description")
-						.inputItem
-							label Lyrics
-							textarea.inputField(name="lyrics" for="lyrics")
-						.inputItem
-							label Remain Anonymous?
-							input.inputField(type='checkbox' name="anonymous")
+			form(id="bucket-form" action='/albumImg', method="post" enctype="multipart/form-data")
+				.col-xl-2.col-lg-3.col-md-4.col-sm-12.col-xs-12
+					.outerBox.upload3
+						if filePathCover
+							img(src=filePathCover)
+						else
+							img.image(src="/images/default_media_playback_bg.png")
+							img(class="glowLogoOverlay logoSmall" src="/images/logo2.large.png" style="width:100px !important;")
+					//- .col-xl-12.col-lg-12.col-md-12.col-sm-12#uploadCover
+					//- 	input.inputField(type="file" name="fileLocation" for="fileLocation")
+					//- 	//- .inputItem.temp
+					//- 	//- 	input.fileSubmit.btn.innerBox(type="submit" value="Upload")
+			form(id="content-form" action="/uploadContent", method="post" enctype="multipart/form-data")
+				.col-xl-10.col-lg-8.col-md-8.col-sm-12.col-xs-12
+					h3 What is this?
+						span.red (*Required Field)
+				.col-xl-5.col-lg-4.col-md-4.col-sm-12.col-xs-12
+					.inputItem.hidden
+						input.inputField(type='text' name='filePath' value=filePath)
+					.inputItem.hidden
+						input.inputField(type='text' name='filePathCover' value=filePathCover)
+					.inputItem.hidden
+						input.inputField(type='text' name='additionalFile' value=additionalFile)
+					.inputItem
+						label File Type
+						select.inputField(for="fileType" name="fileType")
+							option(value="") - Please Select One -
+							option(value="Song") Song
+							option(value="Video") Video
+							option(value="Poem") Poem
+					.inputItem
+						label Content Type
+						select.inputField(for="contentType" name="contentType")
+							option(value="") - Please Select One -
+							option(value="Drama") Drama
+							option(value="Visual Arts") Visual Arts
+							option(value="Dance") Dance
+							option(value="Music") Music
+							option(value="Film") Film
+							option(value="Poetry") Poetry
+							option(value="Other") Other
+					.inputItem
+						label Language
+						select.inputField(for="language" name="lng")
+							option(value="") - Please Select One -
+							each language in languages
+								option(value=language) #{language}
+							//- This will eventually be grabbed from a database
+					.inputItem
+						label People Group
+						input.inputField(type='text' name="peopleGroup" for="peopleGroup")
+					.inputItem
+						label Country
+						select.inputField(for="country" name="country")
+							each country in countries
+								option(value=country.alpha2) #{country.name}
+					.inputItem
+						label License
+							span.red *
+						select.inputField(for="license" name="license")
+							option(value="") - Please Select One -
+							option(value="attributionShareAlike") Attribution-ShareAlike
+							option(value="attributionNoDerivs") Attribution-NoDerivs
+							option(value="AttributionNonCommercial") Attribution-NonCommercial
+							option(value="attributionNonCommercialShareAlike") Attribution-NonCommericial-ShareAlike
+							option(value="AttributionNonCommercialNoDerivs") Attribution-NonCommercial-NoDerivs
+							//- This will eventually be grabbed from a database
+						span &nbsp; &nbsp;
+							span.licenseModal.glyphicon.glyphicon-question-sign
+							include widgets/licenseModal
+				.col-xl-4.col-lg-4.col-md-4.col-sm-12.col-xs-12
+					.inputItem
+						label Title
+							span.red *
+						input.inputField(type='text' name="title" for="title")
+					.inputItem
+						label Album
+						input.inputField(type='text' name="album" for="album")
+					.inputItem
+						label Artist
+						input.inputField(type='text' name="artist" for="artist")
+					.inputItem
+						label Publisher
+						input.inputField(type='text' name="publisher" for="publisher")
+					.inputItem
+						label Genre
+						input.inputField(type='text' name="genre" for="genre")
+				.col-xl-12.col-lg-12.col-md-12.col-sm-12.col-xs-12
+					.inputItem
+						label Description
+						textarea.inputField(name="description" for="description")
+					.inputItem
+						label Lyrics
+						textarea.inputField(name="lyrics" for="lyrics")
+					.inputItem
+						label Remain Anonymous?
+						input.inputField(type='checkbox' name="anonymous")
 
-						input.btn.btn-success.submitButton(type='submit' value='Submit')
+					input.btn.btn-success.submitButton(type='submit' value='Submit')
 		.row
-			.container
-				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
-					img(src="images/concert.jpg")
-					.overlay
-						p#sentOne For tips, read up with the <a href="#">GLOW upload guide </a>.
-						p#sentTwo Know which license to use? Read about the different <a href="#">licenses</a>.
-						p#sentThree Find out what content is allowed <a href="#">here</a>.
+			.col-xl-12.col-lg-12.col-md-12.col-sm-12.col-xs-12#helpImg
+				img(src="images/concert.jpg")
+				.overlay
+					p#sentOne For tips, read up with the <a href="#">GLOW upload guide </a>.
+					p#sentTwo Know which license to use? Read about the different <a href="#">licenses</a>.
+					p#sentThree Find out what content is allowed <a href="#">here</a>.
 
 	#successContainer.hidden
 		h2 Upload Complete

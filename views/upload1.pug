@@ -13,30 +13,28 @@ block content
 			.uploadStatusBlock Finished
 		.row
 			form(id="bucket-form" action='/testPost', method="post" enctype="multipart/form-data")
-				.container
-					.col-xl-2.col-lg-3.col-md-4.col-sm-12
-						.outerBox
-							input.fileSubmit.btn.innerBox(type="button" value="Upload")
-					.col-xl-10.col-lg-9.col-md-8.col-sm-12.contentSelection
-						-if(!user)
-							h3 Have an account? Please login to have your contribution linked to your profile.
-								button(type="button" style="margin-top:0px !important; margin-left:10px" class="btn btn-primary loginButton" data-toggle="modal" data-target="#exampleModal")
-									Launch Login
-						h3 SELECT AUDIO OR VIDEO TO UPLOAD
-						h4.description 	SUPPORTED FILE FORMATS ARE: ogg, mp4, WebM, MP3, Ogg, Wav
-						.buttonRow
-								input.fileSubmit(type="button" value="Upload")
-								input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
-						.blocked
+				.col-xl-2.col-lg-3.col-md-3.col-sm-4.col-xs-12
+					.outerBox
+						input.fileSubmit.btn.innerBox(type="button" value="Upload")
+				.col-xl-10.col-lg-9.col-md-9.col-sm-8.col-xs-12.contentSelection
+					-if(!user)
+						h3 Have an account? Please login to have your contribution linked to your profile.
+							button(type="button" style="margin-top:0px !important; margin-left:10px" class="btn btn-primary loginButton" data-toggle="modal" data-target="#exampleModal")
+								Launch Login
+					h3 SELECT AUDIO OR VIDEO TO UPLOAD
+					h4.description 	SUPPORTED FILE FORMATS ARE: ogg, mp4, WebM, MP3, Ogg, Wav
+					.buttonRow
+							input.fileSubmit(type="button" value="Upload")
+							input.inputField(type="file" id="inputFile" name="fileLocation" for="fileLocation")
+					.blocked
 							
 		.row
-			.container
-				.col-xl-12.col-lg-12.col-md-12.colsm-12#helpImg
-					img(src="images/concert.jpg")
-					.overlay
-						p#sentOne For tips, read up with the <a href="#">GLOW upload guide </a>.
-						p#sentTwo Know which license to use? Read about the different <a href="#">licenses</a>.
-						p#sentThree Find out what content is allowed <a href="#">here</a>.
+			.col-xl-12.col-lg-12.col-md-12.col-sm-12#helpImg
+				img(src="images/concert.jpg")
+				.overlay
+					p#sentOne For tips, read up with the <a href="#">GLOW upload guide </a>.
+					p#sentTwo Know which license to use? Read about the different <a href="#">licenses</a>.
+					p#sentThree Find out what content is allowed <a href="#">here</a>.
 
 	div.modal.fade#pleaseWaitDialog(data-backdrop="static",data-keyboard="false")
 		div.modal-dialog

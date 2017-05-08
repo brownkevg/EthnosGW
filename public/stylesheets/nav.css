@@ -151,6 +151,13 @@
 	.hidden-nav-logo{
 		display:none;
 	}
+	/*uncomment if you want to hide google translate*/
+	/*#google_translate_element{
+		display:none;
+	}
+	#google_translate_element.change{
+		display:block;
+	}*/
 	.visible-custom-block{
 		display: block!important;
 	}

@@ -100,7 +100,10 @@ p#sentTwo, p#sentThree{
 }
 .outerBox.upload3{
 	width:175px;
-	height: 60px;
+	height: 100px;
+}
+.outerBox.upload3 img{
+	width:175px;
 }
 .innerBox{
 	text-align: center;
